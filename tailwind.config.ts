@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +13,19 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        inter: ["Inter", "serif"],
+      },
+      animation: {
+        "glow-pulse": "glow-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
+      keyframes: {
+        "glow-pulse": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        },
       },
     },
   },
