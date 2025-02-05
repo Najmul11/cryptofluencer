@@ -18,17 +18,17 @@ const Footer = () => {
 
           <Icon
             link={socials.twiiter}
-            icon={<IconBrandX stroke={2} size={25} />}
+            icon={<IconBrandX stroke={2} size={20} />}
           />
 
           {/* ############# telegram ######## */}
           <Icon
             link={socials.telegram}
-            icon={<IconBrandTelegram stroke={2} size={25} />}
+            icon={<IconBrandTelegram stroke={2} size={20} />}
           />
 
           {/* ############# telegram ######## */}
-          <Icon link={socials.email} icon={<IconMail stroke={2} size={25} />} />
+          <Icon link={socials.email} icon={<IconMail stroke={2} size={20} />} />
         </div>
       </div>
     </div>
