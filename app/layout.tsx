@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="font-inter text-blackAccent">
+    <html lang="en" className="font-inter text-blackAccent ">
       <body className={` antialiased `}>{children}</body>
 
       <Footer />

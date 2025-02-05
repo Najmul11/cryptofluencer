@@ -49,7 +49,7 @@ export function Drops() {
     },
   ];
   return (
-    <div className="py-20">
+    <div className="py-20 ">
       <h2 className="text-5xl font-semibold ">
         Recent Airdrops
         <img
@@ -62,6 +62,18 @@ export function Drops() {
         {drops.map((drop, index) => (
           <Drop key={drop.title + index} {...drop} index={index} />
         ))}
+      </div>
+
+      {/* #### view all airdrops btn */}
+      <div className="flex justify-end mt-3">
+        <button className="flex-center gap-1 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 text-sm font-medium rounded-2xl select-none">
+          View All Airdrops{" "}
+          <IconArrowRight
+            stroke={2}
+            size={20}
+            className="group-hover:translate-x-1 duration-200 group-hover:text-brand"
+          />
+        </button>
       </div>
     </div>
   );
