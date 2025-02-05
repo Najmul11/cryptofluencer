@@ -55,7 +55,7 @@ export function Drops() {
         <img
           src="/assets/drop.png"
           alt="recent-airdrop-logo"
-          className="w-20 !inline-block ml-5 -mt-5 "
+          className="w-16 !inline-block ml-5 -mt-5 "
         />
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto mt-10">
