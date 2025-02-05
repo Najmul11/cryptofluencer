@@ -13,6 +13,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        blackAccent: "#374151",
+        brand: "#F6821F",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
