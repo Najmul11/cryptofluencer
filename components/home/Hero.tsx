@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { IconArrowRight } from "@tabler/icons-react";
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -27,11 +29,17 @@ const Hero = () => {
         </div>
       </div>
 
-      <img
-        src="/logo.png"
-        alt=""
-        className="absolute rounded-full size-14 blur-[2px] hover:blur-none duration-300 duration-500  absolute top-44 left-32"
-      />
+      <div>
+        <Link
+          href={"/"}
+          className="absolute blur-[5px]  rotate-12  hover:blur-none duration-200   top-44 left-32 hover:scale-100 hover:rotate-45 hover:border border-brand/20 border-dotted rounded-full p-1.5 "
+        >
+          <div className="rounded-full p-1.5 border border-brand/25">
+            <img src="/logo.png" alt="" className=" rounded-full size-14  " />
+          </div>
+        </Link>
+        <span>Hello</span>
+      </div>
     </div>
   );
 };
