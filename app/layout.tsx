@@ -14,7 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="font-inter text-blackAccent ">
-      <body className={` antialiased `}>{children}</body>
+      <body className={` antialiased `}>
+        {/* <TopNav /> */}
+
+        {children}
+      </body>
 
       <Footer />
     </html>
