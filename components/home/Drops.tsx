@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
 import { cn } from "@/utils/cn";
 import { IconArrowRight } from "@tabler/icons-react";
 import Image from "next/image";
+
+import { motion } from "framer-motion";
 
 import Link from "next/link";
 
@@ -48,8 +51,19 @@ export function Drops() {
       logo: "/assets/uplink.jpg",
     },
   ];
+
+  const animationVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
   return (
-    <div className="py-20 ">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.4 }}
+      variants={animationVariants}
+      className="py-20 "
+    >
       <h2 className="text-5xl font-semibold ">
         Recent Airdrops
         <img
@@ -75,7 +89,7 @@ export function Drops() {
           />
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
