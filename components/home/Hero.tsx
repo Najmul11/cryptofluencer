@@ -31,10 +31,10 @@ const Hero = () => {
         </div>
       </div>
 
-      {affilates.map((affiliate) => (
+      {affilates.map((affiliate, index) => (
         <FloatingIcon
+          index={index}
           label={affiliate.org}
-          position={affiliate.position}
           affiliateLink={affiliate.affiliateLink}
           image={affiliate.logo.src}
           key={affiliate.org}
