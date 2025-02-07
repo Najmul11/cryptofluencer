@@ -3,6 +3,7 @@
 import { IconArrowRight } from "@tabler/icons-react";
 import React from "react";
 import FloatingIcon from "./FloatingIcon";
+import { affilates } from "@/data/affiliates";
 
 const Hero = () => {
   return (
@@ -30,10 +31,15 @@ const Hero = () => {
         </div>
       </div>
 
-      <FloatingIcon label="Binance" position="top-3/4 left-32" />
-      <FloatingIcon label="Binance" position="top-24 right-32" />
-      <FloatingIcon label="Binance" position="top-56 left-32" />
-      <FloatingIcon label="Binance" position="bottom-56 right-32" />
+      {affilates.map((affiliate) => (
+        <FloatingIcon
+          label={affiliate.org}
+          position={affiliate.position}
+          affiliateLink={affiliate.affiliateLink}
+          image={affiliate.logo.src}
+          key={affiliate.org}
+        />
+      ))}
     </div>
   );
 };

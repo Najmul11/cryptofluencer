@@ -6,24 +6,27 @@ import Link from "next/link";
 type TProps = {
   label: string;
   position: string;
+  image: string;
+  affiliateLink: string;
 };
 
-const FloatingIcon = ({ label, position }: TProps) => {
+const FloatingIcon = ({ label, position, image, affiliateLink }: TProps) => {
   return (
     <motion.div
       whileHover={{ x: 10 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={cn("absolute   ", position)}
+      className={cn("absolute", position)}
     >
       <div className="flex  items-center gap-1 group">
         <Link
-          href={"/"}
+          target="_blank"
+          href={affiliateLink}
           className="p-1.5 border  rounded-full border-brand/20 border-dotted rotate-12  blur-[5px] hover:blur-none duration-200    hover:scale-100 hover:rotate-45  "
         >
           <div className="rounded-full p-1.5 border border-brand/25">
-            <img src="/logo.png" alt="" className=" rounded-full size-14  " />
+            <img src={image} alt="" className=" rounded-full size-14  " />
           </div>
         </Link>
 
