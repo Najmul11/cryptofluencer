@@ -35,8 +35,8 @@ const FloatingIcon = ({ label, image, affiliateLink, index }: TProps) => {
               src={image}
               alt=""
               className={cn("rounded-full", {
-                "size-12": index === 0 || index === 3,
-                "size-10": index === 1 || index === 2,
+                "size-10": index === 0 || index === 3,
+                "size-8": index === 1 || index === 2,
               })}
             />
           </div>
