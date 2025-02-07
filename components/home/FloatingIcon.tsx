@@ -8,15 +8,23 @@ type TProps = {
   image: string;
   affiliateLink: string;
   index: number;
+  mousePos: { x: number; y: number };
 };
 
-const FloatingIcon = ({ label, image, affiliateLink, index }: TProps) => {
+const FloatingIcon = ({
+  label,
+  image,
+  affiliateLink,
+  index,
+  mousePos,
+}: TProps) => {
   return (
     <motion.div
-      whileHover={{ x: 10 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      animate={{
+        x: mousePos.x, // Smoothly follow cursor
+        y: mousePos.y,
+      }}
+      transition={{ type: "spring", stiffness: 80, damping: 50 }} // Smoother transition
       className={cn("absolute", {
         "top-3/4 left-32": index === 2,
         "top-24 right-32": index === 1,
@@ -24,28 +32,23 @@ const FloatingIcon = ({ label, image, affiliateLink, index }: TProps) => {
         "bottom-56 right-32": index === 3,
       })}
     >
-      <div className="flex  items-center gap-1 group">
+      <div className="flex items-center gap-1 group">
         <Link
           target="_blank"
           href={affiliateLink}
-          className="p-1.5 border  rounded-full border-brand/20 border-dotted rotate-12  blur-[5px] hover:blur-none duration-200    hover:scale-100 hover:rotate-0  "
+          className="p-1.5 border rounded-full border-brand/20 border-dotted rotate-12 blur-[5px] hover:blur-none duration-200 hover:scale-100 hover:rotate-0"
         >
           <div className="rounded-full p-1.5 border border-brand/25">
             <img
               src={image}
               alt=""
               className={cn("rounded-full", {
-                "size-10": index === 0 || index === 3,
-                "size-8": index === 1 || index === 2,
+                "size-12": index === 0 || index === 3,
+                "size-10": index === 1 || index === 2,
               })}
             />
           </div>
         </Link>
-
-        {/* motion here */}
-        <motion.p className="text-sm opacity-0 font-poppins font-medium text-neutral-600 group-hover:translate-x-1 group-hover:opacity-100 duration-300 max-md:hidden">
-          {label}
-        </motion.p>
       </div>
     </motion.div>
   );
