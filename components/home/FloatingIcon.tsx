@@ -43,7 +43,7 @@ const FloatingIcon = ({ label, image, affiliateLink, index }: TProps) => {
         </Link>
 
         {/* motion here */}
-        <motion.p className="text-sm opacity-0 font-poppins font-medium text-neutral-600 group-hover:translate-x-1 group-hover:opacity-100 duration-300">
+        <motion.p className="text-sm opacity-0 font-poppins font-medium text-neutral-600 group-hover:translate-x-1 group-hover:opacity-100 duration-300 max-md:hidden">
           {label}
         </motion.p>
       </div>
