@@ -25,7 +25,7 @@ const TopNav = () => {
     const fetchPrices = async () => {
       try {
         const res = await fetch(
-          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,bittensor,bitget-token,tron,dogecoin,sui,optimism&vs_currencies=usd&include_24hr_change=true"
+          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,bittensor,binancecoin,bitget-token,tron,dogecoin,sui,optimism&vs_currencies=usd&include_24hr_change=true"
         );
         const data = await res.json();
         setPrices(data);
