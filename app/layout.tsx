@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
+import TopNav from "@/components/layout/TopNav";
 
 export const metadata: Metadata = {
   title: "Compho airdrops",
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="font-inter text-blackAccent ">
       <body className={` antialiased `}>
-        {/* <TopNav /> */}
+        <TopNav />
 
         {children}
       </body>
