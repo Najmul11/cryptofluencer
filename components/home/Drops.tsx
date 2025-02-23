@@ -64,7 +64,7 @@ export function Drops() {
       variants={animationVariants}
       className="py-20 "
     >
-      <h2 className="text-5xl font-semibold ">
+      <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold px-8 xl:px-0">
         Recent Airdrops
         <img
           src="/assets/drop.png"

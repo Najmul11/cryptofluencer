@@ -5,7 +5,7 @@ import Hero from "@/components/home/Hero";
 const page = () => {
   return (
     <div className="  max-w-screen-xl mx-auto">
-      <div className="relative h-screen">
+      <div className="relative h-screen overflow-hidden">
         <AngledLines />
 
         <Hero />
