@@ -25,7 +25,7 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
     >
       <div className="text-center space-y-8">
-        <h1 className="text-7xl font-semibold">Compho Airdrops</h1>
+        <h1 className="text-7xl font-semibold">sadek Airdrops</h1>
         <p className="max-w-2xl">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
           accusantium quaerat! Dolores quam perspiciatis temporibus, iste a odio
