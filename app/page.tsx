@@ -1,19 +1,5 @@
-import AngledLines from "@/components/ui/AngledLines";
-import { Drops } from "@/components/home/Drops";
-import Hero from "@/components/home/Hero";
-
 const page = () => {
-  return (
-    <div className="  max-w-screen-xl mx-auto">
-      <div className="relative h-screen overflow-hidden">
-        <AngledLines />
-
-        <Hero />
-      </div>
-
-      <Drops />
-    </div>
-  );
+  return <div className="  max-w-screen-xl mx-auto"></div>;
 };
 
 export default page;
