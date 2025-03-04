@@ -15,6 +15,7 @@ export default {
         foreground: "var(--foreground)",
         blackAccent: "#374151",
         brand: "#F6821F",
+        cream: "#fbfbfb",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
