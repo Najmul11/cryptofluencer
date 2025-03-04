@@ -6,7 +6,7 @@ const CardGrids = () => {
       <div className="absolute inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
         <svg
           aria-hidden="true"
-          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/[0.02] stroke-black/5"
+          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-brand/[0.04] stroke-black/5"
         >
           <defs>
             <pattern
@@ -33,7 +33,7 @@ const CardGrids = () => {
         </svg>
       </div>
       <div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#D7EDEA] to-brand opacity-0 transition duration-300 group-hover:opacity-100"
+        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#D7EDEA] to-brand/30 opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
           maskImage:
             "radial-gradient(300px at 409.5px 128px, white, transparent)",
