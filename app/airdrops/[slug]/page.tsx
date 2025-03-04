@@ -3,7 +3,7 @@ import Sider from "@/components/airdrops/Sider";
 
 const page = () => {
   return (
-    <div className="wrapper h-screen pt-3">
+    <div className="wrapper  pt-3">
       <Sider />
       <Airdrops />
     </div>
