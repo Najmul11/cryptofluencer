@@ -42,7 +42,7 @@ const TopNav = () => {
   return (
     <nav className="max-w-screen-xl flex gap-5  mx-auto items-center ">
       <p className="leading-3 font-semibold  rounded-md py-2">
-        <span className="italic "> Compho </span>
+        <sup className="italic text-[15px]"> Compho </sup>
         <span className="text-brand text-lg ">Airdrops</span>
       </p>
 

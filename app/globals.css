@@ -23,6 +23,10 @@ body {
   background: var(--background);
 }
 
+.wrapper {
+  @apply max-w-screen-xl mx-auto;
+}
+
 .flex-center {
   @apply flex items-center justify-center;
 }
