@@ -82,7 +82,52 @@ const Details = () => {
       {/* details----- */}
       <div className="space-y-5">
         <div className="flex-col flex gap-2">
-          <p className="font-semibold text-xl">What is Perennial?</p>
+          <p className="font-semibold text-xl text-black">
+            Step-by-Step Guide:
+          </p>
+          <ul>
+            <li className="flex">
+              <span className="w-4">1.</span>
+              <span>
+                <span className="font-medium text-black">
+                  Set up a compatible wallet
+                </span>
+                – Install MetaMask or another Ethereum-compatible wallet that
+                supports Base network.
+              </span>
+            </li>
+            <li className="flex">
+              <span className="w-4">2.</span>
+              <span>
+                <span className="font-medium text-black">
+                  Obtain ETH for gas fees
+                </span>
+                – Install MetaMask or another Ethereum-compatible wallet that
+                supports Base network.
+              </span>
+            </li>
+            <li className="flex">
+              <span className="w-4">3.</span>
+              <span>
+                <span className="font-medium text-black">
+                  Get USDC for trading
+                </span>
+                – Install MetaMask or another Ethereum-compatible wallet that
+                supports Base network.
+              </span>
+            </li>
+            <li className="flex">
+              <span className="w-4">4.</span>
+              <span>
+                <span className="font-medium text-black">Trade regularly</span>–
+                Install MetaMask or another Ethereum-compatible wallet that
+                supports Base network.
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div className="flex-col flex gap-2">
+          <p className="font-semibold text-xl text-black">What is Perennial?</p>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
             laudantium nihil dolore iste laborum aliquid tenetur molestias ea
@@ -97,7 +142,9 @@ const Details = () => {
           </p>
         </div>
         <div className="flex-col flex gap-2">
-          <p className="font-semibold text-xl">Perennial Airdrop Details</p>
+          <p className="font-semibold text-xl text-black">
+            Perennial Airdrop Details
+          </p>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
             laudantium nihil dolore iste laborum aliquid tenetur molestias ea
@@ -109,6 +156,15 @@ const Details = () => {
             dolore neque delectus eius tempora incidunt reprehenderit alias
             natus quos possimus laudantium repellat quidem ipsam magnam modi
             laborum, doloribus quisquam iste.
+          </p>
+        </div>
+        <div className="flex-col flex gap-2">
+          <p className="font-semibold text-xl text-black">Conclusion</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
+            laudantium nihil dolore iste laborum aliquid tenetur molestias ea
+            eius et maiores architecto cum deleniti exercitationem odio, ipsa
+            pariatur dignissimos nemo aperiam facere impedit dolorum.
           </p>
         </div>
       </div>
