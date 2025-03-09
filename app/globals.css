@@ -24,6 +24,10 @@ body {
   background: var(--background);
 }
 
+h2 {
+  @apply text-2xl;
+}
+
 .wrapper {
   @apply max-w-screen-xl mx-auto;
 }

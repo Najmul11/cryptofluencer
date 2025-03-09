@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <div className="py-10 max-w-screen-xl mx-auto">
-      <div className="flex justify-between gap-10 items-center">
+      <div className="flex justify-between gap-10 items-center ">
         <p className=" font-medium text-sm">
           Built with ❤️ © {year}. All rights reserved.
         </p>

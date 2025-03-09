@@ -36,7 +36,7 @@ const Hero = () => {
             Youtube
           </button>
           <button className="flex-center gap-1 group duration-200 hover:text-brand px-6 py-2 bg-brand/5 text-sm font-medium rounded-2xl select-none">
-            View All Airdrops{" "}
+            View All Airdrops
             <IconArrowRight
               stroke={2}
               size={20}
