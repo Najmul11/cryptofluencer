@@ -7,12 +7,13 @@ import React from "react";
 
 const Categories = () => {
   const param = usePathname();
+  console.log(param);
 
   return (
     <div className="flex  gap-2 flex-wrap">
       {categories.map((category, index) => (
         <Link
-          href={`/airdrops${category.path}`}
+          href={`${category.path}`}
           className={cn(
             "flex-center gap-1 group duration-200 bg-brand/5 hover:bg-brand/15  px-6 py-2  text-sm text-black font-medium rounded-xl select-none flex-shrink-0",
             {
@@ -47,61 +48,61 @@ const categories = [
   {
     title: "All",
     id: "0",
-    path: "/all",
+    path: "/airdrops/all",
   },
   {
     title: "Depin",
     id: "1",
-    path: "/depin",
+    path: "/airdrops/depin",
   },
   {
     title: "NFT",
     id: "2",
-    path: "/nft",
+    path: "/airdrops/nft",
   },
   {
     title: "DeFi",
     id: "3",
-    path: "/defi",
+    path: "/airdrops/defi",
   },
   {
     title: "DAO",
     id: "4",
-    path: "/dao",
+    path: "/airdrops/dao",
   },
   {
     title: "Metaverse",
     id: "5",
-    path: "/metaverse",
+    path: "/airdrops/metaverse",
   },
   {
     title: "Gaming",
     id: "6",
-    path: "/gaming",
+    path: "/airdrops/gaming",
   },
   {
     title: "Identity",
     id: "7",
-    path: "/identity",
+    path: "/airdrops/identity",
   },
   {
     title: "Infrastructure",
     id: "8",
-    path: "/infrastructure",
+    path: "/airdrops/infrastructure",
   },
   {
     title: "Social",
     id: "9",
-    path: "/social",
+    path: "/airdrops/social",
   },
   {
     title: "Data",
     id: "10",
-    path: "/data",
+    path: "/airdrops/data",
   },
   {
     title: "AI",
     id: "11",
-    path: "/ai",
+    path: "/airdrops/ai",
   },
 ];
