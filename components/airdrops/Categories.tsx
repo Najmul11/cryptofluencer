@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-const Sider = () => {
+const Categories = () => {
   const param = usePathname();
 
   return (
@@ -39,7 +39,7 @@ const Sider = () => {
   );
 };
 
-export default Sider;
+export default Categories;
 
 // ... existing code ...
 

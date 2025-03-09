@@ -1,10 +1,10 @@
 import Airdrops from "@/components/airdrops/Airdrops";
-import Sider from "@/components/airdrops/Sider";
+import Categories from "@/components/airdrops/Categories";
 
 const page = () => {
   return (
     <div className="wrapper  pt-3">
-      <Sider />
+      <Categories />
       <Airdrops />
     </div>
   );

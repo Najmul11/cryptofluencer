@@ -57,7 +57,7 @@ const Airdrops = () => {
 
 export default Airdrops;
 
-const drops = [
+export const drops = [
   {
     id: 1,
     title: "Phyt.fun ",
