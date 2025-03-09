@@ -17,7 +17,7 @@ const Categories = () => {
           className={cn(
             "flex-center gap-1 group duration-200 bg-brand/5 hover:bg-brand/15  px-6 py-2  text-sm text-black font-medium rounded-xl select-none flex-shrink-0",
             {
-              "bg-brand": param === category.path,
+              "bg-brand hover:bg-brand text-white": param === category.path,
             }
           )}
           key={index}
