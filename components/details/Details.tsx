@@ -124,6 +124,44 @@ const Details = () => {
                 supports Base network.
               </span>
             </li>
+            <li className="flex">
+              <span className="w-4">5.</span>
+              <span>
+                <span className="font-medium text-black">
+                  Set up a compatible wallet
+                </span>
+                – Install MetaMask or another Ethereum-compatible wallet that
+                supports Base network.
+              </span>
+            </li>
+            <li className="flex">
+              <span className="w-4">6.</span>
+              <span>
+                <span className="font-medium text-black">
+                  Obtain ETH for gas fees
+                </span>
+                – Install MetaMask or another Ethereum-compatible wallet that
+                supports Base network.
+              </span>
+            </li>
+            <li className="flex">
+              <span className="w-4">7.</span>
+              <span>
+                <span className="font-medium text-black">
+                  Get USDC for trading
+                </span>
+                – Install MetaMask or another Ethereum-compatible wallet that
+                supports Base network.
+              </span>
+            </li>
+            <li className="flex">
+              <span className="w-4">8.</span>
+              <span>
+                <span className="font-medium text-black">Trade regularly</span>–
+                Install MetaMask or another Ethereum-compatible wallet that
+                supports Base network.
+              </span>
+            </li>
           </ul>
         </div>
         <div className="flex-col flex gap-2">
@@ -167,6 +205,20 @@ const Details = () => {
             pariatur dignissimos nemo aperiam facere impedit dolorum.
           </p>
         </div>
+      </div>
+
+      <hr className="border-brand/40 border-dashed" />
+
+      {/* join btn -------- */}
+      <div className="flex-center">
+        <button className="flex-center gap-1 group duration-200  px-6 py-2 bg-brand hover:bg-brand/90 text-white text-sm font-medium rounded-2xl select-none">
+          Join Prerena: Trade To Earn
+          <IconLink
+            stroke={2}
+            size={20}
+            className="group-hover:translate-x-1 duration-200 "
+          />
+        </button>
       </div>
     </div>
   );
