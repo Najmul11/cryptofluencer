@@ -46,7 +46,7 @@ const Airdrops = () => {
           onPageChange={() => {}}
           containerClassName={"flex gap-2  p-2 rounded-md items-center gap-5"}
           activeClassName={"bg-brand px-2 rounded"}
-          previousClassName={"px-2 py-1 border rounded-md"}
+          previousClassName={"px-2 py-1 border rounded-md "}
           nextClassName={"px-2 py-1 border rounded-md"}
           disabledClassName={"opacity-50"}
         />
