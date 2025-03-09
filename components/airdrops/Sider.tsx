@@ -47,61 +47,61 @@ const categories = [
   {
     title: "All",
     id: "0",
-    path: "/airdrops/all",
+    path: "/all",
   },
   {
     title: "Depin",
     id: "1",
-    path: "/airdrops/depin",
+    path: "/depin",
   },
   {
     title: "NFT",
     id: "2",
-    path: "/airdrops/nft",
+    path: "/nft",
   },
   {
     title: "DeFi",
     id: "3",
-    path: "/airdrops/defi",
+    path: "/defi",
   },
   {
     title: "DAO",
     id: "4",
-    path: "/airdrops/dao",
+    path: "/dao",
   },
   {
     title: "Metaverse",
     id: "5",
-    path: "/airdrops/metaverse",
+    path: "/metaverse",
   },
   {
     title: "Gaming",
     id: "6",
-    path: "/airdrops/gaming",
+    path: "/gaming",
   },
   {
     title: "Identity",
     id: "7",
-    path: "/airdrops/identity",
+    path: "/identity",
   },
   {
     title: "Infrastructure",
     id: "8",
-    path: "/airdrops/infrastructure",
+    path: "/infrastructure",
   },
   {
     title: "Social",
     id: "9",
-    path: "/airdrops/social",
+    path: "/social",
   },
   {
     title: "Data",
     id: "10",
-    path: "/airdrops/data",
+    path: "/data",
   },
   {
     title: "AI",
     id: "11",
-    path: "/airdrops/ai",
+    path: "/ai",
   },
 ];

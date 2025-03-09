@@ -12,47 +12,9 @@ const Airdrops = () => {
       <div className="grid grid-cols-3 gap-8 mt-10 ">
         {drops.map((drop) => (
           <Link
-            href={"/"}
-            key={drop.title}
-            className="relative group border rounded-2xl border-neutral-200/60 p-6"
-          >
-            <CardGrids />
-
-            <div className="flex flex-col gap-3 relative !z-[1000] ">
-              <img src={drop.logo} alt="" className="size-12 rounded-xl" />
-
-              <p className="font-semibold text-[16px]">{drop.title}</p>
-              <p className="text-[15px] line-clamp-2">{drop.description}</p>
-            </div>
-
-            <div className="flex justify-end opacity-30 group-hover:opacity-100 group-hover:translate-x-1 duration-200">
-              <IconTrendingUp2 />
-            </div>
-          </Link>
-        ))}
-        {drops.map((drop) => (
-          <Link
-            href={"/"}
-            key={drop.title}
-            className="relative group border rounded-2xl border-neutral-200/60 p-6"
-          >
-            <CardGrids />
-
-            <div className="flex flex-col gap-3 relative !z-[1000] ">
-              <img src={drop.logo} alt="" className="size-12 rounded-xl" />
-
-              <p className="font-semibold text-[16px]">{drop.title}</p>
-              <p className="text-[15px] line-clamp-2">{drop.description}</p>
-            </div>
-
-            <div className="flex justify-end opacity-30 group-hover:opacity-100 group-hover:translate-x-1 duration-200">
-              <IconTrendingUp2 />
-            </div>
-          </Link>
-        ))}
-        {drops.map((drop) => (
-          <Link
-            href={"/"}
+            href={{
+              pathname: `/${drop.slug}`,
+            }}
             key={drop.title}
             className="relative group border rounded-2xl border-neutral-200/60 p-6"
           >
@@ -97,43 +59,67 @@ export default Airdrops;
 
 const drops = [
   {
+    id: 1,
     title: "Phyt.fun ",
     description: "Participate in the testnet and claim your NFT",
     logo: "/assets/phyt.jpg",
+    slug: "phyt.fun-",
+    category: "NFT",
   },
   {
+    id: 2,
     title: "Retro Bridge",
     description: "Join the testnet and receive a free NFT",
     logo: "/assets/retro.png",
+    slug: "retro-bridge",
+    category: "DeFi",
   },
   {
+    id: 3,
     title: "Uplink",
     description: "Test the network and get your NFT",
     logo: "/assets/uplink.jpg",
+    slug: "uplink",
+    category: "Infrastructure",
   },
   {
+    id: 4,
     title: "Phyt.fun ",
     description: "Participate in the testnet and claim your NFT",
     logo: "/assets/phyt.jpg",
+    slug: "phyt.fun-",
+    category: "Gaming",
   },
   {
+    id: 5,
     title: "Retro Bridge",
     description: "Join the testnet and receive a free NFT",
     logo: "/assets/retro.png",
+    slug: "retro-bridge",
+    category: "Social",
   },
   {
+    id: 6,
     title: "Uplink",
     description: "Test the network and get your NFT",
     logo: "/assets/uplink.jpg",
+    slug: "uplink",
+    category: "Identity",
   },
   {
+    id: 7,
     title: "Retro Bridge",
     description: "Join the testnet and receive a free NFT",
     logo: "/assets/retro.png",
+    slug: "retro-bridge",
+    category: "Metaverse",
   },
   {
+    id: 8,
     title: "Uplink",
     description: "Test the network and get your NFT",
     logo: "/assets/uplink.jpg",
+    slug: "uplink",
+    category: "Data",
   },
 ];

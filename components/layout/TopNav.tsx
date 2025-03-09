@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { cn } from "@/utils/cn";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
@@ -42,10 +43,10 @@ const TopNav = () => {
   return (
     <nav className="bg-cream sticky top-0 !z-[1100]">
       <div className="max-w-screen-xl flex gap-5  mx-auto items-center ">
-        <p className="leading-3 font-semibold  rounded-md py-2">
+        <Link href={"/"} className="leading-3 font-semibold  rounded-md py-2">
           <sup className="italic text-[15px]"> Compho </sup>
           <span className="text-brand text-lg ">Airdrops</span>
-        </p>
+        </Link>
 
         {/* #### price update marque #### */}
 
