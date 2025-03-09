@@ -8,47 +8,71 @@ import { motion } from "framer-motion";
 
 import Link from "next/link";
 
-export function Drops() {
+export function RecentDrops() {
   const drops = [
     {
+      id: 1,
       title: "Phyt.fun ",
-      description: "Engage with free testnet, mint the free NFT ",
+      description: "Participate in the testnet and claim your NFT",
       logo: "/assets/phyt.jpg",
+      slug: "phyt.fun-",
+      category: "NFT",
     },
     {
+      id: 2,
       title: "Retro Bridge",
-      description: "Engage with free testnet, mint the free NFT ",
+      description: "Join the testnet and receive a free NFT",
       logo: "/assets/retro.png",
+      slug: "retro-bridge",
+      category: "DeFi",
     },
     {
+      id: 3,
       title: "Uplink",
-      description: "Engage with free testnet, mint the free NFT ",
+      description: "Test the network and get your NFT",
       logo: "/assets/uplink.jpg",
+      slug: "uplink",
+      category: "Infrastructure",
     },
     {
+      id: 4,
       title: "Phyt.fun ",
-      description: "Engage with free testnet, mint the free NFT ",
+      description: "Participate in the testnet and claim your NFT",
       logo: "/assets/phyt.jpg",
+      slug: "phyt.fun-",
+      category: "Gaming",
     },
     {
+      id: 5,
       title: "Retro Bridge",
-      description: "Engage with free testnet, mint the free NFT ",
+      description: "Join the testnet and receive a free NFT",
       logo: "/assets/retro.png",
+      slug: "retro-bridge",
+      category: "Social",
     },
     {
+      id: 6,
       title: "Uplink",
-      description: "Engage with free testnet, mint the free NFT ",
+      description: "Test the network and get your NFT",
       logo: "/assets/uplink.jpg",
+      slug: "uplink",
+      category: "Identity",
     },
     {
+      id: 7,
       title: "Retro Bridge",
-      description: "Engage with free testnet, mint the free NFT ",
+      description: "Join the testnet and receive a free NFT",
       logo: "/assets/retro.png",
+      slug: "retro-bridge",
+      category: "Metaverse",
     },
     {
+      id: 8,
       title: "Uplink",
-      description: "Engage with free testnet, mint the free NFT ",
+      description: "Test the network and get your NFT",
       logo: "/assets/uplink.jpg",
+      slug: "uplink",
+      category: "Data",
     },
   ];
 
@@ -80,14 +104,17 @@ export function Drops() {
 
       {/* #### view all airdrops btn */}
       <div className="flex justify-end mt-3">
-        <button className="flex-center gap-1 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 text-sm font-medium rounded-2xl select-none">
-          View All Airdrops{" "}
+        <Link
+          href={"/airdrops/all"}
+          className="flex-center gap-1 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 text-sm font-medium rounded-2xl select-none"
+        >
+          View All Airdrops
           <IconArrowRight
             stroke={2}
             size={20}
             className="group-hover:translate-x-1 duration-200 group-hover:text-brand"
           />
-        </button>
+        </Link>
       </div>
     </motion.div>
   );
@@ -98,15 +125,17 @@ const Drop = ({
   description,
   logo,
   index,
+  slug,
 }: {
   title: string;
   description: string;
   logo: React.ReactNode;
   index: number;
+  slug: string;
 }) => {
   return (
     <Link
-      href={"/e"}
+      href={`/${slug}`}
       className={cn(
         "flex flex-col lg:border-r  py-10 relative group/feature dark:border-neutral-800",
         (index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",

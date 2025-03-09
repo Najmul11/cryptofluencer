@@ -12,7 +12,7 @@ const Categories = () => {
     <div className="flex  gap-2 flex-wrap">
       {categories.map((category, index) => (
         <Link
-          href={category.path}
+          href={`/airdrops${category.path}`}
           className={cn(
             "flex-center gap-1 group duration-200 bg-brand/5 hover:bg-brand/15  px-6 py-2  text-sm text-black font-medium rounded-xl select-none flex-shrink-0",
             {

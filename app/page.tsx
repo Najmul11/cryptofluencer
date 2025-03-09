@@ -1,9 +1,11 @@
-import Hero from "@/components/home/Hero";
+import Categories from "@/components/airdrops/Categories";
+import { RecentDrops } from "@/components/home/RecentDrops";
 
 const page = () => {
   return (
-    <div className="  max-w-screen-xl mx-auto">
-      <Hero />
+    <div className="wrapper  pt-3">
+      <Categories />
+      <RecentDrops />
     </div>
   );
 };
