@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { cn } from "@/utils/cn";
-import { IconMail, IconRecordMail } from "@tabler/icons-react";
+import { IconMail } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
