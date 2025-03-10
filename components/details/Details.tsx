@@ -74,7 +74,7 @@ const Details = () => {
       <hr className="border-brand/40 border-dashed" />
 
       {/* details----- */}
-      <div className="space-y-5">
+      <div className="space-y-5 text-[15px]">
         <div className="flex-col flex gap-2">
           <p className="font-semibold text-xl text-black">
             Step-by-Step Guide:
@@ -158,9 +158,9 @@ const Details = () => {
             </li>
           </ul>
         </div>
-        <div className="flex-col flex gap-2">
+        <div className="flex-col flex gap-2 ">
           <p className="font-semibold text-xl text-black">What is Perennial?</p>
-          <p>
+          <p className="">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
             laudantium nihil dolore iste laborum aliquid tenetur molestias ea
             eius et maiores architecto cum deleniti exercitationem odio, ipsa
