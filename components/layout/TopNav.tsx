@@ -117,7 +117,7 @@ const TopNav = () => {
 
         <Link
           href={"/"}
-          className="flex-center gap-2 group py-2 px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border"
+          className="flex-center gap-2 group h-[40px] px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border"
         >
           <IconMail />
           Contact
