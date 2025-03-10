@@ -20,6 +20,14 @@ const BannerAds = () => {
     "/banner/2.jpg",
     "/banner/3.jpg",
     "/banner/4.jpg",
+    "/banner/1.png",
+    "/banner/2.jpg",
+    "/banner/3.jpg",
+    "/banner/4.jpg",
+    "/banner/1.png",
+    "/banner/2.jpg",
+    "/banner/3.jpg",
+    "/banner/4.jpg",
   ];
 
   const settings = {
@@ -58,7 +66,7 @@ const BannerAds = () => {
         {images.map((image, index) => (
           <div
             key={index}
-            className="block cursor-pointer pr-4"
+            className="block cursor-pointer "
             onClick={handleClick}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}

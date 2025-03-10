@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { cn } from "@/utils/cn";
+import { IconMail, IconRecordMail } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
@@ -42,15 +43,15 @@ const TopNav = () => {
 
   return (
     <nav className="bg-cream sticky top-0 !z-[1100]">
-      <div className="max-w-screen-xl flex gap-5  mx-auto items-center ">
-        <Link href={"/"} className="leading-3 font-semibold  rounded-md py-2">
+      <div className="max-w-screen-xl flex gap-5  mx-auto items-center  py-2">
+        <Link href={"/"} className="leading-3 font-semibold  rounded-md ">
           <sup className="italic text-[15px]"> Compho </sup>
           <span className="text-brand text-lg ">Airdrops</span>
         </Link>
 
         {/* #### price update marque #### */}
 
-        <div className="flex-grow  text-center w-[calc(100%-208px)] ">
+        <div className="flex-grow  text-center w-[calc(100%-308px)] ">
           <div className=" relative z-[100]">
             <Marquee className="overflow-y-hidden  py-2" speed={40}>
               {Object.entries(prices).map(
@@ -113,6 +114,16 @@ const TopNav = () => {
             <div className="h-full absolute w-24  bg-gradient-to-l from-[#fbfbfb] to-transparent top-0 right-0  z-[100]"></div>
           </div>
         </div>
+
+        <Link
+          href={"/"}
+          className="flex-center gap-2 group py-2 px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border"
+        >
+          <IconMail />
+          Contact
+          {/* hover effect */}
+          <span className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full bg-brand scale-x-[40%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"></span>
+        </Link>
       </div>
     </nav>
   );
