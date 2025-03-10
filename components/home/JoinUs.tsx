@@ -1,6 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { IconHeartHandshake } from "@tabler/icons-react";
+import {
+  IconBrandTelegram,
+  IconBrandX,
+  IconBrandYoutube,
+  IconHeartHandshake,
+} from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -21,8 +26,9 @@ const JoinUs = () => {
       </h2>
 
       <div className="mt-10">
+        <PrimaryPlatforms />
         {/* links and affiliates */}
-        <div className="grid grid-cols-6 gap-5">
+        <div className="grid grid-cols-6 gap-5 mt-8">
           <Link
             href={"/airdrops/all"}
             className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
@@ -114,3 +120,47 @@ const JoinUs = () => {
 };
 
 export default JoinUs;
+
+const PrimaryPlatforms = () => {
+  return (
+    <div className="mt-5 grid grid-cols-3 gap-5">
+      {links.map((link) => (
+        <Link
+          key={link.label}
+          href={link.path}
+          style={{ borderColor: link.color }}
+          className="py-3 border-2   hover:text-white group duration-200 rounded-lg flex-center gap-2 text-xl font-semibold relative overflow-hidden"
+        >
+          {link.icon}
+          {link.label}
+          {/* Background transition effect */}
+          <span
+            style={{ background: link.color }}
+            className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full  scale-x-[10%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"
+          ></span>
+        </Link>
+      ))}
+    </div>
+  );
+};
+
+const links = [
+  {
+    label: "Youtube",
+    path: "/airdrops/ai",
+    icon: <IconBrandYoutube size={45} className="fill-red-500 text-white" />,
+    color: "#ef4444",
+  },
+  {
+    label: "Telegram",
+    path: "/airdrops/depin",
+    icon: <IconBrandTelegram size={45} className="fill-[#39AFD9] text-white" />,
+    color: "#39AFD9",
+  },
+  {
+    label: "Twitter",
+    path: "/airdrops/depin",
+    icon: <IconBrandX size={30} className="" />,
+    color: "#000",
+  },
+];
