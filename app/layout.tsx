@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import TopNav from "@/components/layout/TopNav";
+import AntdProvider from "@/components/providers/AntdProvider";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const metadata: Metadata = {
   title: "Compho airdrops",
@@ -15,13 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="font-inter text-blackAccent ">
-      <body className={` antialiased `}>
-        <TopNav />
+      <AntdProvider>
+        <body className={` antialiased `}>
+          <TopNav />
 
-        {children}
-      </body>
+          {children}
+        </body>
 
-      <Footer />
+        <Footer />
+      </AntdProvider>
     </html>
   );
 }
