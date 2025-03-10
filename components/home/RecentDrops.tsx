@@ -86,7 +86,7 @@ export function RecentDrops() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.4 }}
       variants={animationVariants}
-      className="py-20 "
+      className="py-16 "
     >
       <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold px-8 xl:px-0">
         Recent Airdrops
