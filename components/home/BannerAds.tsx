@@ -53,7 +53,7 @@ const BannerAds = () => {
   };
 
   return (
-    <div className="px-2">
+    <div className="">
       <Slider {...settings}>
         {images.map((image, index) => (
           <div
