@@ -1,17 +1,11 @@
 import {
-  IconArrowRight,
   IconBrandDatabricks,
   IconBrandDiscord,
   IconBrandTelegram,
-  IconBrandTerraform,
   IconBrandX,
-  IconCheck,
-  IconChecks,
   IconLayoutBottombarInactive,
   IconLink,
   IconReceiptDollar,
-  IconSquareCheckFilled,
-  IconX,
 } from "@tabler/icons-react";
 
 /* eslint-disable @next/next/no-img-element */
