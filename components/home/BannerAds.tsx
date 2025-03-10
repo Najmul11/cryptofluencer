@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { useRouter } from "next/navigation";
@@ -15,6 +16,10 @@ const BannerAds = () => {
     "/banner/2.jpg",
     "/banner/3.jpg",
     "/banner/4.jpg",
+    "/banner/1.png",
+    "/banner/2.jpg",
+    "/banner/3.jpg",
+    "/banner/4.jpg",
   ];
 
   const settings = {
@@ -22,16 +27,18 @@ const BannerAds = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     beforeChange: () => setIsSwiping(true),
     afterChange: () => setTimeout(() => setIsSwiping(false), 100),
   };
 
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: any) => {
     touchStartX.current = e.touches[0].clientX;
   };
 
-  const handleTouchEnd = (e) => {
+  const handleTouchEnd = (e: any) => {
     touchEndX.current = e.changedTouches[0].clientX;
     if (Math.abs(touchStartX.current - touchEndX.current) > 10) {
       setIsSwiping(true);
@@ -49,15 +56,14 @@ const BannerAds = () => {
     <div className="px-2">
       <Slider {...settings}>
         {images.map((image, index) => (
-          <div key={index} className="px-2">
-            <div
-              className="block cursor-pointer"
-              onClick={handleClick}
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
-              <img src={image} alt="banner" className="w-full aspect-[16/9] " />
-            </div>
+          <div
+            key={index}
+            className="block cursor-pointer pr-4"
+            onClick={handleClick}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <img src={image} alt="banner" className="w-full aspect-[16/9] " />
           </div>
         ))}
       </Slider>
