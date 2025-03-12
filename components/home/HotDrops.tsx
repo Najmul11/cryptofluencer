@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const HotDrops = () => {
   return (
-    <div className="mt-5 grid grid-cols-3 gap-5">
+    <div className="mt-5 grid grid-cols-4 gap-2">
       {links.map((link, index) => (
         <Link
           key={link.label}
@@ -32,6 +32,10 @@ const links = [
   },
   {
     label: "View All",
+    path: "/airdrops/all",
+  },
+  {
+    label: "new",
     path: "/airdrops/all",
   },
 ];

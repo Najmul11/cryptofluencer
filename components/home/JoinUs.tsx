@@ -7,7 +7,9 @@ import {
   IconHeartHandshake,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
+
 import Link from "next/link";
+import SeeMore from "../ui/seeMore";
 
 const JoinUs = () => {
   const animationVariants = {
@@ -15,6 +17,9 @@ const JoinUs = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
   return (
+    <div>
+
+   
     <motion.div
       initial="hidden"
       whileInView="visible"
@@ -116,6 +121,11 @@ const JoinUs = () => {
         </div>
       </div>
     </motion.div>
+    <div>
+    <SeeMore name={' See More '} link={'/home'}></SeeMore>
+    </div>
+ 
+    </div>
   );
 };
 

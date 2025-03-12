@@ -4,7 +4,8 @@
 import CardGrids from "../ui/CardGrids";
 import Link from "next/link";
 import { IconTrendingUp2 } from "@tabler/icons-react";
-import ReactPaginate from "react-paginate";
+
+import Pagination from "../ui/Pagination";
 
 const Airdrops = () => {
   return (
@@ -33,9 +34,13 @@ const Airdrops = () => {
           </Link>
         ))}
       </div>
+      
+
+      
+
 
       {/* Pagination Controls */}
-      <div className="flex justify-center my-16">
+      {/* <div className="flex justify-center my-16">
         <ReactPaginate
           previousLabel={"Prev"}
           nextLabel={"Next"}
@@ -50,7 +55,8 @@ const Airdrops = () => {
           nextClassName={"px-2 py-1 border rounded-md"}
           disabledClassName={"opacity-50"}
         />
-      </div>
+      </div> */}
+      <Pagination></Pagination>
     </div>
   );
 };
