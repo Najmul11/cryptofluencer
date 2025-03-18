@@ -7,6 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { CardDrop } from "./CardDrop";
+
 export const HoverEffect = ({
   items,
   className,
@@ -27,7 +29,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4  py-10 w-full",
         className
       )}
     >
@@ -42,7 +44,7 @@ export const HoverEffect = ({
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-brand/15 dark:bg-slate-800/[0.8] block  rounded-3xl"
+                className="absolute inset-0 h-full w-full bg-[#fbc699] dark:bg-slate-800/[0.8] block  rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -57,13 +59,15 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card className="">
-            <CardImage src={item?.logo} alt={item.title} />
+            {/* <CardImage src={item?.logo} alt={item.title} />
             <CardTitle>{item.title}</CardTitle>
 
             <CardDescription>{item.description}</CardDescription>
             <div className='relative'>
             <CardButton className="absolute " ></CardButton>
-            </div>
+            </div> */}
+             <CardDrop key={item.title + idx} {...item} index={idx} />
+            
             
             
             
@@ -86,13 +90,13 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden  bg-white border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full w-full overflow-hidden  bg-white border  dark:border-white/[0.2]  relative z-20",
         className
       )}
     >
       <div className="relative z-50">
-        <div className="p-4">
-          <div className="group-hover:translate-x-2 transition-transform duration-200">
+        <div className="">
+          <div className="">
             {children}
           </div>
         </div>

@@ -120,7 +120,7 @@ export function RecentDrops() {
   );
 }
 
-const Drop = ({
+export  const Drop = ({
   title,
   description,
   logo,

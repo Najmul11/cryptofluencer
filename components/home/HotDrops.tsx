@@ -31,11 +31,12 @@ const links = [
     path: "/airdrops/depin",
   },
   {
-    label: "View All",
-    path: "/airdrops/all",
-  },
-  {
     label: "new",
     path: "/airdrops/all",
   },
+  {
+    label: "View All",
+    path: "/airdrops/all",
+  },
+  
 ];
