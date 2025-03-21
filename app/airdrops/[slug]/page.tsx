@@ -1,11 +1,15 @@
 
-import Categories from "@/components/airdrops/Categories";
+// import Categories from "@/components/airdrops/Categories";
+import CategoryMenu from "@/components/airdrops/CategoryMenu";
+
+
 import CardSection from "@/components/ui/cardSection";
 
 const page = () => {
   return (
     <div className="wrapper  pt-3">
-      <Categories />
+      {/* <Categories /> */}
+     <CategoryMenu></CategoryMenu>
       {/* <Airdrops /> */}
       <CardSection></CardSection>
     </div>

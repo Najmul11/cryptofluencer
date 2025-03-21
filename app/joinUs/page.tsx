@@ -1,9 +1,11 @@
+import Section1 from '@/components/joinUs/section1';
 import React from 'react';
 
 const JoinUs = () => {
     return (
-        <div>
-            <h1> this is joinUs page ..........</h1>
+        <div className='wrapper  pt-3 h-screen'>
+         
+            <Section1></Section1>
         </div>
     );
 };

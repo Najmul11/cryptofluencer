@@ -7,7 +7,7 @@ import React from "react";
 
 const Categories = () => {
   const param = usePathname();
-  console.log(param);
+  // console.log(param);
 
   return (
     <div className="flex  gap-2 flex-wrap">
