@@ -50,7 +50,7 @@ const CategoryMenu = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.3 }}
-      className="absolute top-full mt-0  right-0   mx-auto w-[1200px] grid grid-cols-6 bg-white shadow-lg rounded-xl p-4 z-50 gap-2"
+      className="absolute top-full mt-0  right-0     mx-auto w-[1280px] grid grid-cols-6 bg-white   p-4 z-50 gap-2"
     >
       {moreCategories.map((category) => (
         <Link
