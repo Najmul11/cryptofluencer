@@ -15,7 +15,7 @@ export const drops = [
     title: "Phyt.fun",
     description: "Participate in the testnet and claim your NFT",
     logo: "/assets/phyt.jpg",
-    slug: "phyt.fun-",
+    slug: "phyt.fun1-",
     category: "NFT",
   },
   {
@@ -47,7 +47,7 @@ export const drops = [
     title: "Retro Bridge",
     description: "Join the testnet and receive a free NFT",
     logo: "/assets/retro.png",
-    slug: "retro-bridge",
+    slug: "retro-bridge3",
     category: "Social",
   },
   {
@@ -55,7 +55,7 @@ export const drops = [
     title: "Uplink",
     description: "Test the network and get your NFT",
     logo: "/assets/uplink.jpg",
-    slug: "uplink",
+    slug: "uplink4",
     category: "Identity",
   },
   {
@@ -63,7 +63,7 @@ export const drops = [
     title: "Retro Bridge",
     description: "Join the testnet and receive a free NFT",
     logo: "/assets/retro.png",
-    slug: "retro-bridge",
+    slug: "retro-bridge1",
     category: "Metaverse",
   },
   {
@@ -71,7 +71,7 @@ export const drops = [
     title: "Uplink",
     description: "Test the network and get your NFT",
     logo: "/assets/uplink.jpg",
-    slug: "uplink",
+    slug: "uplink2",
     category: "Data",
   },
   {
@@ -79,7 +79,7 @@ export const drops = [
     title: "Uplink",
     description: "Test the network and get your NFT",
     logo: "/assets/uplink.jpg",
-    slug: "uplink",
+    slug: "uplink1",
     category: "Data",
   },
 ];

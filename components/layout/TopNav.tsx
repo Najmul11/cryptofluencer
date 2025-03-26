@@ -125,7 +125,7 @@ const TopNav = () => {
            hover:scale-105 hover:shadow-[0_0_8px_rgba(0,0,0,0.2)] hover:bg-brand/90
           "
         >
-         <IconBrandTelegram stroke={2} size={30} />
+         <IconBrandTelegram stroke={2} size={20} />
           
          
         </Link> 

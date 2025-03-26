@@ -6,6 +6,7 @@ import Link from "next/link";
 import { IconTrendingUp2 } from "@tabler/icons-react";
 
 import Pagination from "../ui/Pagination";
+import ReactPaginate from "react-paginate";
 
 const Airdrops = () => {
   return (
@@ -39,23 +40,23 @@ const Airdrops = () => {
       
 
 
-      {/* Pagination Controls */}
-      {/* <div className="flex justify-center my-16">
+      {/* Pagination Controls  */}
+       <div className="flex justify-center my-16">
         <ReactPaginate
           previousLabel={"Prev"}
-          nextLabel={"Next"}
-          breakLabel={"..."}
-          pageCount={5}
-          marginPagesDisplayed={2}
+           nextLabel={"Next"}
+           breakLabel={"..."}
+           pageCount={5}
+           marginPagesDisplayed={2}
           pageRangeDisplayed={3}
-          onPageChange={() => {}}
-          containerClassName={"flex gap-2  p-2 rounded-md items-center gap-5"}
+           onPageChange={() => {}}
+         containerClassName={"flex gap-2  p-2 rounded-md items-center gap-5"}
           activeClassName={"bg-brand px-2 rounded"}
           previousClassName={"px-2 py-1 border rounded-md "}
-          nextClassName={"px-2 py-1 border rounded-md"}
-          disabledClassName={"opacity-50"}
-        />
-      </div> */}
+           nextClassName={"px-2 py-1 border rounded-md"}
+           disabledClassName={"opacity-50"}
+         /> 
+      </div>
       <Pagination></Pagination>
     </div>
   );

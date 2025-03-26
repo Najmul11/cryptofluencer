@@ -1,5 +1,7 @@
 
 // import Categories from "@/components/airdrops/Categories";
+import Airdrops from "@/components/airdrops/Airdrops";
+import Categories from "@/components/airdrops/Categories";
 import CategoryMenu from "@/components/airdrops/CategoryMenu";
 
 
