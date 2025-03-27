@@ -1,10 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { IconArrowRight } from "@tabler/icons-react";
 import { HoverEffect } from "../ui/card-hover-effect";
 import SeeMore from "../ui/seeMore";
 
