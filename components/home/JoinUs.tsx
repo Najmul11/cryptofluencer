@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import {
@@ -10,8 +11,12 @@ import { motion } from "framer-motion";
 
 import Link from "next/link";
 import SeeMore from "../ui/seeMore";
+import { useGetAllAffiliatesQuery } from "@/redux/api/project";
 
 const JoinUs = () => {
+  const { data, isLoading } = useGetAllAffiliatesQuery("");
+  console.log(data);
+
   const animationVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -32,90 +37,22 @@ const JoinUs = () => {
           <PrimaryPlatforms />
           {/* links and affiliates */}
           <div className="grid grid-cols-6 gap-5 mt-8">
-            <Link
-              href={"/"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/binance.png" alt="" className="w-6 rounded" />
-              Binance
-            </Link>
-            <Link
-              href={"/"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/okx.jpg" alt="" className="w-6 rounded" />
-              OKX
-            </Link>
-            <Link
-              href={"/"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/bitget.png" alt="" className="w-6 rounded" />
-              Bitget
-            </Link>
-            <Link
-              href={"/airdrops/all"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/bybit.png" alt="" className="w-6 rounded" />
-              ByBit
-            </Link>
-            <Link
-              href={"/airdrops/all"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/binance.png" alt="" className="w-6 rounded" />
-              Binance
-            </Link>
-            <Link
-              href={"/airdrops/all"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/okx.jpg" alt="" className="w-6 rounded" />
-              OKX
-            </Link>
-            <Link
-              href={"/airdrops/all"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/bitget.png" alt="" className="w-6 rounded" />
-              Bitget
-            </Link>
-            <Link
-              href={"/airdrops/all"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/bybit.png" alt="" className="w-6 rounded" />
-              ByBit
-            </Link>
-            <Link
-              href={"/airdrops/all"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/binance.png" alt="" className="w-6 rounded" />
-              Binance
-            </Link>
-            <Link
-              href={"/airdrops/all"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/okx.jpg" alt="" className="w-6 rounded" />
-              OKX
-            </Link>
-            <Link
-              href={"/airdrops/all"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/bitget.png" alt="" className="w-6 rounded" />
-              Bitget
-            </Link>
-            <Link
-              href={"/airdrops/all"}
-              className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-            >
-              <img src="/assets/bybit.png" alt="" className="w-6 rounded" />
-              ByBit
-            </Link>
+            {data?.data &&
+              data.data.length > 0 &&
+              data.data.map((affiliate: any) => (
+                <Link
+                  key={affiliate?.id}
+                  href={affiliate?.link}
+                  className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
+                >
+                  <img
+                    src="/assets/binance.png"
+                    alt=""
+                    className="w-6 rounded"
+                  />
+                  Binance
+                </Link>
+              ))}
           </div>
 
           <div className="mt-10">
