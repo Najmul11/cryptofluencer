@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { cn } from "@/utils/cn";
-import { IconBrandTelegram,  } from "@tabler/icons-react";
+import { IconBrandTelegram } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
@@ -42,7 +42,7 @@ const TopNav = () => {
   }, []);
 
   return (
-    <nav className="bg-cream sticky top-0 !z-[1100]">
+    <nav className=" sticky top-0 !z-[11000] bg-[#fbfbfb]">
       <div className="max-w-screen-xl flex gap-5  mx-auto items-center  py-2">
         <Link href={"/"} className="leading-3 font-semibold  rounded-md ">
           <sup className="italic text-[15px]"> Compho </sup>
@@ -114,37 +114,17 @@ const TopNav = () => {
             <div className="h-full absolute w-24  bg-gradient-to-l from-[#fbfbfb] to-transparent top-0 right-0  z-[100]"></div>
           </div>
         </div>
-        
 
-         <Link
+        <Link
           href={"/"}
           className="
-          flex-center   p-2
-          bg-brand text-white
-           rounded-full relative overflow-hidden font-medium 
-           hover:scale-105 hover:shadow-[0_0_8px_rgba(0,0,0,0.2)] hover:bg-brand/90
-          "
+          flex-center   p-2 bg-brand text-white rounded-full relative overflow-hidden font-medium hover:scale-105 hover:shadow-[0_0_8px_rgba(0,0,0,0.2)] hover:bg-brand/90"
         >
-         <IconBrandTelegram stroke={2} size={20} />
-          
-         
-        </Link> 
+          <IconBrandTelegram stroke={2} size={20} />
+        </Link>
       </div>
     </nav>
   );
 };
 
 export default TopNav;
-
-
-{/* <Icon
-            link={socials.telegram}
-            icon={}
-          />
-       
-           <span className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full bg-brand scale-x-[40%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"></span>
-          
-          
-          
-          
-          */}
