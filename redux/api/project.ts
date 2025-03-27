@@ -11,4 +11,4 @@ const projectApi = api.injectEndpoints({
   }),
 });
 
-export const {} = projectApi;
+export const { useGetAllProjectsQuery } = projectApi;

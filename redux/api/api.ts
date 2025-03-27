@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { apiUrl } from "@/utils/constant";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { apiUrl } from "../../utils/constant";
 
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: apiUrl,
-    credentials: "include",
   }),
   tagTypes: [],
   endpoints: (_builder) => ({}),

@@ -5,6 +5,7 @@ import TopNav from "@/components/layout/TopNav";
 import AntdProvider from "@/components/providers/AntdProvider";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ReduxProvider from "@/components/providers/ReduxProvider";
 
 export const metadata: Metadata = {
   title: "Compho airdrops",
@@ -18,15 +19,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="font-inter text-blackAccent ">
-      <AntdProvider>
-        <body className={` antialiased `}>
-          <TopNav />
+      <ReduxProvider>
+        <AntdProvider>
+          <body className={` antialiased `}>
+            <TopNav />
 
-          {children}
-        </body>
+            {children}
+          </body>
 
-        <Footer />
-      </AntdProvider>
+          <Footer />
+        </AntdProvider>
+      </ReduxProvider>
     </html>
   );
 }

@@ -6,10 +6,10 @@ const getEnvUrls = () => {
   let baseUrl;
 
   if (ENV_MODE === "development") {
-    apiUrl = "http://localhost:5001/api";
-    baseUrl = "http://localhost:5001/";
+    apiUrl = "http://localhost:5001/api/v1";
+    baseUrl = "http://localhost:5001/v1";
   } else {
-    apiUrl = "http://localhost:5001/api";
+    apiUrl = "http://localhost:5001/api/v1";
     baseUrl = "http://localhost:5001/";
   }
 

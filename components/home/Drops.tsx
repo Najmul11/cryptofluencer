@@ -5,8 +5,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { HoverEffect } from "../ui/card-hover-effect";
 import SeeMore from "../ui/seeMore";
+import { useGetAllProjectsQuery } from "@/redux/api/project";
 
 const Drops = () => {
+  const { data, isLoading } = useGetAllProjectsQuery("");
+
+  console.log(data);
+
   return (
     <motion.div
       initial="hidden"
