@@ -1,19 +1,21 @@
+"use client";
 // import Categories from "@/components/airdrops/Categories";
-import Airdrops from "@/components/airdrops/Airdrops";
-import Categories from "@/components/airdrops/Categories";
 import CategoryMenu from "@/components/airdrops/CategoryMenu";
 
-import CardSection from "@/components/home/Drops";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
+import { useGetAllProjectsQuery } from "@/redux/api/project";
 
-const page = () => {
+const Page = () => {
+  const { data, isLoading } = useGetAllProjectsQuery("");
+
   return (
-    <div className="wrapper  pt-3">
+    <div className="wrapper  pt-3 min-h-[calc(100vh-250px)]">
       {/* <Categories /> */}
-      <CategoryMenu></CategoryMenu>
+      <CategoryMenu />
       {/* <Airdrops /> */}
-      <CardSection></CardSection>
+      <HoverEffect items={data?.data} />
     </div>
   );
 };
 
-export default page;
+export default Page;

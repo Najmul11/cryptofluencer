@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "motion/react";
@@ -10,14 +11,7 @@ export const HoverEffect = ({
   items,
   className,
 }: {
-  items: {
-    id: number;
-    title: string;
-    description: string;
-    slug: string;
-    category: string;
-    logo: string;
-  }[];
+  items: any;
   className?: string;
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -29,7 +23,7 @@ export const HoverEffect = ({
         className
       )}
     >
-      {items.map((item, idx) => (
+      {items?.map((item: any, idx: any) => (
         <Link
           href={`/${item.slug}`}
           key={item?.slug}

@@ -33,7 +33,7 @@ const Drops = () => {
 
       {/* drops */}
       <div>
-        <HoverEffect items={drops} />
+        <HoverEffect items={data?.data} />
       </div>
 
       {/* View All Airdrops Button */}

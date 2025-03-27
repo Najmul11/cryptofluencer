@@ -1,20 +1,19 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import { cn } from "@/utils/cn";
 import { IconArrowRight } from "@tabler/icons-react";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 export const Drop = ({
-  title,
+  name,
   description,
-  logo,
-  index,
+  logoURL,
   slug,
 }: {
-  title: string;
+  name: string;
   description: string;
-  logo: React.ReactNode;
-  index: number;
+  logoURL: string;
   slug: string;
 }) => {
   return (
@@ -27,13 +26,7 @@ export const Drop = ({
 
       {/*########### logo####### */}
       <div className="mb-4 relative z-10 px-10  ">
-        <Image
-          src={logo as string}
-          alt=""
-          width={45}
-          height={45}
-          className="rounded-full"
-        />
+        <img src={logoURL as string} className="rounded-full size-14" />
       </div>
 
       {/* ### title */}
@@ -41,7 +34,7 @@ export const Drop = ({
         {/* yellow stick bar effect */}
         <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 dark:bg-neutral-700 group-hover/feature:bg-brand/5 transition-all duration-200 origin-center" />
 
-        <span className="  inline-block  ">{title}</span>
+        <span className="  inline-block  ">{name}</span>
       </div>
 
       {/* description */}
