@@ -6,15 +6,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { IconArrowRight } from "@tabler/icons-react";
 import { HoverEffect } from "../ui/card-hover-effect";
+import SeeMore from "../ui/seeMore";
 
-const CardSection = () => {
+const Drops = () => {
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.4 }}
       variants={animationVariants}
-      className="py-16"
+      className="py-16 "
     >
       <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold px-8 xl:px-0 flex items-center gap-3">
         Recent Airdrops
@@ -27,29 +28,20 @@ const CardSection = () => {
         />
       </h2>
 
-      <div className="">
+      {/* drops */}
+      <div>
         <HoverEffect items={drops} />
       </div>
 
       {/* View All Airdrops Button */}
       <div className="flex justify-end mt-3 px-8 xl:px-0">
-        <Link
-          href="/airdrops/all"
-          className="flex items-center gap-1 group duration-200 hover:text-brand px-6 py-2 bg-brand/5 text-sm font-medium rounded-2xl select-none"
-        >
-          View All Airdrops
-          <IconArrowRight
-            stroke={2}
-            size={20}
-            className="group-hover:translate-x-1 duration-200 group-hover:text-brand"
-          />
-        </Link>
+        <SeeMore name={" View All AIrdrops "} link={"/home"} />
       </div>
     </motion.div>
   );
 };
 
-export default CardSection;
+export default Drops;
 
 const animationVariants = {
   hidden: { opacity: 0, y: 30 },

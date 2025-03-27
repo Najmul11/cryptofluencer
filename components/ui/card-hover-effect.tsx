@@ -4,8 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 
 import Link from "next/link";
 import { useState } from "react";
-
-import { CardDrop } from "./CardDrop";
+import { Drop } from "./Drop";
 
 export const HoverEffect = ({
   items,
@@ -56,7 +55,7 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card className="">
-            <CardDrop key={item.title + idx} {...item} index={idx} />
+            <Drop key={item.title + idx} {...item} index={idx} />
           </Card>
         </Link>
       ))}
@@ -79,9 +78,7 @@ export const Card = ({
       )}
     >
       <div className="relative z-50">
-        <div className="">
-          <div className="">{children}</div>
-        </div>
+        <div className="">{children}</div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import Airdrops from "@/components/airdrops/Airdrops";
 import Categories from "@/components/airdrops/Categories";
 import CategoryMenu from "@/components/airdrops/CategoryMenu";
 
-import CardSection from "@/components/home/cardSection";
+import CardSection from "@/components/home/Drops";
 
 const page = () => {
   return (
