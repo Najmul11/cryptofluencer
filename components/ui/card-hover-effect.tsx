@@ -1,8 +1,6 @@
 "use client";
 import { cn } from "@/utils/cn";
-import { IconArrowRight } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -23,8 +21,7 @@ export const HoverEffect = ({
   }[];
   className?: string;
 }) => {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <div
@@ -59,20 +56,7 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card className="">
-            {/* <CardImage src={item?.logo} alt={item.title} />
-            <CardTitle>{item.title}</CardTitle>
-
-            <CardDescription>{item.description}</CardDescription>
-            <div className='relative'>
-            <CardButton className="absolute " ></CardButton>
-            </div> */}
-             <CardDrop key={item.title + idx} {...item} index={idx} />
-            
-            
-            
-            
-
-           
+            <CardDrop key={item.title + idx} {...item} index={idx} />
           </Card>
         </Link>
       ))}
@@ -96,95 +80,9 @@ export const Card = ({
     >
       <div className="relative z-50">
         <div className="">
-          <div className="">
-            {children}
-          </div>
+          <div className="">{children}</div>
         </div>
       </div>
     </div>
   );
 };
-export const CardTitle = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <h4
-      className={cn("font-semibold text-[16px] tracking-wide mt-4 ", className)}
-    >
-      {children}
-    </h4>
-  );
-};
-export const CardDescription = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <p
-      className={cn(
-        "mt-8 text-blackAccent tracking-wide leading-relaxed text-sm",
-        className
-      )}
-    >
-      {children}
-    </p>
-  );
-};
-export const CardImage = ({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) => {
-  return (
-    <div
-      className={cn(
-        "relative w-full h-auto rounded-xl overflow-hidden",
-        className
-      )}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        height={"300"}
-        width={"300"}
-        className="size-12 rounded-full"
-      />
-    </div>
-  );
-};
-
-
-
-export const CardButton = ({
-  className,
- 
-}: {
-  className?: string;
-  
-}) => {
-  
-  return (
-    <button
-     
-      className={cn(
-        " bottom-0 right-0   ",
-        className
-      )}
-    >
-      <IconArrowRight stroke={2} />
-    </button>
-  );
-};
-
-  
