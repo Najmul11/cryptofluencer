@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-// import Categories from "@/components/airdrops/Categories";
 import CategoryMenu from "@/components/airdrops/CategoryMenu";
 import DropSkeleton from "@/components/skeleton/DropSkeleton";
 
@@ -21,7 +20,6 @@ const Page = () => {
   const { data, isLoading } = useGetAllProjectsQuery("", {
     skip: slug !== "all",
   });
-  console.log(data);
 
   return (
     <div className="wrapper  pt-3 min-h-[calc(100vh-250px)]">
@@ -29,7 +27,6 @@ const Page = () => {
       <CategoryMenu />
 
       {/* <Airdrops /> */}
-
       {isLoading || categoryProjectsLoading ? (
         <DropSkeleton />
       ) : categoryProjects?.data?.projects.length > 0 ? (
@@ -38,8 +35,14 @@ const Page = () => {
             (item: any) => item.project
           )}
         />
-      ) : (
+      ) : data?.data?.length > 0 ? (
         <HoverEffect items={data?.data} />
+      ) : (
+        <div className=" h-[calc(100vh-300px)] flex-center">
+          <p className="text-center text-2xl font-medium py-6">
+            There are no projects.🫥
+          </p>
+        </div>
       )}
 
       {data?.data?.length > 16 ||
