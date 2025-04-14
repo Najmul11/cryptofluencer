@@ -5,10 +5,16 @@ const categoryApi = api.injectEndpoints({
     // ======== get all project =========
     getAllCategories: builder.query({
       query: () => ({
-        url: "/categories/all",
+        url: "/categories/all?",
+      }),
+    }),
+    getSingleCategory: builder.query({
+      query: (slug: string) => ({
+        url: `/categories/${slug}`,
       }),
     }),
   }),
 });
 
-export const { useGetAllCategoriesQuery } = categoryApi;
+export const { useGetAllCategoriesQuery, useGetSingleCategoryQuery } =
+  categoryApi;
