@@ -11,8 +11,8 @@ import { motion } from "framer-motion";
 
 import Link from "next/link";
 import SeeMore from "../ui/seeMore";
-import { useGetAllAffiliatesQuery } from "@/redux/api/project";
 import JoinusSkeleton from "../skeleton/JoinusSkeleton";
+import { useGetAllAffiliatesQuery } from "@/redux/api/affiliate";
 
 const JoinUs = () => {
   const { data, isLoading } = useGetAllAffiliatesQuery("");

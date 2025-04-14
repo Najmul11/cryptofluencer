@@ -4,6 +4,9 @@
 import { useRouter } from "next/navigation";
 import Slider from "react-slick";
 import { useRef, useState } from "react";
+import { useGetAllBannersQuery } from "@/redux/api/banner";
+import Link from "next/link";
+import BannerSkeleton from "../skeleton/BannerSkeleton";
 
 const BannerAds = () => {
   const router = useRouter();
@@ -11,24 +14,9 @@ const BannerAds = () => {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  const images = [
-    "/banner/1.png",
-    "/banner/2.jpg",
-    "/banner/3.jpg",
-    "/banner/4.jpg",
-    "/banner/1.png",
-    "/banner/2.jpg",
-    "/banner/3.jpg",
-    "/banner/4.jpg",
-    "/banner/1.png",
-    "/banner/2.jpg",
-    "/banner/3.jpg",
-    "/banner/4.jpg",
-    "/banner/1.png",
-    "/banner/2.jpg",
-    "/banner/3.jpg",
-    "/banner/4.jpg",
-  ];
+  const { data, isLoading } = useGetAllBannersQuery("");
+
+  console.log(data);
 
   const settings = {
     dots: false,
@@ -62,19 +50,33 @@ const BannerAds = () => {
 
   return (
     <div className="">
-      <Slider {...settings}>
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className="block cursor-pointer "
-            onClick={handleClick}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <img src={image} alt="banner" className="w-full aspect-[16/9] " />
-          </div>
-        ))}
-      </Slider>
+      {isLoading ? (
+        <BannerSkeleton />
+      ) : (
+        <>
+          {" "}
+          {data?.data?.length > 0 && (
+            <Slider {...settings}>
+              {data?.data.map((banner: any) => (
+                <Link
+                  href={banner?.project?.slug}
+                  key={banner.id}
+                  className="block cursor-pointer  px-2  "
+                  onClick={handleClick}
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  <img
+                    src={banner?.imageUrl}
+                    alt="banner"
+                    className="w-full aspect-[16/9] rounded-lg "
+                  />
+                </Link>
+              ))}
+            </Slider>
+          )}
+        </>
+      )}
     </div>
   );
 };

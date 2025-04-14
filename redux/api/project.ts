@@ -8,13 +8,7 @@ const projectApi = api.injectEndpoints({
         url: "/projects/all",
       }),
     }),
-    // ======== get all project =========
-    getAllAffiliates: builder.query({
-      query: () => ({
-        url: "/affiliates/all",
-      }),
-    }),
   }),
 });
 
-export const { useGetAllProjectsQuery, useGetAllAffiliatesQuery } = projectApi;
+export const { useGetAllProjectsQuery } = projectApi;
