@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import SeeMore from "../ui/seeMore";
 import { useGetAllAffiliatesQuery } from "@/redux/api/project";
+import JoinusSkeleton from "../skeleton/JoinusSkeleton";
 
 const JoinUs = () => {
   const { data, isLoading } = useGetAllAffiliatesQuery("");
@@ -36,31 +37,39 @@ const JoinUs = () => {
         <div className="mt-10">
           <PrimaryPlatforms />
           {/* links and affiliates */}
-          <div className="grid grid-cols-6 gap-5 mt-8">
-            {data?.data &&
-              data.data.length > 0 &&
-              data.data.map((affiliate: any) => (
-                <Link
-                  key={affiliate?.id}
-                  href={affiliate?.link}
-                  className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-                >
-                  <img
-                    src="/assets/binance.png"
-                    alt=""
-                    className="w-6 rounded"
-                  />
-                  Binance
-                </Link>
-              ))}
-          </div>
 
-          <div className="mt-10">
-            <SeeMore name={" See More "} link={"/home"} />
-          </div>
+          {isLoading ? (
+            <JoinusSkeleton />
+          ) : (
+            <>
+              {data?.data.length > 0 && (
+                <div className="grid grid-cols-6 gap-5 mt-8">
+                  {data.data.map((affiliate: any) => (
+                    <Link
+                      key={affiliate?.id}
+                      href={affiliate?.link}
+                      className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
+                    >
+                      <img
+                        src={affiliate?.logoURL}
+                        alt=""
+                        className="w-6 rounded"
+                      />
+                      {affiliate?.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+
+          {data?.data.length > 12 && (
+            <div className="mt-10">
+              <SeeMore name={" See More "} link={"/home"} />
+            </div>
+          )}
         </div>
       </motion.div>
-      <div></div>
     </div>
   );
 };

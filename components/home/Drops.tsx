@@ -38,7 +38,7 @@ const Drops = () => {
 
       {/* View All Airdrops Button */}
       <div className="flex justify-end mt-3 px-8 xl:px-0">
-        <SeeMore name={" View All AIrdrops "} link={"/home"} />
+        <SeeMore name={" View All AIrdrops "} link={"/airdrops/all"} />
       </div>
     </motion.div>
   );

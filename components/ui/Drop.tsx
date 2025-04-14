@@ -7,7 +7,7 @@ import React from "react";
 
 export const Drop = ({
   name,
-  description,
+  highlightedText,
   logoURL,
   slug,
 }: {
@@ -15,6 +15,7 @@ export const Drop = ({
   description: string;
   logoURL: string;
   slug: string;
+  highlightedText: string;
 }) => {
   return (
     <Link
@@ -39,7 +40,7 @@ export const Drop = ({
 
       {/* description */}
       <p className="text-sm  max-w-xs relative z-10 px-10 mb-5">
-        {description}
+        {highlightedText}
       </p>
 
       <button className=" absolute bottom-5 right-10 group-hover/feature:translate-x-2 duration-200 text-neutral-200 group-hover/feature:text-[#374151]">
