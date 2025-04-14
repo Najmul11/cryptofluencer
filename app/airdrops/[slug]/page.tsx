@@ -1,8 +1,10 @@
 "use client";
 // import Categories from "@/components/airdrops/Categories";
 import CategoryMenu from "@/components/airdrops/CategoryMenu";
+import DropSkeleton from "@/components/skeleton/DropSkeleton";
 
 import { HoverEffect } from "@/components/ui/card-hover-effect";
+import Pagination from "@/components/ui/Pagination";
 import { useGetAllProjectsQuery } from "@/redux/api/project";
 
 const Page = () => {
@@ -13,7 +15,10 @@ const Page = () => {
       {/* <Categories /> */}
       <CategoryMenu />
       {/* <Airdrops /> */}
-      <HoverEffect items={data?.data} />
+
+      {isLoading ? <DropSkeleton /> : <HoverEffect items={data?.data} />}
+
+      <Pagination />
     </div>
   );
 };

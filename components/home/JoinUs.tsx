@@ -16,7 +16,6 @@ import { useGetAllAffiliatesQuery } from "@/redux/api/affiliate";
 
 const JoinUs = () => {
   const { data, isLoading } = useGetAllAffiliatesQuery("");
-  console.log(data);
 
   const animationVariants = {
     hidden: { opacity: 0, y: 30 },

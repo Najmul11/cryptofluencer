@@ -1,109 +1,89 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useGetAllCategoriesQuery } from "@/redux/api/category";
+import {
+  IconArrowDown,
+  IconChevronDown,
+  IconChevronUp,
+  IconDoorEnter,
+} from "@tabler/icons-react";
 
 const CategoryMenu = () => {
-  const param = usePathname();
+  const { slug } = useParams();
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const primaryCategories = categories.slice(0, 3); // Display the first 3 categories as primary buttons
-  const moreCategories = categories.slice(3); // Remaining categories for the dropdown
+  const { data, isLoading } = useGetAllCategoriesQuery("");
 
   return (
     <div className="flex justify-between   relative">
       <div className=" flex items-center gap-4">
-      {primaryCategories.map((category) => (
-        <Link
-          key={category.id}
-          href={category.path}
-          className={cn(
-            "flex-center gap-1 duration-200 bg-brand/5 hover:bg-brand/15 px-6 py-2 text-sm text-black font-medium rounded-xl select-none",
-            {
-              "bg-brand text-white": param === category.path,
-            }
-          )}
-        >
-          {category.title}
-        </Link>
-      ))}
+        {data?.data.length > 0 &&
+          data?.data.slice(0, 3).map((category: any) => (
+            <Link
+              key={category.slug}
+              href={category.slug}
+              className={cn(
+                "flex-center gap-2 group duration-200    px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none",
+                {
+                  "!bg-brand text-white": slug === category?.slug,
+                  "hover:text-brand": slug !== category?.slug,
+                }
+              )}
+            >
+              {category?.name}
+            </Link>
+          ))}
       </div>
-     
 
       {/* More Button */}
-      <div
-        className="relative"
-        onMouseEnter={() => setShowDropdown(true)}
-        onMouseLeave={() => setShowDropdown(false)}
-      >
-        <button className="flex-center gap-1 duration-200 bg-brand/5 hover:bg-brand/15 px-6 py-2 text-sm text-black font-medium rounded-xl select-none">
-          More ...
+      <div className="relative">
+        <button
+          onClick={() => setShowDropdown(!showDropdown)}
+          className="flex-center gap-2 group duration-200 px-6 py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
+        >
+          More
+          <motion.div
+            animate={{ rotate: showDropdown ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <IconChevronDown size={20} />
+          </motion.div>
         </button>
 
         {/* Animated Dropdown */}
-        <AnimatePresence>
-  {showDropdown && (
-    <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3 }}
-      className="absolute top-full mt-0  right-0     mx-auto w-[1280px] grid grid-cols-6 bg-white   p-4 z-50 gap-2"
-    >
-      {moreCategories.map((category) => (
-        <Link
-          key={category.id}
-          href={category.path}
-          className={cn(
-            "block px-4 py-2 text-sm text-black hover:bg-brand/10 rounded-lg transition-colors",
-            {
-              "bg-brand text-white": param === category.path,
-            }
-          )}
-        >
-          {category.title}
-        </Link>
-      ))}
-    </motion.div>
-  )}
-</AnimatePresence>
+        {showDropdown && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-full mt-2  right-0     mx-auto w-[1280px] grid grid-cols-8 bg-white rounded-2xl border py-6  px-4 z-50 gap-2"
+          >
+            {data?.data.map((category: any) => (
+              <Link
+                key={category?.slug}
+                href={category?.slug}
+                className={cn(
+                  "flex-center gap-2 group duration-200    px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none",
+                  {
+                    "!bg-brand text-white": slug === category?.slug,
+                    "hover:text-brand": slug !== category?.slug,
+                  }
+                )}
+              >
+                {category?.name}
+              </Link>
+            ))}
+          </motion.div>
+        )}
       </div>
     </div>
   );
 };
 
 export default CategoryMenu;
-
-// Categories List
-const categories = [
-  { title: "All", id: "0", path: "/airdrops/all" },
-  { title: "Depin", id: "1", path: "/airdrops/depin" },
-  { title: "NFT", id: "2", path: "/airdrops/nft" },
-  { title: "DeFi", id: "3", path: "/airdrops/defi" },
-  { title: "DAO", id: "4", path: "/airdrops/dao" },
-  { title: "Metaverse", id: "5", path: "/airdrops/metaverse" },
-  { title: "Gaming", id: "6", path: "/airdrops/gaming" },
-  { title: "Identity", id: "7", path: "/airdrops/identity" },
-  { title: "Infrastructure", id: "8", path: "/airdrops/infrastructure" },
-  { title: "Depin", id: "1", path: "/airdrops/depin" },
-  { title: "NFT", id: "2", path: "/airdrops/nft" },
-  { title: "DeFi", id: "3", path: "/airdrops/defi" },
-  { title: "DAO", id: "4", path: "/airdrops/dao" },
-  { title: "Metaverse", id: "5", path: "/airdrops/metaverse" },
-  { title: "Gaming", id: "6", path: "/airdrops/gaming" },
-  { title: "Identity", id: "7", path: "/airdrops/identity" },
-  { title: "Infrastructure", id: "8", path: "/airdrops/infrastructure" },
-  { title: "Depin", id: "1", path: "/airdrops/depin" },
-  { title: "NFT", id: "2", path: "/airdrops/nft" },
-  { title: "DeFi", id: "3", path: "/airdrops/defi" },
-  { title: "DAO", id: "4", path: "/airdrops/dao" },
-  { title: "Metaverse", id: "5", path: "/airdrops/metaverse" },
-  { title: "Gaming", id: "6", path: "/airdrops/gaming" },
-  { title: "Identity", id: "7", path: "/airdrops/identity" },
-  { title: "Infrastructure", id: "8", path: "/airdrops/infrastructure" },
-  { title: "Social", id: "9", path: "/airdrops/social" },
-  { title: "Data", id: "10", path: "/airdrops/data" },
-  { title: "AI", id: "11", path: "/airdrops/ai" },
-];
