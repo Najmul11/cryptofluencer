@@ -1,17 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { Skull } from "../skeleton/DropSkeleton";
 import { HoverEffect } from "../ui/card-hover-effect";
 import { useGetAllProjectsQuery } from "@/redux/api/project";
 const HotDrops = () => {
-  const { data } = useGetAllProjectsQuery({ showOnHomepage: "YES" });
+  const { data, isLoading } = useGetAllProjectsQuery({ showOnHomepage: "YES" });
   return (
     <div>
-      <p className="text-center p-3 border bg-white  rounded-xl">🔥 Hot</p>
+      <p className="text-center p-3 border font-semibold  bg-gradient-to-br from-brand to-white  rounded-xl">
+        🔥 Hot
+      </p>
 
-      <HoverEffect
-        items={data?.data.slice(0, 4)}
-        className="flex flex-col mt-3 py-0"
-      />
+      {isLoading ? (
+        <div className="flex flex-col gap-5 mt-5">
+          <Skull />
+          <Skull />
+          <Skull />
+        </div>
+      ) : (
+        <HoverEffect
+          items={data?.data.slice(0, 3)}
+          className="flex flex-col mt-5 py-0"
+        />
+      )}
     </div>
   );
 };

@@ -9,33 +9,36 @@ const DropSkeleton = () => {
       )}
     >
       {Array.from({ length: 8 }).map((_, i) => (
-        <div
-          key={i}
-          className={cn("flex flex-col  py-6 shadow bg-white rounded-2xl")}
-        >
-          {/*########### logo####### */}
-          <div className=" px-6  ">
-            <Skeleton className="!size-14   !rounded-full mb-4 " />
-          </div>
-
-          {/* ### title */}
-          <div className=" px-6 ">
-            <Skeleton className="h-5 !w-3/5  mb-2 " />
-          </div>
-
-          {/* description */}
-          <p className="px-6 mb-5">
-            <Skeleton className="h-4" />
-            <Skeleton className="h-4 mt-2 !w-4/5" />
-          </p>
-
-          <div className="flex justify-end px-6">
-            <Skeleton className="h-3 !w-6 !ml-auto" />
-          </div>
-        </div>
+        <Skull key={i} />
       ))}
     </div>
   );
 };
 
 export default DropSkeleton;
+
+export const Skull = () => {
+  return (
+    <div className={cn("flex flex-col  py-6 shadow bg-white rounded-2xl")}>
+      {/*########### logo####### */}
+      <div className=" px-6  ">
+        <Skeleton className="!size-14   !rounded-full mb-4 " />
+      </div>
+
+      {/* ### title */}
+      <div className=" px-6 ">
+        <Skeleton className="h-5 !w-3/5  mb-2 " />
+      </div>
+
+      {/* description */}
+      <p className="px-6 mb-5">
+        <Skeleton className="h-4" />
+        <Skeleton className="h-4 mt-2 !w-4/5" />
+      </p>
+
+      <div className="flex justify-end px-6">
+        <Skeleton className="h-3 !w-6 !ml-auto" />
+      </div>
+    </div>
+  );
+};

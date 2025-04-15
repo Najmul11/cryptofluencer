@@ -1,5 +1,4 @@
-"use client";
-import { useGetSingleProjectQuery } from "@/redux/api/project";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   IconBrandDatabricks,
   IconBrandDiscord,
@@ -12,12 +11,10 @@ import {
   IconReceiptDollar,
 } from "@tabler/icons-react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 
 /* eslint-disable @next/next/no-img-element */
-const Details = () => {
-  const { slug } = useParams();
-  const { data: projectData } = useGetSingleProjectQuery(slug as string);
+const Details = ({ data }: { data: any }) => {
+  if (!data) return null;
 
   const {
     name,
@@ -40,7 +37,7 @@ const Details = () => {
     telegram,
     website,
     twitter,
-  } = projectData?.data || {};
+  } = data;
 
   return (
     <div className="flex flex-col gap-4">
