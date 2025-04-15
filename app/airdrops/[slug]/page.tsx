@@ -17,7 +17,7 @@ const Page = () => {
       skip: slug === "all",
     });
 
-  const { data, isLoading } = useGetAllProjectsQuery("", {
+  const { data, isLoading } = useGetAllProjectsQuery(undefined, {
     skip: slug !== "all",
   });
 

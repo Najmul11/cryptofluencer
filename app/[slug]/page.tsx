@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-
 import Details from "@/components/details/Details";
 import HotDrops from "@/components/details/HotDrops";
 import React from "react";

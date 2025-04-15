@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import { Drop } from "./Drop";
+import CardGrids from "./CardGrids";
 
 export const HoverEffect = ({
   items,
@@ -19,7 +20,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4  py-10 w-full",
+        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4  py-10 w-full ",
         className
       )}
     >
@@ -48,7 +49,9 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card className="">
+          <Card className="!border">
+            <CardGrids />
+
             <Drop key={item.title + idx} {...item} index={idx} />
           </Card>
         </Link>
@@ -67,7 +70,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full overflow-hidden  bg-white border border-neutral-300/50  dark:border-white/[0.2]  relative z-20",
+        "rounded-2xl h-full w-full overflow-hidden  bg-white border  border-neutral-300/50  dark:border-white/[0.2]  relative z-20",
         className
       )}
     >

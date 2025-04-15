@@ -9,7 +9,7 @@ import { useGetAllProjectsQuery } from "@/redux/api/project";
 import DropSkeleton from "../skeleton/DropSkeleton";
 
 const Drops = () => {
-  const { data, isLoading } = useGetAllProjectsQuery("");
+  const { data, isLoading } = useGetAllProjectsQuery({ showOnHomepage: "YES" });
 
   return (
     <motion.div className="py-16 ">
