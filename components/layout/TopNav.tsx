@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+import { useGetAllBusinessQuery } from "@/redux/api/business";
 import { cn } from "@/utils/cn";
 import { IconBrandTelegram } from "@tabler/icons-react";
 import Link from "next/link";
@@ -7,6 +8,9 @@ import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
 const TopNav = () => {
+  const { data: businessData } = useGetAllBusinessQuery("");
+  const { telegram } = businessData?.data || {};
+
   const [prices, setPrices] = useState<any>({});
 
   const coinMapping: { [key: string]: string } = {
@@ -115,13 +119,15 @@ const TopNav = () => {
           </div>
         </div>
 
-        <Link
-          href={"/"}
-          className="
+        {telegram && (
+          <Link
+            href={telegram}
+            className="
           flex-center   p-2 bg-brand text-white rounded-full relative overflow-hidden font-medium hover:scale-105  hover:bg-brand/90"
-        >
-          <IconBrandTelegram stroke={2} size={20} />
-        </Link>
+          >
+            <IconBrandTelegram stroke={2} size={20} />
+          </Link>
+        )}
       </div>
     </nav>
   );

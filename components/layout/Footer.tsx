@@ -1,10 +1,14 @@
-import { socials } from "@/data/social-links";
+"use client";
+import { useGetAllBusinessQuery } from "@/redux/api/business";
 import { IconBrandTelegram, IconBrandX, IconMail } from "@tabler/icons-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+
+  const { data: businessData } = useGetAllBusinessQuery("");
+  const { twitter, telegram, email } = businessData?.data || {};
 
   return (
     <div className="pb-5 pt-32 max-w-screen-xl mx-auto ">
@@ -13,22 +17,28 @@ const Footer = () => {
           Built with ❤️ © {year}. All rights reserved.
         </p>
 
-        <div className="flex gap-8">
+        <div className="flex gap-6">
           {/* ############# twitter ######## */}
 
-          <Icon
-            link={socials.twiiter}
-            icon={<IconBrandX stroke={2} size={20} />}
-          />
+          {twitter && (
+            <Icon link={twitter} icon={<IconBrandX stroke={2} size={20} />} />
+          )}
 
           {/* ############# telegram ######## */}
-          <Icon
-            link={socials.telegram}
-            icon={<IconBrandTelegram stroke={2} size={20} />}
-          />
+          {telegram && (
+            <Icon
+              link={telegram}
+              icon={<IconBrandTelegram stroke={2} size={20} />}
+            />
+          )}
 
           {/* ############# telegram ######## */}
-          <Icon link={socials.email} icon={<IconMail stroke={2} size={20} />} />
+          {email && (
+            <Icon
+              link={`mailto:${email}`}
+              icon={<IconMail stroke={2} size={20} />}
+            />
+          )}
         </div>
       </div>
     </div>
@@ -40,6 +50,7 @@ export default Footer;
 const Icon = ({ link, icon }: { link: string; icon: ReactNode }) => {
   return (
     <Link
+      target="_blank"
       href={link}
       className="hover:-translate-y-1 duration-200  bg-brand p-2  rounded-full text-white"
     >
