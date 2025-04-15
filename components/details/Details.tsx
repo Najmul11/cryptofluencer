@@ -17,24 +17,19 @@ import { useParams } from "next/navigation";
 /* eslint-disable @next/next/no-img-element */
 const Details = () => {
   const { slug } = useParams();
-  const { data: projectData, isLoading } = useGetSingleProjectQuery(
-    slug as string
-  );
+  const { data: projectData } = useGetSingleProjectQuery(slug as string);
 
   const {
     name,
 
     description,
-    highlightedText,
     logoURL,
 
-    categories,
     platform,
 
     inviteCode,
     inviteURL,
 
-    showOnHomepage,
     status,
     buttonText,
 
