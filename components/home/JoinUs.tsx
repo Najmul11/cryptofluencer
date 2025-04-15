@@ -13,7 +13,9 @@ import Link from "next/link";
 import SeeMore from "../ui/seeMore";
 import JoinusSkeleton from "../skeleton/JoinusSkeleton";
 import { useGetAllAffiliatesQuery } from "@/redux/api/affiliate";
-
+import { useGetAllBusinessQuery } from "@/redux/api/business";
+import { ReactNode } from "react";
+import Skeleton from "react-loading-skeleton";
 const JoinUs = () => {
   const { data, isLoading } = useGetAllAffiliatesQuery("");
 
@@ -76,45 +78,82 @@ const JoinUs = () => {
 export default JoinUs;
 
 const PrimaryPlatforms = () => {
+  const { data: businessData, isLoading: businessDataLoading } =
+    useGetAllBusinessQuery("");
+  const { twitter, youtube, telegram } = businessData?.data || {};
   return (
     <div className="mt-5 grid grid-cols-3 gap-5">
-      {links.map((link) => (
-        <Link
-          key={link.label}
-          href={link.path}
-          style={{ borderColor: link.color }}
-          className="py-3 border-2   hover:text-white group duration-200 rounded-lg flex-center gap-2 text-xl font-semibold relative overflow-hidden"
-        >
-          {link.icon}
-          {link.label}
-          {/* Background transition effect */}
-          <span
-            style={{ background: link.color }}
-            className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full  scale-x-[10%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"
-          ></span>
-        </Link>
-      ))}
+      {businessDataLoading ? (
+        <>
+          <Skeleton className="h-[70px]" />
+          <Skeleton className="h-[70px]" />
+          <Skeleton className="h-[70px]" />
+        </>
+      ) : (
+        <>
+          {twitter && (
+            <PrimaryPlatform
+              color="#000"
+              href={twitter}
+              icon={<IconBrandX size={30} className="" />}
+              label="Twitter"
+            />
+          )}
+          {youtube && (
+            <PrimaryPlatform
+              color="#ef4444"
+              href={youtube}
+              icon={
+                <IconBrandYoutube
+                  size={45}
+                  className="fill-red-500 text-white"
+                />
+              }
+              label="Youtube"
+            />
+          )}
+          {telegram && (
+            <PrimaryPlatform
+              color="#39AFD9"
+              href={telegram}
+              icon={
+                <IconBrandTelegram
+                  size={45}
+                  className="fill-[#39AFD9] text-white"
+                />
+              }
+              label="Telegram"
+            />
+          )}
+        </>
+      )}
     </div>
   );
 };
 
-const links = [
-  {
-    label: "Youtube",
-    path: "/airdrops/ai",
-    icon: <IconBrandYoutube size={45} className="fill-red-500 text-white" />,
-    color: "#ef4444",
-  },
-  {
-    label: "Telegram",
-    path: "/airdrops/depin",
-    icon: <IconBrandTelegram size={45} className="fill-[#39AFD9] text-white" />,
-    color: "#39AFD9",
-  },
-  {
-    label: "Twitter",
-    path: "/airdrops/depin",
-    icon: <IconBrandX size={30} className="" />,
-    color: "#000",
-  },
-];
+type TPlatform = {
+  icon: ReactNode;
+  label: string;
+  href: string;
+  color: string;
+};
+
+const PrimaryPlatform = ({ color, href, icon, label }: TPlatform) => {
+  return (
+    <Link
+      target="_blank"
+      href={href}
+      style={{ borderColor: color }}
+      className="py-3 border-2   hover:text-white group duration-200 rounded-lg flex-center gap-2 text-xl font-semibold relative overflow-hidden"
+    >
+      {icon}
+      {label}
+
+      {/* Background transition effect */}
+      <span
+        style={{ background: color }}
+        className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full  scale-x-[10%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"
+      ></span>
+    </Link>
+  );
+};

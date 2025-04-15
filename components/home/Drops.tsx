@@ -26,7 +26,11 @@ const Drops = () => {
 
       {/* drops */}
 
-      {isLoading ? <DropSkeleton /> : <HoverEffect items={data?.data} />}
+      {isLoading ? (
+        <DropSkeleton />
+      ) : (
+        <HoverEffect items={data?.data.slice(0, 12)} />
+      )}
 
       {/* View All Airdrops Button */}
       <div className="flex justify-end mt-3 px-8 xl:px-0">
