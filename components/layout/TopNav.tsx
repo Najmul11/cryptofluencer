@@ -42,7 +42,7 @@ const TopNav = () => {
   }, []);
 
   return (
-    <nav className=" sticky top-0 !z-[11000] bg-[#fbfbfb]">
+    <nav className=" sticky top-0 !z-[11000] bg-[#fbfbfb] shadow-sm">
       <div className="max-w-screen-xl flex gap-5  mx-auto items-center  py-2">
         <Link href={"/"} className="leading-3 font-semibold  rounded-md ">
           <sup className="italic text-[15px]"> Compho </sup>

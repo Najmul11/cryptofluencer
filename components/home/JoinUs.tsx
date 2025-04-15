@@ -10,12 +10,12 @@ import {
 import { motion } from "framer-motion";
 
 import Link from "next/link";
-import SeeMore from "../ui/seeMore";
 import JoinusSkeleton from "../skeleton/JoinusSkeleton";
 import { useGetAllAffiliatesQuery } from "@/redux/api/affiliate";
 import { useGetAllBusinessQuery } from "@/redux/api/business";
 import { ReactNode } from "react";
 import Skeleton from "react-loading-skeleton";
+import JoinUsModal from "./JoinUsModal";
 const JoinUs = () => {
   const { data, isLoading } = useGetAllAffiliatesQuery("");
 
@@ -45,10 +45,11 @@ const JoinUs = () => {
             <>
               {data?.data.length > 0 && (
                 <div className="grid grid-cols-6 gap-5 mt-8">
-                  {data.data.map((affiliate: any) => (
+                  {data?.data.map((affiliate: any) => (
                     <Link
                       key={affiliate?.id}
                       href={affiliate?.link}
+                      target="_blank"
                       className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
                     >
                       <img
@@ -64,11 +65,7 @@ const JoinUs = () => {
             </>
           )}
 
-          {data?.data.length > 12 && (
-            <div className="mt-10">
-              <SeeMore name={" See More "} link={"/home"} />
-            </div>
-          )}
+          {data?.data.length > 3 && <JoinUsModal data={data?.data} />}
         </div>
       </motion.div>
     </div>

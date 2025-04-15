@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="font-inter text-blackAccent ">
+    <html lang="en" className="font-inter text-blackAccent    ">
       <ReduxProvider>
         <AntdProvider>
           <body className={` antialiased `}>
