@@ -65,7 +65,7 @@ const JoinUs = () => {
             </>
           )}
 
-          {data?.data.length > 6 && <JoinUsModal data={data?.data} />}
+          {data?.data.length > 12 && <JoinUsModal data={data?.data} />}
         </div>
       </motion.div>
     </div>
