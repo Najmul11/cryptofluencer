@@ -14,72 +14,32 @@ const CategoryMenu = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const { data, isLoading } = useGetAllCategoriesQuery("");
+  console.log(data);
 
   return (
-    <div className="flex justify-between">
+    <div className="">
       {isLoading ? (
         <CategorySkeleton />
       ) : (
-        <div className=" flex items-center gap-4">
-          <Link
-            href={"/airdrops/all"}
-            className={cn(
-              "flex-center gap-2 group duration-200    px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none",
-              {
-                "!bg-brand text-white": slug === "all",
-                "hover:text-brand": slug !== "all",
-              }
-            )}
-          >
-            All
-          </Link>
-          {data?.data.length > 0 &&
-            data?.data.slice(0, 3).map((category: any) => (
-              <Link
-                key={category.slug}
-                href={category.slug}
-                className={cn(
-                  "flex-center gap-2 group duration-200    px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none",
-                  {
-                    "!bg-brand text-white": slug === category?.slug,
-                    "hover:text-brand": slug !== category?.slug,
-                  }
-                )}
-              >
-                {category?.name}
-              </Link>
-            ))}
-        </div>
-      )}
-
-      {!isLoading && (
-        <div className="relative">
-          <button
-            onClick={() => setShowDropdown(!showDropdown)}
-            className="flex-center gap-2 group duration-200 px-6 py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
-          >
-            More
-            <motion.div
-              animate={{ rotate: showDropdown ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
+        <div className="flex justify-between w-full">
+          <div className=" flex items-center gap-4">
+            <Link
+              href={"/airdrops/all"}
+              className={cn(
+                "flex-center gap-2 group duration-200    px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none",
+                {
+                  "!bg-brand text-white": slug === "all",
+                  "hover:text-brand": slug !== "all",
+                }
+              )}
             >
-              <IconChevronDown size={20} />
-            </motion.div>
-          </button>
-
-          {/* Animated Dropdown */}
-          {showDropdown && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="absolute top-full mt-2  right-0     mx-auto w-[1280px] grid grid-cols-8 bg-white rounded-2xl border py-6  px-4 z-50 gap-2"
-            >
-              {data?.data.map((category: any) => (
+              All
+            </Link>
+            {data?.data.length > 0 &&
+              data?.data.slice(0, 3).map((category: any) => (
                 <Link
-                  key={category?.slug}
-                  href={category?.slug}
+                  key={category.slug}
+                  href={category.slug}
                   className={cn(
                     "flex-center gap-2 group duration-200    px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none",
                     {
@@ -91,8 +51,50 @@ const CategoryMenu = () => {
                   {category?.name}
                 </Link>
               ))}
-            </motion.div>
-          )}
+          </div>
+
+          {/* ########### more btn ############# */}
+          <div className="relative">
+            <button
+              onClick={() => setShowDropdown(!showDropdown)}
+              className="flex-center gap-2 group duration-200 px-6 py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
+            >
+              More
+              <motion.div
+                animate={{ rotate: showDropdown ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <IconChevronDown size={20} />
+              </motion.div>
+            </button>
+
+            {/* Animated Dropdown */}
+            {showDropdown && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="absolute top-full mt-2  right-0     mx-auto w-[1280px] grid grid-cols-8 bg-white rounded-2xl border py-6  px-4 z-50 gap-2"
+              >
+                {data?.data.map((category: any) => (
+                  <Link
+                    key={category?.slug}
+                    href={category?.slug}
+                    className={cn(
+                      "flex-center gap-2 group duration-200    px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none",
+                      {
+                        "!bg-brand text-white": slug === category?.slug,
+                        "hover:text-brand": slug !== category?.slug,
+                      }
+                    )}
+                  >
+                    {category?.name}
+                  </Link>
+                ))}
+              </motion.div>
+            )}
+          </div>
         </div>
       )}
     </div>
