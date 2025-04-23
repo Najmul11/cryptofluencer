@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import DetailsPage from "@/components/details/DetailsPage";
 import { Metadata } from "next";
 
@@ -7,13 +8,11 @@ const page = () => {
 
 export default page;
 
-export async function generateMetadata(
-  props: Promise<{ params: { slug: string } }>
-): Promise<Metadata> {
-  const { params } = await props;
+export async function generateMetadata(props: any): Promise<Metadata> {
+  const { slug } = (await props).params;
 
-  const title = `Potential ${params.slug} Airdrop`;
-  const description = `How to be eligible for ${params.slug} airdrop?`;
+  const title = `Potential ${slug} Airdrop`;
+  const description = `How to be eligible for ${slug} airdrop`;
 
   return {
     title,
