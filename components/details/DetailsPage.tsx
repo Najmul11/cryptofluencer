@@ -6,12 +6,17 @@ import { useParams } from "next/navigation";
 import HotDrops from "./HotDrops";
 import DetailsSkeleton from "../skeleton/DetailsSkeleton";
 import Details from "./Details";
+import NotFound from "@/app/not-found";
 
 const DetailsPage = () => {
   const { slug } = useParams();
   const { data: projectData, isLoading } = useGetSingleProjectQuery(
     slug as string
   );
+
+  if (!projectData?.data) {
+    return <NotFound />;
+  }
 
   return (
     <div className="wrapper  pt-16">
