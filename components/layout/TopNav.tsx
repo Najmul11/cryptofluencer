@@ -2,14 +2,14 @@
 "use client";
 import { useGetAllBusinessQuery } from "@/redux/api/business";
 import { cn } from "@/utils/cn";
-import { IconBrandTelegram } from "@tabler/icons-react";
+import { IconMail } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
 const TopNav = () => {
   const { data: businessData } = useGetAllBusinessQuery("");
-  const { telegram } = businessData?.data || {};
+  const { email } = businessData?.data || {};
 
   const [prices, setPrices] = useState<any>({});
 
@@ -49,8 +49,8 @@ const TopNav = () => {
     <nav className=" sticky top-0 !z-[11000] bg-[#fbfbfb] shadow-sm">
       <div className="max-w-screen-xl flex gap-5  mx-auto items-center  py-2">
         <Link href={"/"} className="leading-3 font-semibold  rounded-md ">
-          <sup className="italic text-[15px]"> Compho </sup>
-          <span className="text-brand text-lg ">Airdrops</span>
+          <span className=" text-lg"> Drops </span>
+          <span className="text-brand text-lg ">Fi</span>
         </Link>
 
         {/* #### price update marque #### */}
@@ -119,13 +119,14 @@ const TopNav = () => {
           </div>
         </div>
 
-        {telegram && (
+        {email && (
           <Link
-            href={telegram}
-            className="
-          flex-center   p-2 bg-brand text-white rounded-full relative overflow-hidden font-medium hover:scale-105  hover:bg-brand/90"
+            href={`mailto:${email}`}
+            className="flex-center gap-2 group h-[40px] px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border"
           >
-            <IconBrandTelegram stroke={2} size={20} />
+            <IconMail />
+            Contact
+            <span className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full bg-brand scale-x-[40%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"></span>
           </Link>
         )}
       </div>
