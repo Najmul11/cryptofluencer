@@ -7,7 +7,6 @@ import SeeMore from "../ui/seeMore";
 import { useGetAllProjectsQuery } from "@/redux/api/project";
 import DropSkeleton from "../skeleton/DropSkeleton";
 
-import droplogo from "../../public/assets/drop.png";
 import droplog from "../../public/assets/drops-removebg-preview.png";
 
 const Drops = () => {
