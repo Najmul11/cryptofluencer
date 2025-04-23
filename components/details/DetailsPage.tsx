@@ -1,7 +1,7 @@
 "use client";
 
-import { useGetSingleProjectQuery } from "@/redux/api/project";
 /* eslint-disable @next/next/no-img-element */
+import { useGetSingleProjectQuery } from "@/redux/api/project";
 import { useParams } from "next/navigation";
 import HotDrops from "./HotDrops";
 import DetailsSkeleton from "../skeleton/DetailsSkeleton";
