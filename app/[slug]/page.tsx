@@ -1,37 +1,21 @@
-"use client";
+import DetailsPage from "@/components/details/DetailsPage";
+import { Metadata } from "next";
 
-/* eslint-disable @next/next/no-img-element */
-import Details from "@/components/details/Details";
-import HotDrops from "@/components/details/HotDrops";
-import { useGetSingleProjectQuery } from "@/redux/api/project";
-import React from "react";
-import { useParams } from "next/navigation";
-import DetailsSkeleton from "@/components/skeleton/DetailsSkeleton";
-
-const Page = () => {
-  const { slug } = useParams();
-  const { data: projectData, isLoading } = useGetSingleProjectQuery(
-    slug as string
-  );
-
-  return (
-    <div className="wrapper  pt-16">
-      <div className="min-h-screen grid grid-cols-3 gap-5">
-        {/* --hot drops-- */}
-        <HotDrops />
-        {/* details */}
-        <div className="col-span-2 ">
-          <div className="border p-5 rounded-2xl bg-white">
-            {isLoading ? (
-              <DetailsSkeleton />
-            ) : (
-              <Details data={projectData?.data} />
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+const page = () => {
+  return <DetailsPage />;
 };
 
-export default Page;
+export default page;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const title = `Potential  ${params.slug}  Airdrop`;
+
+  return {
+    title,
+    description: `How to be eligible for  ${params.slug} airdrop`,
+  };
+}
