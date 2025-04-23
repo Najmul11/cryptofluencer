@@ -8,6 +8,7 @@ import { HoverEffect } from "@/components/ui/card-hover-effect";
 import Pagination from "@/components/ui/Pagination";
 import { useGetSingleCategoryQuery } from "@/redux/api/category";
 import { useGetAllProjectsQuery } from "@/redux/api/project";
+import { cn } from "@/utils/cn";
 
 const ITEMS_PER_PAGE = 30;
 
@@ -63,11 +64,24 @@ const Page = () => {
       {isLoading || categoryProjectsLoading ? (
         <DropSkeleton />
       ) : paginatedItems.length > 0 ? (
-        <HoverEffect items={paginatedItems} />
+        <div className={cn({ "mt-10": search })}>
+          {search && (
+            <h2>
+              Search result for &apos;<i>{search}</i>&apos;
+            </h2>
+          )}
+          <HoverEffect items={paginatedItems} />
+        </div>
       ) : (
         <div className="h-[calc(100vh-300px)] flex-center">
           <p className="text-center text-2xl font-medium py-6">
-            There are no projects. 🫥
+            {search ? (
+              <span>
+                Your search &apos;<i>{search}</i>&apos; has no result 🫥
+              </span>
+            ) : (
+              "There are no projects. "
+            )}
           </p>
         </div>
       )}

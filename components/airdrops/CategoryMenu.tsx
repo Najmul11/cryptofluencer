@@ -3,36 +3,27 @@
 import { cn } from "@/utils/cn";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useGetAllCategoriesQuery } from "@/redux/api/category";
 import { IconChevronDown, IconSearch } from "@tabler/icons-react";
 import CategorySkeleton from "../skeleton/CategorySkeleton";
 
-type TProps = {
-  search: string;
-};
-
-const DEBOUNCE_DELAY = 500;
-
-const CategoryMenu = ({ search }: TProps) => {
+const CategoryMenu = ({ search }: { search: string }) => {
   const { slug } = useParams();
   const [showDropdown, setShowDropdown] = useState(false);
   const { data, isLoading } = useGetAllCategoriesQuery("");
 
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(search || "");
+
   const router = useRouter();
 
-  // Debounce effect
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (input.trim()) {
-        router.push(`/airdrops/all?search=${encodeURIComponent(input.trim())}`);
-      }
-    }, DEBOUNCE_DELAY);
-
-    return () => clearTimeout(timeout);
-  }, [input, router]);
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (input.trim()) {
+      router.push(`/airdrops/all?search=${encodeURIComponent(input.trim())}`);
+    } else router.push(`/airdrops/all`);
+  };
 
   if (isLoading) return <CategorySkeleton />;
 
@@ -134,7 +125,7 @@ const CategoryMenu = ({ search }: TProps) => {
         )}
       </div>
 
-      <div className="flex justify-end w-full">
+      <form onSubmit={handleSearch} className="flex justify-end w-full">
         <div className="relative">
           <input
             type="text"
@@ -143,12 +134,14 @@ const CategoryMenu = ({ search }: TProps) => {
             onChange={(e) => setInput(e.target.value)}
             className="py-2 text-sm px-2 rounded border focus:border-transparent focus:outline-none border-brand border-dashed focus:ring-2 focus:!ring-brand"
           />
-          <IconSearch
-            size={17}
-            className="text-brand/50 absolute top-1/2 right-2 -translate-y-1/2 pointer-events-none"
-          />
+          <button type="submit">
+            <IconSearch
+              size={17}
+              className="text-brand/50 absolute top-1/2 right-2 -translate-y-1/2"
+            />
+          </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
