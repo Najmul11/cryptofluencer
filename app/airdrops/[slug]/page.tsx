@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import CategoryMenu from "@/components/airdrops/CategoryMenu";
 import DropSkeleton from "@/components/skeleton/DropSkeleton";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
@@ -13,7 +13,9 @@ const ITEMS_PER_PAGE = 30;
 
 const Page = () => {
   const { slug } = useParams();
-  const [currentPage, setCurrentPage] = useState(0);
+  const searchParams = useSearchParams();
+
+  const search = searchParams.get("search") || "";
 
   const { data: categoryProjects, isLoading: categoryProjectsLoading } =
     useGetSingleCategoryQuery(slug as string, {
@@ -24,21 +26,39 @@ const Page = () => {
     skip: slug !== "all",
   });
 
+  const [currentPage, setCurrentPage] = useState(0);
+
   const projects =
     slug === "all"
       ? data?.data || []
       : categoryProjects?.data?.projects?.map((item: any) => item.project) ||
         [];
 
-  const pageCount = Math.ceil(projects.length / ITEMS_PER_PAGE);
-  const paginatedItems = projects.slice(
+  const filteredProjects =
+    slug === "all" && search
+      ? projects.filter(
+          (project: any) =>
+            ["name", "slug", "status", "inviteURL", "inviteCode"].some((key) =>
+              String(project[key]).toLowerCase().includes(search.toLowerCase())
+            ) ||
+            project.platform?.name
+              ?.toLowerCase()
+              .includes(search.toLowerCase()) ||
+            project.categories?.some((cat: any) =>
+              cat.category?.name?.toLowerCase().includes(search.toLowerCase())
+            )
+        )
+      : projects;
+
+  const pageCount = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
+  const paginatedItems = filteredProjects.slice(
     currentPage * ITEMS_PER_PAGE,
     (currentPage + 1) * ITEMS_PER_PAGE
   );
 
   return (
     <div className="wrapper pt-3 min-h-[calc(100vh-250px)]">
-      <CategoryMenu />
+      <CategoryMenu search={search} />
 
       {isLoading || categoryProjectsLoading ? (
         <DropSkeleton />
