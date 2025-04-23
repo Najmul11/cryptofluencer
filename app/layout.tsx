@@ -9,7 +9,7 @@ import ReduxProvider from "@/components/providers/ReduxProvider";
 import "react-loading-skeleton/dist/skeleton.css";
 
 export const metadata: Metadata = {
-  title: "Compho airdrops",
+  title: "Cypto Airdrops - DropsFi",
   description: "Farming airdrops made easier",
 };
 

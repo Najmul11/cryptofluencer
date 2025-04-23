@@ -47,10 +47,15 @@ const TopNav = () => {
 
   return (
     <nav className=" sticky top-0 !z-[11000] bg-[#fbfbfb] shadow-sm">
-      <div className="max-w-screen-xl flex gap-5  mx-auto items-center  py-2">
-        <Link href={"/"} className="leading-3 font-semibold  rounded-md ">
-          <span className=" text-lg"> Drops </span>
-          <span className="text-brand text-lg ">Fi</span>
+      <div className="max-w-screen-xl flex gap-5  mx-auto items-center  py-3">
+        <Link
+          href={"/"}
+          className="leading-3 font-semibold flex items-center gap-2 rounded-md  relative "
+        >
+          <p>
+            <span className=" text-xl"> Drops </span>
+            <span className="text-brand text-xl ">Fi</span>
+          </p>
         </Link>
 
         {/* #### price update marque #### */}

@@ -1,12 +1,14 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { HoverEffect } from "../ui/card-hover-effect";
 import SeeMore from "../ui/seeMore";
 import { useGetAllProjectsQuery } from "@/redux/api/project";
 import DropSkeleton from "../skeleton/DropSkeleton";
+
+import droplogo from "../../public/assets/drop.png";
+import droplog from "../../public/assets/drops-removebg-preview.png";
 
 const Drops = () => {
   const { data, isLoading } = useGetAllProjectsQuery({ showOnHomepage: "YES" });
@@ -16,7 +18,7 @@ const Drops = () => {
       <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold px-8 xl:px-0 flex items-center gap-3">
         Recent Airdrops
         <Image
-          src="/assets/drop.png"
+          src={droplog}
           alt="recent-airdrop-logo"
           width={64}
           height={64}
