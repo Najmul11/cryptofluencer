@@ -20,23 +20,14 @@ const CategoryMenu = ({ search }: TProps) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const { data, isLoading } = useGetAllCategoriesQuery("");
 
-  const [input, setInput] = useState(search || "");
+  const [input, setInput] = useState("");
   const router = useRouter();
-
-  // const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   if (input.trim()) {
-  //     router.push(`/airdrops/all?search=${encodeURIComponent(input.trim())}`);
-  //   } else router.push(`/airdrops/all`);
-  // };
 
   // Debounce effect
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (input.trim()) {
         router.push(`/airdrops/all?search=${encodeURIComponent(input.trim())}`);
-      } else {
-        router.push("/airdrops/all");
       }
     }, DEBOUNCE_DELAY);
 
