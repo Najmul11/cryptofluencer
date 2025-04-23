@@ -14,7 +14,7 @@ const DetailsPage = () => {
     slug as string
   );
 
-  if (!projectData?.data) {
+  if (!isLoading && !projectData?.data) {
     return <NotFound />;
   }
 
