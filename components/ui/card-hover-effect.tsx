@@ -49,7 +49,7 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card className="!border">
+          <Card className="">
             <CardGrids />
 
             <Drop key={item.title + idx} {...item} index={idx} />
