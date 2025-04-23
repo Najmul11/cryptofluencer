@@ -122,11 +122,11 @@ const TopNav = () => {
         {email && (
           <Link
             href={`mailto:${email}`}
-            className="flex-center gap-2 group h-[40px] px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border"
+            className="flex-center gap-2 group h-[40px] text-sm px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border"
           >
             <IconMail />
             Contact
-            <span className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full bg-brand scale-x-[40%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"></span>
+            <span className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full bg-brand scale-x-[45%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"></span>
           </Link>
         )}
       </div>
