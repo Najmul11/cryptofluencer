@@ -1,5 +1,5 @@
 /* eslint-disable prefer-const */
-const ENV_MODE: string = process.env.MODE || "production";
+const ENV_MODE: string = process.env.NODE_ENV || "production";
 
 const getEnvUrls = () => {
   let apiUrl = process.env.NEXT_PUBLIC_API_URL;

@@ -20,8 +20,8 @@ const projectApi = api.injectEndpoints({
 
     // ======== get all project =========
     getSingleProject: builder.query({
-      query: (id: string) => ({
-        url: `/projects/${id}`,
+      query: (slug: string) => ({
+        url: `/projects/${slug}`,
       }),
     }),
   }),
