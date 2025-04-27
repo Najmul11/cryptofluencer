@@ -30,7 +30,7 @@ h2 {
 }
 
 .wrapper {
-  @apply max-w-screen-xl mx-auto;
+  @apply max-w-screen-xl mx-auto px-4 xl:px-[unset];
 }
 
 .flex-center {

@@ -17,6 +17,10 @@ export default {
         brand: "#F6821F",
         cream: "#fbfbfb",
       },
+      screens: {
+        smOne: "560px",
+        xlOne: "1050px",
+      },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         inter: ["Inter", "serif"],

@@ -31,7 +31,7 @@ const JoinUs = () => {
         viewport={{ once: true, amount: 0.4 }}
         variants={animationVariants}
       >
-        <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold px-8 xl:px-0 flex items-center gap-5">
+        <h2 className="text-3xl lg:text-4xl  xl:text-5xl font-semibold flex items-center gap-5">
           Join Us <IconHeartHandshake size={80} className="text-brand" />
         </h2>
 
@@ -44,7 +44,7 @@ const JoinUs = () => {
           ) : (
             <>
               {data?.data.length > 0 && (
-                <div className="grid grid-cols-6 gap-5 mt-8">
+                <div className="grid grid-cols-2  smOne:grid-cols-3 md:grid-cols-4 lg xlOne:grid-cols-6 gap-5 mt-8">
                   {data?.data?.slice(0, 12).map((affiliate: any) => (
                     <Link
                       key={affiliate?.id}
@@ -79,7 +79,7 @@ const PrimaryPlatforms = () => {
     useGetAllBusinessQuery("");
   const { twitter, youtube, telegram } = businessData?.data || {};
   return (
-    <div className="mt-5 grid grid-cols-3 gap-5">
+    <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-5">
       {businessDataLoading ? (
         <>
           <Skeleton className="h-[70px]" />
