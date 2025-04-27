@@ -14,7 +14,7 @@ const Drops = () => {
 
   return (
     <motion.div className="py-16 ">
-      <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold px-8 xl:px-0 flex items-center gap-3">
+      <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold  xl:px-0 flex items-center gap-3">
         Recent Airdrops
         <Image
           src={droplog}
@@ -34,8 +34,8 @@ const Drops = () => {
       )}
 
       {/* View All Airdrops Button */}
-      <div className="flex justify-end mt-3 px-8 xl:px-0">
-        <SeeMore name={" View All AIrdrops "} link={"/airdrops/all"} />
+      <div className="flex justify-end mt-3  xl:px-0">
+        <SeeMore name={" View All Airdrops "} link={"/airdrops/all"} />
       </div>
     </motion.div>
   );

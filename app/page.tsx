@@ -8,7 +8,7 @@ const page = () => {
     <div className="wrapper  pt-3">
       {/* <BannerAds /> */}
       {/* <HotDrops /> */}
-      {/* <Drops /> */}
+      <Drops />
       <JoinUs />
     </div>
   );

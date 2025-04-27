@@ -19,6 +19,7 @@ export default {
       },
       screens: {
         smOne: "560px",
+        lgOne: "900px",
         xlOne: "1050px",
       },
       fontFamily: {
