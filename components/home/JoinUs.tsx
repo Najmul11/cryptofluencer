@@ -45,7 +45,7 @@ const JoinUs = () => {
             <>
               {data?.data.length > 0 && (
                 <div className="grid grid-cols-6 gap-5 mt-8">
-                  {data?.data.map((affiliate: any) => (
+                  {data?.data?.slice(0, 12).map((affiliate: any) => (
                     <Link
                       key={affiliate?.id}
                       href={affiliate?.link}
