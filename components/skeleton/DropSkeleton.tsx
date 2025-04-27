@@ -5,7 +5,7 @@ const DropSkeleton = () => {
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2 gap-5  lg:grid-cols-3 xl:grid-cols-4  py-10 w-full"
+        "grid grid-cols-1 sm:grid-cols-2  lgOne:grid-cols-3 xl:grid-cols-4  py-10 gap-5 w-full"
       )}
     >
       {Array.from({ length: 8 }).map((_, i) => (

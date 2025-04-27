@@ -23,7 +23,7 @@ export default function RootLayout({
       <ReduxProvider>
         <AntdProvider>
           <body className={` antialiased `}>
-            {/* <TopNav /> */}
+            <TopNav />
 
             {children}
           </body>
