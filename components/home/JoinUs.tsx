@@ -92,7 +92,7 @@ const PrimaryPlatforms = () => {
             <PrimaryPlatform
               color="#000"
               href={twitter}
-              icon={<IconBrandX size={30} className="" />}
+              icon={<IconBrandX size={45} className="" />}
               label="Twitter"
             />
           )}

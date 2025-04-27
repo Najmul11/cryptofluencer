@@ -11,9 +11,9 @@ const Footer = () => {
   const { twitter, telegram, email } = businessData?.data || {};
 
   return (
-    <div className="pb-5 pt-32 max-w-screen-xl mx-auto ">
-      <div className="flex justify-between gap-10 items-center ">
-        <p className=" font-medium text-sm">
+    <div className="pb-5 pt-32  wrapper">
+      <div className="flex justify-between flex-col gap-5 sm:flex-row sm:gap-10 items-center ">
+        <p className=" font-medium text-sm max-sm:text-center">
           Built with ❤️ © {year}. All rights reserved.
         </p>
 
