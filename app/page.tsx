@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div className="wrapper  pt-3">
       {/* <BannerAds /> */}
-      {/* <HotDrops /> */}
+      <HotDrops />
       <Drops />
       <JoinUs />
     </div>
