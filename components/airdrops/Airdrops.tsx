@@ -59,7 +59,7 @@ const Airdrops = () => {
 
   return (
     <div className="wrapper pt-3 min-h-[calc(100vh-250px)]">
-      <CategoryMenu search={search} />
+      {/* <CategoryMenu search={search} /> */}
 
       {isLoading || categoryProjectsLoading ? (
         <DropSkeleton />

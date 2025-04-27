@@ -32,7 +32,7 @@ const links = [
   },
   {
     label: "Defi",
-    path: "/airdrops/all",
+    path: "/airdrops/defi",
   },
   {
     label: "View All",
