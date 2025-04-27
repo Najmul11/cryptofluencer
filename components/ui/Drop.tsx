@@ -59,7 +59,7 @@ export const Drop = ({
       {
         <div className="absolute top-3 right-4">
           <div className="flex gap-1 items-center">
-            {funding && (
+            {funding > 0 && (
               <p className="border bg-brand rounded-lg font-medium text-[13px] px-2 text-white">
                 ${funding}
                 <span className=" text-[13px]">{fundingUnit.slice(0, 1)}</span>
