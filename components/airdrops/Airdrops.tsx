@@ -37,18 +37,30 @@ const Airdrops = () => {
 
   const filteredProjects =
     slug === "all" && search
-      ? projects.filter(
-          (project: any) =>
-            ["name", "slug", "status", "inviteURL", "inviteCode"].some((key) =>
-              String(project[key]).toLowerCase().includes(search.toLowerCase())
-            ) ||
-            project.platform?.name
-              ?.toLowerCase()
-              .includes(search.toLowerCase()) ||
-            project.categories?.some((cat: any) =>
-              cat.category?.name?.toLowerCase().includes(search.toLowerCase())
-            )
-        )
+      ? projects
+          .filter((project: any) => {
+            const lowerSearch = search.toLowerCase();
+            return (
+              ["name", "slug", "status", "inviteURL", "inviteCode"].some(
+                (key) =>
+                  String(project[key]).toLowerCase().includes(lowerSearch)
+              ) ||
+              project.platform?.name?.toLowerCase().includes(lowerSearch) ||
+              project.categories?.some((cat: any) =>
+                cat.category?.name?.toLowerCase().includes(lowerSearch)
+              )
+            );
+          })
+          .sort((a: any, b: any) => {
+            const lowerSearch = search.toLowerCase();
+            const aNameMatch = a.name?.toLowerCase().includes(lowerSearch);
+            const bNameMatch = b.name?.toLowerCase().includes(lowerSearch);
+
+            // Prioritize name match
+            if (aNameMatch && !bNameMatch) return -1;
+            if (!aNameMatch && bNameMatch) return 1;
+            return 0; // Maintain relative order for other matches
+          })
       : projects;
 
   const pageCount = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);

@@ -6,7 +6,7 @@ import JoinUs from "@/components/home/JoinUs";
 const page = () => {
   return (
     <div className="wrapper  pt-3">
-      {/* <BannerAds /> */}
+      <BannerAds />
       <HotDrops />
       <Drops />
       <JoinUs />
