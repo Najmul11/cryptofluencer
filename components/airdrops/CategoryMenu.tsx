@@ -6,8 +6,9 @@ import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useGetAllCategoriesQuery } from "@/redux/api/category";
-import { IconChevronDown, IconSearch } from "@tabler/icons-react";
+import { IconChevronDown } from "@tabler/icons-react";
 import CategorySkeleton from "../skeleton/CategorySkeleton";
+import Search from "./Search";
 
 const CategoryMenu = ({ search }: { search: string }) => {
   const { slug } = useParams();
@@ -44,7 +45,7 @@ const CategoryMenu = ({ search }: { search: string }) => {
     : baseCategories;
 
   return (
-    <div className="flex gap-4 w-full relative">
+    <div className="flex gap-4 w-full relative max-md:hidden">
       <div className="flex items-center gap-4">
         <Link
           href="/airdrops/all"
@@ -125,23 +126,7 @@ const CategoryMenu = ({ search }: { search: string }) => {
         )}
       </div>
 
-      <form onSubmit={handleSearch} className="flex justify-end w-full">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search projects"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            className="py-2 text-sm px-2 rounded border focus:border-transparent focus:outline-none border-brand border-dashed focus:ring-2 focus:!ring-brand"
-          />
-          <button type="submit">
-            <IconSearch
-              size={17}
-              className="text-brand/50 absolute top-1/2 right-2 -translate-y-1/2"
-            />
-          </button>
-        </div>
-      </form>
+      <Search input={input} handleSearch={handleSearch} setInput={setInput} />
     </div>
   );
 };

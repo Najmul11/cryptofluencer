@@ -6,6 +6,7 @@ import { IconMail } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
+import MobileMenu from "./MobileMenu";
 
 const TopNav = () => {
   const { data: businessData } = useGetAllBusinessQuery("");
@@ -124,16 +125,19 @@ const TopNav = () => {
           </div>
         </div>
 
+        {/* Contact Button */}
         {email && (
           <Link
             href={`mailto:${email}`}
-            className="flex-center gap-2 group h-[40px] text-sm px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border"
+            className="md:flex justify-center items-center gap-2 group h-[40px] text-sm px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border hidden "
           >
             <IconMail />
             Contact
             <span className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full bg-brand scale-x-[45%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"></span>
           </Link>
         )}
+
+        <MobileMenu />
       </div>
     </nav>
   );
