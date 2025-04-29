@@ -10,7 +10,7 @@ import { useGetSingleCategoryQuery } from "@/redux/api/category";
 import { useGetAllProjectsQuery } from "@/redux/api/project";
 import { cn } from "@/utils/cn";
 
-const ITEMS_PER_PAGE = 30;
+const ITEMS_PER_PAGE = 20;
 
 const Airdrops = () => {
   const { slug } = useParams();
@@ -59,7 +59,7 @@ const Airdrops = () => {
 
   return (
     <div className="wrapper pt-3 min-h-[calc(100vh-250px)]">
-      {/* <CategoryMenu search={search} /> */}
+      <CategoryMenu search={search} />
 
       {isLoading || categoryProjectsLoading ? (
         <DropSkeleton />

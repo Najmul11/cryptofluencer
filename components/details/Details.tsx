@@ -126,7 +126,7 @@ const Details = ({ data }: { data: any }) => {
               target="_blank"
               className="flex-center gap-1 group duration-200  px-6 py-2 bg-brand hover:bg-brand/90 text-white text-sm font-medium rounded-2xl select-none capitalize"
             >
-              Join Airdrop
+              {buttonText ? buttonText : "Join Airdrop"}
               <IconLink
                 stroke={2}
                 size={20}

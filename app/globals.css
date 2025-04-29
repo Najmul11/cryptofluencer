@@ -13,16 +13,8 @@
   --foreground: #374151;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background: #fbfbfb;
 }
 
 h2 {
@@ -35,17 +27,4 @@ h2 {
 
 .flex-center {
   @apply flex items-center justify-center;
-}
-
-/* ########### home hero  lines ###### */
-
-.background-grid-style {
-  --background: #ffffff;
-  --color: rgba(0, 0, 0, 0.2);
-  --height: 5px;
-  --width: 1px;
-  --fade-stop: 90%;
-  --offset: 150px;
-  --color-dark: rgba(255, 255, 255, 0.3);
-  mask-composite: exclude;
 }
