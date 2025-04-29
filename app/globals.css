@@ -28,3 +28,18 @@ h2 {
 .flex-center {
   @apply flex items-center justify-center;
 }
+
+/* =============== custom scrll  */
+
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #f6821f; /* Tailwind's gray-400 */
+  border-radius: 9999px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}

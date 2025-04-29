@@ -6,7 +6,7 @@ import { useGetAllProjectsQuery } from "@/redux/api/project";
 const HotDrops = () => {
   const { data, isLoading } = useGetAllProjectsQuery({ showOnHomepage: "YES" });
   return (
-    <div>
+    <div className="max-md:mt-6">
       <p className="text-center p-3 border font-semibold  bg-gradient-to-br from-brand to-white  rounded-xl">
         🔥 Hot
       </p>
@@ -18,10 +18,12 @@ const HotDrops = () => {
           <Skull />
         </div>
       ) : (
-        <HoverEffect
-          items={data?.data.slice(0, 3)}
-          className="flex flex-col mt-5 py-0"
-        />
+        <div className="max-h-[calc(100vh-25vh)] overflow-y-auto custom-scroll">
+          <HoverEffect
+            items={data?.data}
+            className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 lgOne:grid-cols-1"
+          />
+        </div>
       )}
     </div>
   );
