@@ -18,11 +18,13 @@ const HotDrops = () => {
           <Skull />
         </div>
       ) : (
-        <div className="max-h-[calc(100vh-25vh)] overflow-y-auto custom-scroll">
-          <HoverEffect
-            items={data?.data}
-            className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 lgOne:grid-cols-1"
-          />
+        <div className=" ">
+          <div className="overflow-y-auto custom-scroll mt-8 max-h-[calc(100vh-23vh)] ">
+            <HoverEffect
+              items={data?.data}
+              className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 lgOne:grid-cols-1 !py-0 !my-0"
+            />
+          </div>
         </div>
       )}
     </div>
