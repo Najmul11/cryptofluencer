@@ -3,8 +3,6 @@ import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import TopNav from "@/components/layout/TopNav";
 import AntdProvider from "@/components/providers/AntdProvider";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import ReduxProvider from "@/components/providers/ReduxProvider";
 import "react-loading-skeleton/dist/skeleton.css";
 
