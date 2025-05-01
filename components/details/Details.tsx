@@ -42,10 +42,14 @@ const Details = ({ data }: { data: any }) => {
   return (
     <div className="flex flex-col gap-4">
       {/* primary  details ------ */}
-      <div className="flex gap-5 ">
+      <div className="flex gap-5 max-sm:flex-col">
         <div>
-          <img src={logoURL} alt="" className="size-44 rounded-2xl" />
-          <div className="flex items-center gap-3 justify-center mt-4">
+          <img
+            src={logoURL}
+            alt=""
+            className="size-44 rounded-2xl border border-neutral-300/40"
+          />
+          <div className="flex items-center gap-3 md:justify-center mt-4">
             {website && (
               <Link href={website} target="_blank">
                 <IconBrandDribbbleFilled className="hover:text-cyan-700 cursor-pointer duration-200" />
