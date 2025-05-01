@@ -92,7 +92,7 @@ const PrimaryPlatforms = () => {
             <PrimaryPlatform
               color="#000"
               href={twitter}
-              icon={<IconBrandX size={45} className="" />}
+              icon={<IconBrandX size={30} className="" />}
               label="Twitter"
             />
           )}
@@ -102,7 +102,7 @@ const PrimaryPlatforms = () => {
               href={youtube}
               icon={
                 <IconBrandYoutube
-                  size={45}
+                  size={30}
                   className="fill-red-500 text-white"
                 />
               }
@@ -115,7 +115,7 @@ const PrimaryPlatforms = () => {
               href={telegram}
               icon={
                 <IconBrandTelegram
-                  size={45}
+                  size={30}
                   className="fill-[#39AFD9] text-white"
                 />
               }
@@ -141,7 +141,7 @@ const PrimaryPlatform = ({ color, href, icon, label }: TPlatform) => {
       target="_blank"
       href={href}
       style={{ borderColor: color }}
-      className="py-3 border-2   hover:text-white group duration-200 rounded-lg flex-center gap-2 text-xl font-semibold relative overflow-hidden"
+      className="py-2 md:py-3  border-2   hover:text-white group duration-200 rounded-lg flex-center gap-2 text-xl font-semibold relative overflow-hidden"
     >
       {icon}
       {label}

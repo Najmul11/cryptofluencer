@@ -22,7 +22,7 @@ const HotDrops = () => {
             <Link
               key={category.slug}
               href={`/airdrops/${category.slug}`}
-              className="py-4 border-2 border-brand hover:text-white group duration-200 rounded-lg flex justify-center items-center text-lg md:text-xl font-semibold relative overflow-hidden"
+              className="py-2 md:py-3  border-2 border-brand hover:text-white group duration-200 rounded-lg flex justify-center items-center text-lg md:text-xl font-semibold relative overflow-hidden"
             >
               {index !== 3 && <span className="text-2xl">🔥</span>}{" "}
               {category.name}
@@ -33,7 +33,7 @@ const HotDrops = () => {
 
           <Link
             href={`/airdrops/all`}
-            className="py-4 border-2 border-brand hover:text-white group duration-200 rounded-lg flex justify-center items-center text-lg md:text-xl font-semibold relative overflow-hidden"
+            className="py-2 md:py-3 border-2 border-brand hover:text-white group duration-200 rounded-lg flex justify-center items-center text-lg md:text-xl font-semibold relative overflow-hidden"
           >
             All
             {/* Background transition effect */}
