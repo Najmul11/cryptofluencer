@@ -46,7 +46,7 @@ const CategoryMenu = ({ search }: { search: string }) => {
 
   return (
     <div className="flex gap-4 w-full relative max-md:hidden">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4  flex-shrink-0">
         <Link
           href="/airdrops/all"
           className={cn(
@@ -78,7 +78,7 @@ const CategoryMenu = ({ search }: { search: string }) => {
       </div>
 
       {/* ########### more btn ############# */}
-      <div className="">
+      <div className="flex-shrink-0">
         <button
           onClick={() => setShowDropdown(!showDropdown)}
           className="flex-center gap-2 group duration-200 px-6 py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"

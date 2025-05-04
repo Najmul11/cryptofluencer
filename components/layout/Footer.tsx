@@ -8,7 +8,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   const { data: businessData } = useGetAllBusinessQuery("");
-  const { twitter, telegram, email } = businessData?.data || {};
+  const { telegramBusiness, twitterBusiness, email } = businessData?.data || {};
 
   return (
     <div className="pb-5 pt-32  wrapper">
@@ -20,14 +20,17 @@ const Footer = () => {
         <div className="flex gap-6">
           {/* ############# twitter ######## */}
 
-          {twitter && (
-            <Icon link={twitter} icon={<IconBrandX stroke={2} size={20} />} />
+          {twitterBusiness && (
+            <Icon
+              link={twitterBusiness}
+              icon={<IconBrandX stroke={2} size={20} />}
+            />
           )}
 
           {/* ############# telegram ######## */}
-          {telegram && (
+          {telegramBusiness && (
             <Icon
-              link={telegram}
+              link={telegramBusiness}
               icon={<IconBrandTelegram stroke={2} size={20} />}
             />
           )}
