@@ -5,10 +5,10 @@ const DetailsSkeleton = () => {
   return (
     <div className="flex flex-col gap-4">
       {/* primary  details ------ */}
-      <div className="flex gap-5 ">
+      <div className="flex flex-col md:flex-row gap-5 ">
         <div>
           <Skeleton className="!size-44 rounded-2xl" />
-          <div className="flex items-center gap-3 justify-center mt-4">
+          <div className="flex items-center gap-3 md:justify-center mt-4">
             <Skeleton className="!size-7 rounded-lg" />
             <Skeleton className="!size-7 rounded-lg" />
             <Skeleton className="!size-7 rounded-lg" />

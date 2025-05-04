@@ -75,16 +75,17 @@ const MobileMenu = () => {
             </div>
 
             <div className="flex flex-col gap-4 !h-[calc(100vh-320px)]  overflow-y-auto ">
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              <div className="flex flex-wrap gap-4 overflow-hidden ">
                 {data?.data?.length > 0 &&
                   data?.data.map((category: any) => (
                     <Link
+                      onClick={() => setMenuOpen(false)}
                       key={category.slug}
                       href={`/airdrops/${category.slug}`}
                       className={cn(
-                        "flex-center gap-2 group duration-200 px-6 py-1 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none",
+                        "flex-center gap-2 group duration-200 px-3 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none",
                         {
-                          "!bg-brand text-white": slug === category.slug,
+                          "!text-brand ": slug === category.slug,
                           "hover:text-brand": slug !== category.slug,
                         }
                       )}
