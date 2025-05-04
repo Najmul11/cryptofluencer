@@ -43,3 +43,10 @@ h2 {
 .custom-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
+
+/* ======================== */
+
+.description a {
+  color: #1447e6;
+  text-decoration: underline;
+}

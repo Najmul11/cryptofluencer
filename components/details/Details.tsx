@@ -5,6 +5,7 @@ import {
   IconBrandDribbbleFilled,
   IconBrandTelegram,
   IconBrandX,
+  IconChecks,
   IconLayersIntersect,
   IconLayoutBottombarInactive,
   IconLink,
@@ -88,10 +89,13 @@ const Details = ({ data }: { data: any }) => {
             <IconLayoutBottombarInactive className="text-brand" size={20} />{" "}
             <div className="flex gap-2 items-center">
               <p>Status :</p>
-              <p className="flex gap-1 items-center">
-                {/* Confirmed <IconChecks size={20} className="text-green-500" /> */}
-                {status}
-                <span className="font-semibold text-red-500 text-lg">X</span>
+              <p className="flex gap-1 items-center !capitalize">
+                {status.toLowerCase()}
+                {status.toLowerCase() === "confirmed" ? (
+                  <IconChecks size={20} className="text-green-500" />
+                ) : (
+                  <span className="font-semibold text-red-500 text-lg">X</span>
+                )}
               </p>
             </div>
           </div>
@@ -128,7 +132,7 @@ const Details = ({ data }: { data: any }) => {
             <Link
               href={inviteURL ?? "/"}
               target="_blank"
-              className="flex-center gap-1 group duration-200  px-6 py-2 bg-brand hover:bg-brand/90 text-white text-sm font-medium rounded-2xl select-none capitalize"
+              className="flex-center gap-1 group duration-200  px-6 py-2 bg-brand hover:bg-brand/90 text-white text-sm font-medium rounded-md select-none capitalize"
             >
               {buttonText ? buttonText : "Join Airdrop"}
               <IconLink
@@ -145,7 +149,7 @@ const Details = ({ data }: { data: any }) => {
 
       {/* details----- */}
       <div
-        className=" text-[15px]"
+        className=" text-[15px] description"
         dangerouslySetInnerHTML={{ __html: description }}
       ></div>
 
@@ -156,7 +160,7 @@ const Details = ({ data }: { data: any }) => {
         <Link
           href={inviteURL ?? "/"}
           target="_blank"
-          className="flex-center gap-1 group duration-200 min-w-48  px-6 py-2 bg-brand hover:bg-brand/90 text-white text-sm font-medium rounded-2xl select-none capitalize"
+          className="flex-center gap-1 group duration-200 min-w-48  px-6 py-2 bg-brand hover:bg-brand/90 text-white text-sm font-medium rounded-md select-none capitalize"
         >
           {buttonText ? buttonText : "Join Airdrop"}
           <IconLink
