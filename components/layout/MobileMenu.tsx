@@ -74,7 +74,7 @@ const MobileMenu = () => {
               />
             </div>
 
-            <div className="flex flex-col gap-4 !h-[calc(100vh-250px)]  overflow-y-auto ">
+            <div className="flex flex-col gap-4 !h-[calc(100vh-320px)]  overflow-y-auto ">
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {data?.data?.length > 0 &&
                   data?.data.map((category: any) => (
