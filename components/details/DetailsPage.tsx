@@ -24,7 +24,7 @@ const DetailsPage = () => {
         {/* details - top on mobile, left on desktop */}
         <div className="order-1 lgOne:order-2 col-span-1 lgOne:col-span-2">
           <div className="border p-5 rounded-2xl bg-white">
-            {!isLoading ? (
+            {isLoading ? (
               <DetailsSkeleton />
             ) : (
               <Details data={projectData?.data} />
