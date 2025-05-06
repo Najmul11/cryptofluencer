@@ -34,7 +34,7 @@ export const Drop = ({
     >
       {/*########### logo####### */}
       <div className="mb-4 relative z-10 px-6  ">
-        <div className="rounded-full size-[60px] bg-brand/10 p-1 ring-4   ring-brand/10 relative ">
+        <div className="rounded-full size-[60px] bg-brand/10 p-1 ring-1   ring-brand/10 relative ">
           <img
             src={logoURL as string}
             className="rounded-full w-full h-full "
