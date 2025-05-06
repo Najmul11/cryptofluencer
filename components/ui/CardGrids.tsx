@@ -6,7 +6,7 @@ const CardGrids = () => {
       <div className="absolute inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
         <svg
           aria-hidden="true"
-          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-brand/[0.04] stroke-black/5"
+          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-brand/[0.1] stroke-black/5"
         >
           <defs>
             <pattern
