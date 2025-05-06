@@ -14,7 +14,7 @@
 }
 
 body {
-  background: #fbfbfb;
+  @apply bg-gradient-to-b from-[30%] from-neutral-100 to-brand/10;
 }
 
 h2 {

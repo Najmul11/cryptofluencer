@@ -47,7 +47,7 @@ const TopNav = () => {
   }, []);
 
   return (
-    <nav className=" sticky top-0 !z-[11000] bg-[#fbfbfb] shadow-sm">
+    <nav className=" sticky top-0 !z-[11000] bg-neutral-100">
       <div className=" flex gap-5  wrapper items-center  py-3">
         <Link
           href={"/"}
@@ -120,8 +120,8 @@ const TopNav = () => {
               )}
             </Marquee>
 
-            <div className="h-full absolute w-24  bg-gradient-to-r from-[#fbfbfb] to-transparent top-0 left-0  z-[100]"></div>
-            <div className="h-full absolute w-24  bg-gradient-to-l from-[#fbfbfb] to-transparent top-0 right-0  z-[100]"></div>
+            <div className="h-full absolute w-24  bg-gradient-to-r from-neutral-100 to-transparent top-0 left-0  z-[100]"></div>
+            <div className="h-full absolute w-24  bg-gradient-to-l from-neutral-100 to-transparent top-0 right-0  z-[100]"></div>
           </div>
         </div>
 
