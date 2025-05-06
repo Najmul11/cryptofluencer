@@ -15,7 +15,7 @@ type TDrop = {
   funding: number;
   fundingUnit: string;
   platform: any;
-  categories: any;
+  categories?: any;
 };
 
 export const Drop = ({
@@ -26,7 +26,6 @@ export const Drop = ({
   funding,
   fundingUnit,
   platform,
-  categories,
 }: TDrop) => {
   return (
     <Link
@@ -46,7 +45,7 @@ export const Drop = ({
       </div>
 
       {/* description */}
-      <p className="text-sm  max-w-xs relative z-10 px-6 mb-5 line-clamp-2">
+      <p className="text-sm  max-w-xs relative z-10 px-6 mb-5 line-clamp-2 min-h-[40px]">
         {highlightedText}
       </p>
 
@@ -69,11 +68,6 @@ export const Drop = ({
             {platform && (
               <p className="border bg-brand rounded-lg font-medium text-[13px] px-2 text-white">
                 {platform?.name}
-              </p>
-            )}
-            {categories?.length > 0 && (
-              <p className="border bg-brand rounded-lg font-medium text-[13px] px-2 text-white">
-                {categories[0]?.category?.name}
               </p>
             )}
           </div>
