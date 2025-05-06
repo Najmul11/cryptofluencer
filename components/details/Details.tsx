@@ -48,7 +48,7 @@ const Details = ({ data }: { data: any }) => {
           <img
             src={logoURL}
             alt=""
-            className="size-44 rounded-2xl border border-neutral-300/40"
+            className="size-44 rounded-2xl   ring-4   ring-brand/20"
           />
           <div className="flex items-center gap-3 md:justify-center mt-4">
             {website && (
