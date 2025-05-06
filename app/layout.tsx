@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" className="font-inter text-blackAccent    ">
       <ReduxProvider>
         <AntdProvider>
-          <body className={` antialiased  custom-scroll`}>
+          <body className={` antialiased  custom-scroll min-h-screen`}>
             <TopNav />
 
             {children}
