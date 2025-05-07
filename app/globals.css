@@ -14,7 +14,7 @@
 }
 
 body {
-  @apply bg-gradient-to-b from-[30%] from-neutral-100 to-brand/10;
+  background-color: #0b0c10; /* Jet black with a hint of midnight */
 }
 
 h2 {

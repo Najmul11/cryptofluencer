@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="font-inter text-blackAccent    ">
+    <html lang="en" className="font-inter text-white    ">
       <ReduxProvider>
         <AntdProvider>
           <body className={` antialiased  custom-scroll min-h-screen`}>

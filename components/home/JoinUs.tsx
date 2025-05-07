@@ -16,6 +16,7 @@ import { useGetAllBusinessQuery } from "@/redux/api/business";
 import { ReactNode } from "react";
 import Skeleton from "react-loading-skeleton";
 import JoinUsModal from "./JoinUsModal";
+import { cn } from "@/utils/cn";
 const JoinUs = () => {
   const { data, isLoading } = useGetAllAffiliatesQuery("");
 
@@ -90,10 +91,11 @@ const PrimaryPlatforms = () => {
         <>
           {twitter && (
             <PrimaryPlatform
-              color="#000"
+              color="#fff"
               href={twitter}
               icon={<IconBrandX size={30} className="" />}
               label="Twitter"
+              className="hover:text-black"
             />
           )}
           {youtube && (
@@ -133,15 +135,25 @@ type TPlatform = {
   label: string;
   href: string;
   color: string;
+  className?: string;
 };
 
-const PrimaryPlatform = ({ color, href, icon, label }: TPlatform) => {
+const PrimaryPlatform = ({
+  color,
+  href,
+  icon,
+  label,
+  className,
+}: TPlatform) => {
   return (
     <Link
       target="_blank"
       href={href}
       style={{ borderColor: color }}
-      className="py-2 md:py-3  border-2   hover:text-white group duration-200 rounded-lg flex-center gap-2 text-xl font-semibold relative overflow-hidden"
+      className={cn(
+        "py-2 md:py-3  border-2   hover:text-white group duration-200 rounded-lg flex-center gap-2 text-xl font-semibold relative overflow-hidden",
+        className
+      )}
     >
       {icon}
       {label}
@@ -149,7 +161,7 @@ const PrimaryPlatform = ({ color, href, icon, label }: TPlatform) => {
       {/* Background transition effect */}
       <span
         style={{ background: color }}
-        className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full  scale-x-[10%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"
+        className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full scale-x-[20%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"
       ></span>
     </Link>
   );
