@@ -16,6 +16,8 @@ export default {
         blackAccent: "#374151",
         brand: "#F6821F",
         cream: "#fbfbfb",
+        midnight: "#0b0c10",
+        midnightblue: "#0f1b2d",
       },
       screens: {
         smOne: "560px",

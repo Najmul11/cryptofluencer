@@ -47,7 +47,7 @@ const TopNav = () => {
   }, []);
 
   return (
-    <nav className=" sticky top-0 !z-[11000] bg-[#0b0c10] shadow-sm">
+    <nav className=" sticky top-0 !z-[11000] bg-midnight shadow-sm">
       <div className=" flex gap-5  wrapper items-center  py-3">
         <Link
           href={"/"}
@@ -68,7 +68,7 @@ const TopNav = () => {
                 ([coin, { usd, usd_24h_change }]: any) => (
                   <div
                     key={coin}
-                    className="flex items-center gap-10 mx-4  text-[11px] text-black"
+                    className="flex items-center gap-10 mx-4  text-[11px] text-white"
                   >
                     <p className="flex gap-2">
                       <span>{coinMapping[coin]} </span>
@@ -79,35 +79,8 @@ const TopNav = () => {
                       <span
                         className={cn(
                           {
-                            "text-red-600 ": usd_24h_change < 0,
-                            "text-green-600 ": usd_24h_change > 0,
-                          },
-                          "font-medium "
-                        )}
-                      >
-                        {usd_24h_change.toFixed(2)}%
-                      </span>
-                    </p>
-                  </div>
-                )
-              )}
-              {Object.entries(prices).map(
-                ([coin, { usd, usd_24h_change }]: any) => (
-                  <div
-                    key={coin}
-                    className="flex items-center gap-10 mx-4  text-[11px] text-black"
-                  >
-                    <p className="flex gap-2">
-                      <span>{coinMapping[coin]} </span>
-                      <span>
-                        <span className="italic">$</span> {usd}
-                      </span>
-
-                      <span
-                        className={cn(
-                          {
-                            "text-red-600 ": usd_24h_change < 0,
-                            "text-green-600 ": usd_24h_change > 0,
+                            "text-red-500 ": usd_24h_change < 0,
+                            "text-green-500 ": usd_24h_change > 0,
                           },
                           "font-medium "
                         )}
@@ -120,8 +93,8 @@ const TopNav = () => {
               )}
             </Marquee>
 
-            <div className="h-full absolute w-24  bg-gradient-to-r from-neutral-100 to-transparent top-0 left-0  z-[100]"></div>
-            <div className="h-full absolute w-24  bg-gradient-to-l from-neutral-100 to-transparent top-0 right-0  z-[100]"></div>
+            <div className="h-full absolute w-24  bg-gradient-to-r from-midnight to-transparent top-0 left-0  z-[100]"></div>
+            <div className="h-full absolute w-24  bg-gradient-to-l from-midnight to-transparent top-0 right-0  z-[100]"></div>
           </div>
         </div>
 
@@ -129,7 +102,7 @@ const TopNav = () => {
         {email && (
           <Link
             href={`mailto:${email}`}
-            className="md:flex justify-center items-center gap-2 group h-[40px] text-sm px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border hidden "
+            className="md:flex justify-center items-center gap-2 group h-[40px] text-sm px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border border-brand hidden "
           >
             <IconMail />
             Contact
