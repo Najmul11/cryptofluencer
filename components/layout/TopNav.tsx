@@ -47,7 +47,7 @@ const TopNav = () => {
   }, []);
 
   return (
-    <nav className=" sticky top-0 !z-[11000] bg-midnight shadow-sm">
+    <nav className=" sticky top-0 !z-[11000] bg-midnight border-b border-midnightblue">
       <div className=" flex gap-5  wrapper items-center  py-3">
         <Link
           href={"/"}

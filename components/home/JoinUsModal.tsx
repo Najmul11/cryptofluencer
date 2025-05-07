@@ -45,7 +45,7 @@ const JoinUsModal = ({ data }: { data: any }) => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
-              className="w-full max-w-screen-lg  p-6 rounded-xl shadow-sm bg-gradient-to-br from-[#EAD3D3] to-white relative"
+              className="w-full max-w-screen-lg  p-6 rounded-xl shadow-sm bg-gradient-to-br from-midnightblue to-midnight relative"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between">
@@ -53,7 +53,7 @@ const JoinUsModal = ({ data }: { data: any }) => {
 
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-3  relative z-[100000]  py-1 rounded-md text-gray-600 hover:text-black  duration-300 !text-2xl  cursor-pointer"
+                  className="px-3  relative z-[100000]  py-1 rounded-md text-gray-400 hover:text-white  duration-300 !text-2xl  cursor-pointer"
                 >
                   <IconX />
                 </button>

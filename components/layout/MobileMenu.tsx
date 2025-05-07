@@ -31,11 +31,11 @@ const MobileMenu = () => {
   const { data } = useGetAllCategoriesQuery("");
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden text-white">
       {/* Mobile Menu Button */}
       <button
         onClick={() => setMenuOpen(true)}
-        className="block md:hidden ml-auto p-2 rounded-md border"
+        className="block md:hidden ml-auto p-2 rounded-md  !text-white !border-0"
       >
         <IconMenu2 size={24} />
       </button>
@@ -48,7 +48,7 @@ const MobileMenu = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 w-full h-screen  bg-white shadow-lg z-[12000] flex flex-col p-4"
+            className="fixed top-0 right-0 w-full h-screen  bg-midnightblue shadow-lg z-[12000] flex flex-col p-4"
           >
             <div className="flex justify-between">
               <Link

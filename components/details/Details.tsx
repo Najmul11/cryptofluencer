@@ -45,11 +45,7 @@ const Details = ({ data }: { data: any }) => {
       {/* primary  details ------ */}
       <div className="flex gap-5 max-sm:flex-col">
         <div>
-          <img
-            src={logoURL}
-            alt=""
-            className="size-44 rounded-2xl   ring-4   ring-brand/20"
-          />
+          <img src={logoURL} alt="" className="size-44 rounded-xl  shadow-sm" />
           <div className="flex items-center gap-3 md:justify-center mt-4">
             {website && (
               <Link href={website} target="_blank">
@@ -106,7 +102,7 @@ const Details = ({ data }: { data: any }) => {
             <div className="flex gap-2 items-center">
               <p>Funding :</p>
               {funding ? (
-                <p className="font-semibold">
+                <p className="font-medium">
                   <span className="text-lg">{funding}</span> {fundingUnit}
                 </p>
               ) : (
@@ -120,7 +116,7 @@ const Details = ({ data }: { data: any }) => {
               <IconLayersIntersect className="text-brand" size={20} />{" "}
               <div className="flex gap-2 items-center">
                 <p>Invite Code :</p>
-                <p className="font-semibold">
+                <p className="font-medium">
                   <span className="text-lg">{inviteCode}</span>
                 </p>
               </div>
