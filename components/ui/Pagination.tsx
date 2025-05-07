@@ -24,8 +24,8 @@ const Pagination = ({
         onPageChange={onPageChange}
         containerClassName="flex gap-2 p-2 rounded-md items-center gap-3"
         activeClassName="bg-brand text-white px-2 rounded"
-        previousClassName="px-1 border rounded-md hover:bg-brand hover:text-white"
-        nextClassName="px-1 border rounded-md hover:bg-brand hover:text-white"
+        previousClassName="px-2 border rounded-md hover:bg-brand hover:text-white"
+        nextClassName="px-2 border rounded-md hover:bg-brand hover:text-white"
         disabledClassName="opacity-50 cursor-not-allowed"
         pageClassName="hover:bg-brand/15 rounded px-2"
       />

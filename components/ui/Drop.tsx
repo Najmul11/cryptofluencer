@@ -30,15 +30,15 @@ export const Drop = ({
   return (
     <Link
       href={`/${slug}`}
-      className={cn("flex flex-col  py-6 relative group/feature ")}
+      className={cn("flex flex-col  py-6 relative group/feature text-midnight")}
     >
       {/*########### logo####### */}
       <div className="mb-4 relative z-10 px-6  ">
-        <div className="rounded-full size-[60px] bg-brand/10 p-1 ring-1   ring-brand/10 relative ">
-          <img
-            src={logoURL as string}
-            className="rounded-full w-full h-full "
-          />
+        <div
+          className="rounded-md size-[60px] bg-brand/10 p-1 ring-1
+           ring-brand/10 relative "
+        >
+          <img src={logoURL as string} className="rounded-md w-full h-full " />
         </div>
       </div>
 
@@ -54,7 +54,7 @@ export const Drop = ({
         {highlightedText}
       </p>
 
-      <button className=" absolute !bottom-5 right-5 group-hover/feature:translate-x-2 duration-200 text-neutral-200 group-hover/feature:text-[#374151]">
+      <button className=" absolute !bottom-5 right-5 group-hover/feature:translate-x-2 duration-200 text-neutral-400 group-hover/feature:text-midnight">
         <IconArrowRight size={17} stroke={2} />
       </button>
 

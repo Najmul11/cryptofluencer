@@ -91,6 +91,33 @@ const TopNav = () => {
                   </div>
                 )
               )}
+              {Object.entries(prices).map(
+                ([coin, { usd, usd_24h_change }]: any) => (
+                  <div
+                    key={coin}
+                    className="flex items-center gap-10 mx-4  text-[11px] text-white"
+                  >
+                    <p className="flex gap-2">
+                      <span>{coinMapping[coin]} </span>
+                      <span>
+                        <span className="italic">$</span> {usd}
+                      </span>
+
+                      <span
+                        className={cn(
+                          {
+                            "text-red-500 ": usd_24h_change < 0,
+                            "text-green-500 ": usd_24h_change > 0,
+                          },
+                          "font-medium "
+                        )}
+                      >
+                        {usd_24h_change.toFixed(2)}%
+                      </span>
+                    </p>
+                  </div>
+                )
+              )}
             </Marquee>
 
             <div className="h-full absolute w-24  bg-gradient-to-r from-midnight to-transparent top-0 left-0  z-[100]"></div>

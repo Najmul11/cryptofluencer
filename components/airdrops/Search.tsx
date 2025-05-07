@@ -32,7 +32,7 @@ const Search = ({
           value={input}
           onChange={(e) => setInput(e.target.value)}
           className={cn(
-            "py-2 text-sm px-2  rounded border focus:border-transparent focus:outline-none border-brand border-dashed focus:ring-2 focus:!ring-brand",
+            "py-2 text-sm bg-transparent px-2  rounded border focus:border-transparent focus:outline-none border-brand border-dashed focus:ring-2 focus:!ring-brand",
             { "w-full": mobileMenu }
           )}
         />

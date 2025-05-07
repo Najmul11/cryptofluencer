@@ -41,7 +41,7 @@ const Details = ({ data }: { data: any }) => {
   } = data;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 text-midnight">
       {/* primary  details ------ */}
       <div className="flex gap-5 max-sm:flex-col">
         <div>

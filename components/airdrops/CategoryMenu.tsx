@@ -98,7 +98,7 @@ const CategoryMenu = ({ search }: { search: string }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-full mt-2 right-0 mx-auto w-[1280px] grid grid-cols-8 bg-white rounded-2xl border py-6 px-4 z-50 gap-2"
+            className="absolute top-full mt-2 right-0 mx-auto w-[1280px] grid grid-cols-8 bg-midnightblue rounded-2xl py-6 px-4 z-50 gap-2"
           >
             {allCategories
               .filter(

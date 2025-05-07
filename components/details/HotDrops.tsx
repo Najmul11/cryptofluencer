@@ -7,7 +7,7 @@ const HotDrops = () => {
   const { data, isLoading } = useGetAllProjectsQuery({ showOnHomepage: "YES" });
   return (
     <div className="max-md:mt-6">
-      <p className="text-center p-3 border font-semibold  bg-gradient-to-br from-brand to-white  rounded-xl">
+      <p className="text-center p-3  font-semibold  bg-gradient-to-r from-[50%] from-brand to-white  rounded-xl">
         🔥 Hot
       </p>
 
