@@ -70,7 +70,7 @@ const Details = ({ data }: { data: any }) => {
           </div>
         </div>
         <div className="space-y-2">
-          <h2 className="">{name}</h2>
+          <h2 className="font-medium">{name}</h2>
           {/* platform-------- */}
           <div className="flex items-center gap-1">
             <IconBrandDatabricks className="text-brand" size={20} />{" "}
