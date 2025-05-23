@@ -20,15 +20,16 @@ const DetailsPage = () => {
   }
 
   return (
-    <div className="wrapper  pt-6">
+    <div className="wrapper pt-6">
       <p
         onClick={() => history.go(-1)}
-        className="  hover:text-brand hover:bg-brand/5 text-white bg-brand  rounded-md select-none size-8 flex-center mb-6 cursor-pointer duration-300"
+        className="hover:text-brand hover:bg-brand/5 text-white bg-brand rounded-md select-none size-8 flex-center mb-6 cursor-pointer duration-300"
       >
         <IconArrowBackUp />
       </p>
+
       <div className="min-h-screen grid grid-cols-1 lgOne:grid-cols-3 gap-5">
-        {/* details - top on mobile, left on desktop */}
+        {/* Details - top on mobile, left on desktop */}
         <div className="order-1 lgOne:order-2 col-span-1 lgOne:col-span-2">
           <div className="border p-5 rounded-2xl bg-white">
             {isLoading ? (
@@ -39,9 +40,11 @@ const DetailsPage = () => {
           </div>
         </div>
 
-        {/* hot drops - bottom on mobile, right on desktop */}
+        {/* Hot Drops - bottom on mobile, right on desktop */}
         <div className="order-2 lgOne:order-1">
-          <HotDrops />
+          <div className="lgOne:sticky lgOne:top-20">
+            <HotDrops />
+          </div>
         </div>
       </div>
     </div>
