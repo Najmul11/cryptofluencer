@@ -3,6 +3,7 @@
 "use client";
 import {
   IconBrandTelegram,
+  IconBrandWhatsapp,
   IconBrandX,
   IconBrandYoutube,
   IconHeartHandshake,
@@ -78,26 +79,19 @@ export default JoinUs;
 const PrimaryPlatforms = () => {
   const { data: businessData, isLoading: businessDataLoading } =
     useGetAllBusinessQuery("");
-  const { twitter, youtube, telegram } = businessData?.data || {};
+  const { twitter, youtube, telegram, whatsappChannel } =
+    businessData?.data || {};
   return (
-    <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-5">
+    <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {businessDataLoading ? (
         <>
+          <Skeleton className="h-[70px]" />
           <Skeleton className="h-[70px]" />
           <Skeleton className="h-[70px]" />
           <Skeleton className="h-[70px]" />
         </>
       ) : (
         <>
-          {twitter && (
-            <PrimaryPlatform
-              color="#fff"
-              href={twitter}
-              icon={<IconBrandX size={30} className="" />}
-              label="Twitter"
-              className="hover:text-black"
-            />
-          )}
           {youtube && (
             <PrimaryPlatform
               color="#ef4444"
@@ -111,6 +105,15 @@ const PrimaryPlatforms = () => {
               label="Youtube"
             />
           )}
+          {twitter && (
+            <PrimaryPlatform
+              color="#fff"
+              href={twitter}
+              icon={<IconBrandX size={30} className="" />}
+              label="Twitter"
+              className="hover:text-black"
+            />
+          )}
           {telegram && (
             <PrimaryPlatform
               color="#39AFD9"
@@ -122,6 +125,14 @@ const PrimaryPlatforms = () => {
                 />
               }
               label="Telegram"
+            />
+          )}
+          {whatsappChannel && (
+            <PrimaryPlatform
+              color="#16a34a"
+              href={whatsappChannel}
+              icon={<IconBrandWhatsapp size={30} className="fill-green-600" />}
+              label="Whatsapp"
             />
           )}
         </>
