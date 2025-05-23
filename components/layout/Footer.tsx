@@ -1,6 +1,10 @@
 "use client";
 import { useGetAllBusinessQuery } from "@/redux/api/business";
-import { IconBrandTelegram, IconBrandX, IconMail } from "@tabler/icons-react";
+import {
+  IconBrandTelegram,
+  IconBrandWhatsapp,
+  IconMail,
+} from "@tabler/icons-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -8,7 +12,8 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   const { data: businessData } = useGetAllBusinessQuery("");
-  const { telegramBusiness, twitterBusiness, email } = businessData?.data || {};
+  const { telegramBusiness, whatsappBusiness, email } =
+    businessData?.data || {};
 
   return (
     <div className="pb-5 pt-32  wrapper">
@@ -20,10 +25,10 @@ const Footer = () => {
         <div className="flex gap-6">
           {/* ############# twitter ######## */}
 
-          {twitterBusiness && (
+          {whatsappBusiness && (
             <Icon
-              link={twitterBusiness}
-              icon={<IconBrandX stroke={2} size={20} />}
+              link={whatsappBusiness}
+              icon={<IconBrandWhatsapp stroke={2} size={20} />}
             />
           )}
 
