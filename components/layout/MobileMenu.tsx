@@ -83,7 +83,7 @@ const MobileMenu = () => {
                       key={category.slug}
                       href={`/airdrops/${category.slug}`}
                       className={cn(
-                        "flex-center gap-2 group duration-200 px-3 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none",
+                        "flex-center gap-2 group duration-200 px-3 py-1 bg-brand/20   text-sm font-medium rounded select-none",
                         {
                           "!text-brand ": slug === category.slug,
                           "hover:text-brand": slug !== category.slug,
@@ -100,7 +100,7 @@ const MobileMenu = () => {
             {email && (
               <Link
                 href={`mailto:${email}`}
-                className="flex justify-center mt-10 items-center gap-2 group h-[40px] text-sm px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200  border"
+                className="flex justify-center mt-10 items-center gap-2 group h-[40px] text-sm px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200  border border-neutral-400/50"
               >
                 <IconMail />
                 Contact
