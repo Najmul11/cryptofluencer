@@ -4,6 +4,7 @@ import {
   IconBrandDiscord,
   IconBrandDribbbleFilled,
   IconBrandTelegram,
+  IconBrandWordpress,
   IconBrandX,
   IconChecks,
   IconLayersIntersect,
@@ -49,28 +50,41 @@ const Details = ({ data }: { data: any }) => {
           <div className="flex items-center gap-3 md:justify-center mt-4">
             {website && (
               <Link href={website} target="_blank">
-                <IconBrandDribbbleFilled className="hover:text-cyan-700 cursor-pointer duration-200" />
-              </Link>
-            )}
-            {discord && (
-              <Link href={discord} target="_blank">
-                <IconBrandDiscord className="hover:text-blue-700 cursor-pointer duration-200" />
-              </Link>
-            )}
-            {telegram && (
-              <Link href={telegram} target="_blank">
-                <IconBrandTelegram className="hover:text-cyan-700 cursor-pointer duration-200" />
+                <IconBrandWordpress
+                  size={22}
+                  className="hover:text-cyan-700 text-blue-700 cursor-pointer duration-200"
+                />
               </Link>
             )}
             {twitter && (
               <Link href={twitter} target="_blank">
-                <IconBrandX className="hover:text-black cursor-pointer duration-200" />
+                <IconBrandX
+                  size={22}
+                  className="hover:text-black cursor-pointer duration-200"
+                />
+              </Link>
+            )}
+
+            {telegram && (
+              <Link href={telegram} target="_blank">
+                <IconBrandTelegram
+                  size={22}
+                  className="text-cyan-700 hover:text-cyan-700 cursor-pointer duration-200"
+                />
+              </Link>
+            )}
+            {discord && (
+              <Link href={discord} target="_blank">
+                <IconBrandDiscord
+                  size={22}
+                  className="text-blue-700 hover:!text-blue-800 cursor-pointer duration-200"
+                />
               </Link>
             )}
           </div>
         </div>
         <div className="space-y-2">
-          <h2 className="font-medium">{name}</h2>
+          <h2 className="font-bold lg:text-3xl">{name}</h2>
           {/* platform-------- */}
           <div className="flex items-center gap-1">
             <IconBrandDatabricks className="text-brand" size={20} />{" "}
