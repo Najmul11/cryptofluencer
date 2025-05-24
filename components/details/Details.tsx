@@ -2,20 +2,31 @@
 import {
   IconBrandDatabricks,
   IconBrandDiscord,
-  IconBrandDribbbleFilled,
   IconBrandTelegram,
   IconBrandWordpress,
   IconBrandX,
+  IconCheck,
   IconChecks,
+  IconCopy,
   IconLayersIntersect,
   IconLayoutBottombarInactive,
   IconLink,
   IconReceiptDollar,
 } from "@tabler/icons-react";
 import Link from "next/link";
+import { useState } from "react";
 
 /* eslint-disable @next/next/no-img-element */
 const Details = ({ data }: { data: any }) => {
+  const [copy, setCopy] = useState(false);
+
+  const handleCopy = (inviteCode: string) => {
+    window.navigator.clipboard.writeText(inviteCode);
+    setCopy(true);
+    setTimeout(() => {
+      setCopy(false);
+    }, 2000);
+  };
   if (!data) return null;
 
   const {
@@ -130,8 +141,21 @@ const Details = ({ data }: { data: any }) => {
               <IconLayersIntersect className="text-brand" size={20} />{" "}
               <div className="flex gap-2 items-center">
                 <p>Invite Code :</p>
-                <p className="font-medium">
-                  <span className="text-lg">{inviteCode}</span>
+                <p className="font-medium ">
+                  {copy ? (
+                    <span className="flex gap-1 items-center">
+                      <IconChecks size={18} /> copied
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-1">
+                      {inviteCode}
+                      <IconCopy
+                        onClick={() => handleCopy(inviteCode)}
+                        size={18}
+                        className="cursor-pointer"
+                      />
+                    </span>
+                  )}
                 </p>
               </div>
             </div>
