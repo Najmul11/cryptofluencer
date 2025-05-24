@@ -5,7 +5,6 @@ import {
   IconBrandTelegram,
   IconBrandWordpress,
   IconBrandX,
-  IconCheck,
   IconChecks,
   IconCopy,
   IconLayersIntersect,
