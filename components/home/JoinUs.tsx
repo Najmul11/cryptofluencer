@@ -52,7 +52,7 @@ const JoinUs = () => {
                       key={affiliate?.id}
                       href={affiliate?.link}
                       target="_blank"
-                      className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/5 border border-brand border-dashed text-sm font-medium rounded select-none"
+                      className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/20  text-sm font-medium rounded select-none"
                     >
                       <img
                         src={affiliate?.logoURL}
