@@ -50,3 +50,7 @@ h2 {
   color: #1447e6;
   text-decoration: underline;
 }
+
+.description iframe {
+  border-radius: 10px !important;
+}
