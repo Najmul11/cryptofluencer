@@ -52,5 +52,5 @@ h2 {
 }
 
 .description iframe {
-  border-radius: 10px !important;
+  @apply !rounded-lg max-sm:!w-full max-sm:!h-60 !aspect-[16/9];
 }

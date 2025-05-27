@@ -182,7 +182,7 @@ const Details = ({ data }: { data: any }) => {
 
       {/* details----- */}
       <div
-        className=" text-[15px] description"
+        className=" text-[15px] description overflow-hidden"
         dangerouslySetInnerHTML={{ __html: description }}
       ></div>
 
