@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import {
+  IconAffiliate,
   IconBrandTelegram,
   IconBrandWhatsapp,
   IconBrandX,
@@ -13,13 +14,17 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import JoinusSkeleton from "../skeleton/JoinusSkeleton";
 import { useGetAllAffiliatesQuery } from "@/redux/api/affiliate";
-import { useGetAllBusinessQuery } from "@/redux/api/business";
+import {
+  useGetAllBusinessQuery,
+  useGetMoreBusinessQuery,
+} from "@/redux/api/business";
 import { ReactNode } from "react";
 import Skeleton from "react-loading-skeleton";
 import JoinUsModal from "./JoinUsModal";
 import { cn } from "@/utils/cn";
 const JoinUs = () => {
   const { data, isLoading } = useGetAllAffiliatesQuery("");
+  const { data: communities } = useGetMoreBusinessQuery("");
 
   const animationVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -39,12 +44,40 @@ const JoinUs = () => {
 
         <div className="mt-10">
           <PrimaryPlatforms />
+
+          <div className="grid grid-cols-2  smOne:grid-cols-3 md:grid-cols-4 lg xlOne:grid-cols-6 gap-5 mt-8">
+            {communities?.data.length > 0 &&
+              communities?.data.slice(0, 18).map((community: any) => (
+                <Link
+                  key={community?.id}
+                  href={community?.link}
+                  target="_blank"
+                  className="md:flex justify-center items-center gap-2 group h-[42px] text-sm px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border border-brand hidden "
+                >
+                  {community.logoURL && (
+                    <img
+                      src={community.logoURL}
+                      className="size-6 rounded"
+                      alt=""
+                    />
+                  )}
+
+                  {community?.orgName.slice(0, 10)}
+                  <span className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full bg-brand scale-x-[20%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"></span>
+                </Link>
+              ))}
+          </div>
+
           {/* links and affiliates */}
 
           {isLoading ? (
             <JoinusSkeleton />
           ) : (
             <>
+              <h2 className="text-3xl lg:text-4xl  xl:text-5xl font-semibold flex items-center gap-5 pt-20">
+                Affiliates
+                <IconAffiliate size={80} className="text-brand" />
+              </h2>
               {data?.data.length > 0 && (
                 <div className="grid grid-cols-2  smOne:grid-cols-3 md:grid-cols-4 lg xlOne:grid-cols-6 gap-5 mt-8">
                   {data?.data?.slice(0, 12).map((affiliate: any) => (

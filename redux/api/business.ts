@@ -8,7 +8,13 @@ const businessApi = api.injectEndpoints({
         url: "/business",
       }),
     }),
+
+    getMoreBusiness: builder.query({
+      query: () => ({
+        url: "/more-business/all",
+      }),
+    }),
   }),
 });
 
-export const { useGetAllBusinessQuery } = businessApi;
+export const { useGetAllBusinessQuery, useGetMoreBusinessQuery } = businessApi;
