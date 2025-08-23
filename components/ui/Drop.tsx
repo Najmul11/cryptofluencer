@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import { cn } from "@/utils/cn";
+import { baseUrl } from "@/utils/constant";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 import React from "react";
@@ -38,7 +39,10 @@ export const Drop = ({
           className="rounded-md size-[60px] bg-brand/10 p-1 ring-1
            ring-brand/10 relative "
         >
-          <img src={logoURL as string} className="rounded-md w-full h-full " />
+          <img
+            src={(baseUrl + logoURL) as string}
+            className="rounded-md w-full h-full "
+          />
         </div>
       </div>
 
