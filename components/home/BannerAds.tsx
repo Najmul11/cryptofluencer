@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import Link from "next/link";
+import { baseUrl } from "@/utils/constant";
 
 const BannerAds = () => {
   const router = useRouter();
@@ -44,7 +45,7 @@ const BannerAds = () => {
             <SwiperSlide key={banner.id}>
               <Link href={banner?.project?.slug} className="">
                 <img
-                  src={banner.imageUrl}
+                  src={baseUrl + banner.imageUrl}
                   alt={banner.title || "Banner Ad"}
                   className="w-full h-auto object-cover rounded-md cursor-pointer aspect-[16/9]"
                   onClick={() => router.push(banner.redirectUrl)}
