@@ -22,6 +22,7 @@ import { ReactNode } from "react";
 import Skeleton from "react-loading-skeleton";
 import JoinUsModal from "./JoinUsModal";
 import { cn } from "@/utils/cn";
+import { baseUrl } from "@/utils/constant";
 const JoinUs = () => {
   const { data, isLoading } = useGetAllAffiliatesQuery("");
   const { data: communities } = useGetMoreBusinessQuery("");
@@ -56,7 +57,7 @@ const JoinUs = () => {
                 >
                   {community.logoURL && (
                     <img
-                      src={community.logoURL}
+                      src={baseUrl + community.logoURL}
                       className="size-6 rounded"
                       alt=""
                     />
