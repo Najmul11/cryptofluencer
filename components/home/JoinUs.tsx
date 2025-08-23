@@ -89,7 +89,7 @@ const JoinUs = () => {
                       className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/20  text-sm font-medium rounded select-none"
                     >
                       <img
-                        src={affiliate?.logoURL}
+                        src={baseUrl + affiliate?.logoURL}
                         alt=""
                         className="w-6 rounded"
                       />
@@ -101,7 +101,7 @@ const JoinUs = () => {
             </>
           )}
 
-          {data?.data.length > 12 && <JoinUsModal data={data?.data} />}
+          {data?.data.length > 1 && <JoinUsModal data={data?.data} />}
         </div>
       </motion.div>
     </div>

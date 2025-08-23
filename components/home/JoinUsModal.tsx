@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { baseUrl } from "@/utils/constant";
 import { IconArrowRight, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
@@ -68,7 +69,7 @@ const JoinUsModal = ({ data }: { data: any }) => {
                     className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/25  text-sm font-medium rounded select-none"
                   >
                     <img
-                      src={affiliate?.logoURL}
+                      src={baseUrl + affiliate?.logoURL}
                       alt=""
                       className="w-6 rounded"
                     />
