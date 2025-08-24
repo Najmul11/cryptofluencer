@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { affilates } from "@/data/affiliates";
 import { baseUrl } from "@/utils/constant";
 import { IconArrowRight, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "motion/react";
