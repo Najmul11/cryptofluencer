@@ -57,7 +57,7 @@ const JoinUs = () => {
                 >
                   {community.logoURL && (
                     <img
-                      src={baseUrl + community.logoURL}
+                      src={new URL(community.logoURL, baseUrl).toString()}
                       className="size-6 rounded"
                       alt=""
                     />
@@ -89,7 +89,7 @@ const JoinUs = () => {
                       className="flex-center gap-2 group duration-200  hover:text-brand  px-6  py-2 bg-brand/20  text-sm font-medium rounded select-none"
                     >
                       <img
-                        src={baseUrl + affiliate?.logoURL}
+                        src={new URL(affiliate?.logoURL, baseUrl).toString()}
                         alt=""
                         className="w-6 rounded"
                       />

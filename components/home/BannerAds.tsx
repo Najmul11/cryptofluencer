@@ -45,7 +45,7 @@ const BannerAds = () => {
             <SwiperSlide key={banner.id}>
               <Link href={banner?.project?.slug} className="">
                 <img
-                  src={baseUrl + banner.imageUrl}
+                  src={new URL(banner.imageUrl, baseUrl).toString()}
                   alt={banner.title || "Banner Ad"}
                   className="w-full h-auto object-cover rounded-md cursor-pointer aspect-[16/9]"
                   onClick={() => router.push(banner.redirectUrl)}

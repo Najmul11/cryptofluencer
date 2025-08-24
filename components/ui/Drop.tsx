@@ -40,7 +40,7 @@ export const Drop = ({
            ring-brand/10 relative "
         >
           <img
-            src={(baseUrl + logoURL) as string}
+            src={new URL(logoURL, baseUrl).toString()}
             className="rounded-md w-full h-full "
           />
         </div>

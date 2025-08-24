@@ -58,7 +58,7 @@ const Details = ({ data }: { data: any }) => {
       <div className="flex gap-5 max-sm:flex-col">
         <div>
           <img
-            src={baseUrl + logoURL}
+            src={new URL(logoURL, baseUrl).toString()}
             alt=""
             className="size-44 rounded-xl  shadow-sm"
           />
