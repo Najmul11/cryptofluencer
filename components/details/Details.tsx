@@ -104,7 +104,7 @@ const Details = ({ data }: { data: any }) => {
           <div className="flex items-center gap-1">
             <IconBrandDatabricks className="text-brand" size={20} />{" "}
             <div className="flex gap-2 items-center">
-              <p> Bockchain :</p>
+              <p> Blockchain :</p>
               <p>{platform?.name || "Unconfirmed"}</p>
             </div>
           </div>

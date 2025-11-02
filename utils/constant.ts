@@ -6,11 +6,11 @@ const getEnvUrls = () => {
   let baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   if (ENV_MODE === "development") {
-    // apiUrl = "http://localhost:5001/api/v1";
-    // baseUrl = "http://localhost:5001/v1";
+    apiUrl = "http://localhost:5001/api/v1";
+    baseUrl = "http://localhost:5001";
 
-    apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+    // apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    // baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   } else {
     apiUrl = process.env.NEXT_PUBLIC_API_URL;
     baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
