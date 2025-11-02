@@ -113,7 +113,7 @@ const Details = ({ data }: { data: any }) => {
           <div className="flex items-center gap-1">
             <IconLayoutBottombarInactive className="text-brand" size={20} />{" "}
             <div className="flex gap-2 items-center">
-              <p>Status :</p>
+              <p>Reward :</p>
               <p className="flex gap-1 items-center !capitalize">
                 {status.toLowerCase()}
                 {status.toLowerCase() === "confirmed" ? (
