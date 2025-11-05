@@ -123,7 +123,9 @@ const TopNav = () => {
 
         {/* search input component */}
 
-        <Search />
+        <div className="max-md:hidden">
+          <Search />
+        </div>
 
         <MobileMenu />
       </div>
