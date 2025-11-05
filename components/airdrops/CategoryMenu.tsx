@@ -2,29 +2,17 @@
 "use client";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useGetAllCategoriesQuery } from "@/redux/api/category";
 import { IconChevronDown } from "@tabler/icons-react";
 import CategorySkeleton from "../skeleton/CategorySkeleton";
-import Search from "./Search";
 
-const CategoryMenu = ({ search }: { search: string }) => {
+const CategoryMenu = () => {
   const { slug } = useParams();
   const [showDropdown, setShowDropdown] = useState(false);
   const { data, isLoading } = useGetAllCategoriesQuery("");
-
-  const [input, setInput] = useState(search || "");
-
-  const router = useRouter();
-
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (input.trim()) {
-      router.push(`/airdrops/all?search=${encodeURIComponent(input.trim())}`);
-    } else router.push(`/airdrops/all`);
-  };
 
   if (isLoading) return <CategorySkeleton />;
 
@@ -125,8 +113,6 @@ const CategoryMenu = ({ search }: { search: string }) => {
           </motion.div>
         )}
       </div>
-
-      <Search input={input} handleSearch={handleSearch} setInput={setInput} />
     </div>
   );
 };

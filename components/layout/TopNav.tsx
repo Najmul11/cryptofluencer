@@ -1,17 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useGetAllBusinessQuery } from "@/redux/api/business";
 import { cn } from "@/utils/cn";
-import { IconMail } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import MobileMenu from "./MobileMenu";
+import Search from "../airdrops/Search";
 
 const TopNav = () => {
-  const { data: businessData } = useGetAllBusinessQuery("");
-  const { email } = businessData?.data || {};
-
   const [prices, setPrices] = useState<any>({});
 
   const coinMapping: { [key: string]: string } = {
@@ -48,10 +44,10 @@ const TopNav = () => {
 
   return (
     <nav className=" sticky top-0 !z-[11000] bg-midnight border-b border-midnightblue">
-      <div className=" flex gap-5  wrapper items-center  py-3">
+      <div className=" flex gap-5 justify-between  wrapper items-center  py-3">
         <Link
           href={"/"}
-          className="leading-3 font-semibold flex items-center gap-2 rounded-md  relative "
+          className="leading-3 font-semibold flex items-center gap-2 rounded-md  relative flex-shrink-0"
         >
           <p>
             <span className=" text-xl"> Drops </span>
@@ -125,17 +121,9 @@ const TopNav = () => {
           </div>
         </div>
 
-        {/* Contact Button */}
-        {email && (
-          <Link
-            href={`mailto:${email}`}
-            className="md:flex justify-center items-center gap-2 group h-[40px] text-sm px-4 rounded-md relative overflow-hidden font-medium hover:text-white duration-200 border border-brand hidden "
-          >
-            <IconMail />
-            Contact
-            <span className="absolute h-[300px] -translate-x-2 group-hover:translate-x-0 w-full bg-brand scale-x-[45%] rotate-6 group-hover:rotate-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10 block"></span>
-          </Link>
-        )}
+        {/* search input component */}
+
+        <Search />
 
         <MobileMenu />
       </div>
