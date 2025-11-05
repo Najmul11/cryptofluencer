@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import MobileMenu from "./MobileMenu";
 import Search from "../airdrops/Search";
+import { apiUrl } from "@/utils/constant";
 
 const TopNav = () => {
   const [prices, setPrices] = useState<any>({});
@@ -40,6 +41,27 @@ const TopNav = () => {
     fetchPrices();
     const interval = setInterval(fetchPrices, 30000);
     return () => clearInterval(interval);
+  }, []);
+
+  //======== visitirs/user tracking request =======
+
+  useEffect(() => {
+    const lastTracked = localStorage.getItem("last_visit_time");
+    const oneHour = 60 * 60 * 1000; // 1 hour in ms
+    const now = Date.now();
+
+    const postVisitTrack = async () => {
+      await fetch(`${apiUrl}/analytics/track`, {
+        method: "POST",
+        credentials: "include",
+      });
+    };
+
+    // If already tracked within last hour, skip
+    if (!lastTracked || (lastTracked && now - Number(lastTracked) > oneHour)) {
+      postVisitTrack();
+      localStorage.setItem("last_visit_time", now.toString());
+    }
   }, []);
 
   return (
