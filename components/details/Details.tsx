@@ -3,6 +3,7 @@ import { baseUrl } from "@/utils/constant";
 import {
   IconBrandDatabricks,
   IconBrandDiscord,
+  IconBrandDiscordFilled,
   IconBrandTelegram,
   IconBrandWordpress,
   IconBrandX,
@@ -57,12 +58,47 @@ const Details = ({ data }: { data: any }) => {
     <div className="flex flex-col gap-4 text-midnight">
       {/* primary  details ------ */}
       <div className="flex gap-5 max-sm:flex-col">
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 relative">
           <img
             src={new URL(logoURL, baseUrl).toString()}
             alt=""
             className="size-48 rounded-xl  shadow-sm"
           />
+          <div className="flex items-center gap-3 md:justify-center  bg-midnightblue/70 absolute p-2 bottom-0 rounded-b-xl w-full">
+            {website && (
+              <Link href={website} target="_blank">
+                <IconBrandWordpress
+                  size={22}
+                  className="text-blue-400 hover:text-blue-300 cursor-pointer duration-200"
+                />
+              </Link>
+            )}
+            {twitter && (
+              <Link href={twitter} target="_blank">
+                <IconBrandX
+                  size={22}
+                  className="text-gray-50 hover:text-gray-300 cursor-pointer duration-200"
+                />
+              </Link>
+            )}
+
+            {telegram && (
+              <Link href={telegram} target="_blank">
+                <IconBrandTelegram
+                  size={22}
+                  className="text-cyan-500 hover:text-cyan-600 cursor-pointer duration-200"
+                />
+              </Link>
+            )}
+            {discord && (
+              <Link href={discord} target="_blank">
+                <IconBrandDiscordFilled
+                  size={22}
+                  className="text-blue-600 hover:text-blue-700   cursor-pointer duration-200"
+                />
+              </Link>
+            )}
+          </div>
         </div>
         <div className=" w-full md:h-[12rem] flex flex-col justify-between  ">
           <h2 className="font-bold lg:text-3xl">{name}</h2>
