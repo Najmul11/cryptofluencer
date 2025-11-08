@@ -1,32 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import CategoryMenu from "@/components/airdrops/CategoryMenu";
 import DropSkeleton from "@/components/skeleton/DropSkeleton";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
-import Pagination from "@/components/ui/Pagination";
 import { useGetSingleCategoryQuery } from "@/redux/api/category";
 import { useGetAllProjectsQuery } from "@/redux/api/project";
 import { cn } from "@/utils/cn";
+import Pagination from "../ui/Pagination";
 
 const ITEMS_PER_PAGE = 20;
 
 const Airdrops = () => {
   const { slug } = useParams();
   const searchParams = useSearchParams();
-
   const search = searchParams.get("search") || "";
 
   const { data: categoryProjects, isLoading: categoryProjectsLoading } =
-    useGetSingleCategoryQuery(slug as string, {
-      skip: slug === "all",
-    });
+    useGetSingleCategoryQuery(slug as string, { skip: slug === "all" });
 
   const { data, isLoading } = useGetAllProjectsQuery(undefined, {
     skip: slug !== "all",
   });
 
+  // 0-based current page
   const [currentPage, setCurrentPage] = useState(0);
 
   const projects =
@@ -55,19 +53,36 @@ const Airdrops = () => {
             const lowerSearch = search.toLowerCase();
             const aNameMatch = a.name?.toLowerCase().includes(lowerSearch);
             const bNameMatch = b.name?.toLowerCase().includes(lowerSearch);
-
-            // Prioritize name match
             if (aNameMatch && !bNameMatch) return -1;
             if (!aNameMatch && bNameMatch) return 1;
-            return 0; // Maintain relative order for other matches
+            return 0;
           })
       : projects;
 
   const pageCount = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
+
+  // clamp current page when dataset changes
+  useEffect(() => {
+    if (currentPage >= pageCount && pageCount > 0) {
+      setCurrentPage(pageCount - 1);
+    }
+  }, [pageCount, currentPage]);
+
+  // reset page when slug or search changes
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [slug, search]);
+
   const paginatedItems = filteredProjects.slice(
     currentPage * ITEMS_PER_PAGE,
     (currentPage + 1) * ITEMS_PER_PAGE
   );
+
+  const handlePageChange = (page: number) => {
+    if (page < 0) return setCurrentPage(0);
+    if (page >= pageCount) return setCurrentPage(pageCount - 1);
+    setCurrentPage(page);
+  };
 
   return (
     <div className="wrapper pt-3 min-h-[calc(100vh-250px)]">
@@ -92,7 +107,7 @@ const Airdrops = () => {
                 Your search &apos;<i>{search}</i>&apos; has no result 🫥
               </span>
             ) : (
-              "There are no projects. "
+              "There are no projects."
             )}
           </p>
         </div>
@@ -100,11 +115,9 @@ const Airdrops = () => {
 
       {pageCount > 1 && (
         <Pagination
-          pageCount={pageCount}
           currentPage={currentPage}
-          onPageChange={({ selected }: { selected: number }) =>
-            setCurrentPage(selected)
-          }
+          totalPages={pageCount}
+          onPageChange={handlePageChange}
         />
       )}
     </div>
