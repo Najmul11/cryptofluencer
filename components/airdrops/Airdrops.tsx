@@ -91,7 +91,11 @@ const Airdrops = () => {
       {isLoading || categoryProjectsLoading ? (
         <DropSkeleton />
       ) : paginatedItems.length > 0 ? (
-        <div className={cn({ "mt-10": search })}>
+        <div
+          className={cn("min-h-[calc(100vh-300px)] ", {
+            "mt-10": search,
+          })}
+        >
           {search && (
             <h2>
               Search result for &apos;<i>{search}</i>&apos;
