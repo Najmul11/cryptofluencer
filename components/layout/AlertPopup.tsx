@@ -21,8 +21,8 @@ const AlertPopup = () => {
     <div>
       {/* ====== ALERT POPUP ====== */}
       {showAlert && (
-        <div className="fixed inset-0 z-[12000] flex items-center justify-center bg-black/60 backdrop-blur-[2px]">
-          <div className="bg-[#f5f5f5]/10 border border-midnightblue rounded-2xl p-6 w-[90%] max-w-md text-white shadow-xl relative">
+        <div className="fixed inset-0 z-[12000] flex items-center justify-center bg-black/50 backdrop-blur-[2px]">
+          <div className="bg-slate-800  backdrop-blur-sm border-midnightblue rounded-2xl p-6 w-[90%] max-w-md text-white shadow-xl relative">
             <h2 className="text-lg font-bold mb-2 text-brand">
               ⚠️ Crypto Safety Reminder
             </h2>
