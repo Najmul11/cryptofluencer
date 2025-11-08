@@ -39,6 +39,7 @@ const Details = ({ data }: { data: any }) => {
 
     inviteCode,
     inviteURL,
+    highlightedText,
 
     status,
     buttonText,
@@ -56,53 +57,19 @@ const Details = ({ data }: { data: any }) => {
     <div className="flex flex-col gap-4 text-midnight">
       {/* primary  details ------ */}
       <div className="flex gap-5 max-sm:flex-col">
-        <div>
+        <div className="flex-shrink-0">
           <img
             src={new URL(logoURL, baseUrl).toString()}
             alt=""
-            className="size-44 rounded-xl  shadow-sm"
+            className="size-48 rounded-xl  shadow-sm"
           />
-          <div className="flex items-center gap-3 md:justify-center mt-4">
-            {website && (
-              <Link href={website} target="_blank">
-                <IconBrandWordpress
-                  size={22}
-                  className="hover:text-cyan-700 text-blue-700 cursor-pointer duration-200"
-                />
-              </Link>
-            )}
-            {twitter && (
-              <Link href={twitter} target="_blank">
-                <IconBrandX
-                  size={22}
-                  className="hover:text-black cursor-pointer duration-200"
-                />
-              </Link>
-            )}
-
-            {telegram && (
-              <Link href={telegram} target="_blank">
-                <IconBrandTelegram
-                  size={22}
-                  className="text-cyan-700 hover:text-cyan-700 cursor-pointer duration-200"
-                />
-              </Link>
-            )}
-            {discord && (
-              <Link href={discord} target="_blank">
-                <IconBrandDiscord
-                  size={22}
-                  className="text-blue-700 hover:!text-blue-800 cursor-pointer duration-200"
-                />
-              </Link>
-            )}
-          </div>
         </div>
-        <div className="space-y-2">
+        <div className=" w-full md:h-[12rem] flex flex-col justify-between  ">
           <h2 className="font-bold lg:text-3xl">{name}</h2>
+          <p className="text-sm  ">{highlightedText}</p>
           {/* platform-------- */}
           <div className="flex items-center gap-1">
-            <IconBrandDatabricks className="text-brand" size={20} />{" "}
+            <IconBrandDatabricks className="text-brand" size={18} />{" "}
             <div className="flex gap-2 items-center">
               <p> Blockchain :</p>
               <p>{platform?.name || "Unconfirmed"}</p>
@@ -111,13 +78,13 @@ const Details = ({ data }: { data: any }) => {
 
           {/* status----------- */}
           <div className="flex items-center gap-1">
-            <IconLayoutBottombarInactive className="text-brand" size={20} />{" "}
+            <IconLayoutBottombarInactive className="text-brand" size={18} />{" "}
             <div className="flex gap-2 items-center">
               <p>Reward :</p>
               <p className="flex gap-1 items-center !capitalize">
                 {status.toLowerCase()}
                 {status.toLowerCase() === "confirmed" ? (
-                  <IconChecks size={20} className="text-green-500" />
+                  <IconChecks size={18} className="text-green-500" />
                 ) : (
                   <span className="font-semibold text-red-500 text-lg">X</span>
                 )}
@@ -127,7 +94,7 @@ const Details = ({ data }: { data: any }) => {
 
           {/* funding --------- */}
           <div className="flex items-center gap-1">
-            <IconReceiptDollar className="text-brand" size={20} />{" "}
+            <IconReceiptDollar className="text-brand" size={18} />{" "}
             <div className="flex gap-2 items-center">
               <p>Funding :</p>
               {funding ? (
@@ -148,14 +115,14 @@ const Details = ({ data }: { data: any }) => {
                 <p className="font-medium ">
                   {copy ? (
                     <span className="flex gap-1 items-center">
-                      <IconChecks size={18} /> copied
+                      <IconChecks size={17} /> copied
                     </span>
                   ) : (
                     <span className="flex items-center gap-1">
                       {inviteCode}
                       <IconCopy
                         onClick={() => handleCopy(inviteCode)}
-                        size={18}
+                        size={17}
                         className="cursor-pointer"
                       />
                     </span>
