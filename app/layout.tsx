@@ -6,6 +6,7 @@ import AntdProvider from "@/components/providers/AntdProvider";
 import ReduxProvider from "@/components/providers/ReduxProvider";
 import "react-loading-skeleton/dist/skeleton.css";
 import AlertPopup from "@/components/layout/AlertPopup";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Cypto Airdrops - DropsFi",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <ReduxProvider>
         <AntdProvider>
           <body className={` antialiased  custom-scroll min-h-screen`}>
+            <ScrollToTop />
             <TopNav />
 
             {children}

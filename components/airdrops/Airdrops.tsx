@@ -79,6 +79,10 @@ const Airdrops = () => {
   );
 
   const handlePageChange = (page: number) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     if (page < 0) return setCurrentPage(0);
     if (page >= pageCount) return setCurrentPage(pageCount - 1);
     setCurrentPage(page);
