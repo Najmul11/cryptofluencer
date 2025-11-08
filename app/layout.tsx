@@ -5,6 +5,7 @@ import TopNav from "@/components/layout/TopNav";
 import AntdProvider from "@/components/providers/AntdProvider";
 import ReduxProvider from "@/components/providers/ReduxProvider";
 import "react-loading-skeleton/dist/skeleton.css";
+import AlertPopup from "@/components/layout/AlertPopup";
 
 export const metadata: Metadata = {
   title: "Cypto Airdrops - DropsFi",
@@ -26,6 +27,7 @@ export default function RootLayout({
             {children}
           </body>
 
+          <AlertPopup />
           <Footer />
         </AntdProvider>
       </ReduxProvider>

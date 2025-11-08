@@ -25,6 +25,7 @@ const TopNav = () => {
     tron: "TRX",
   };
 
+  // === Fetch Prices ===
   useEffect(() => {
     const fetchPrices = async () => {
       try {
@@ -43,11 +44,10 @@ const TopNav = () => {
     return () => clearInterval(interval);
   }, []);
 
-  //======== visitirs/user tracking request =======
-
+  // === Visitors tracking ===
   useEffect(() => {
     const lastTracked = localStorage.getItem("last_visit_time");
-    const oneHour = 60 * 60 * 1000; // 1 hour in ms
+    const oneHour = 60 * 60 * 1000;
     const now = Date.now();
 
     const postVisitTrack = async () => {
@@ -57,7 +57,6 @@ const TopNav = () => {
       });
     };
 
-    // If already tracked within last hour, skip
     if (!lastTracked || (lastTracked && now - Number(lastTracked) > oneHour)) {
       postVisitTrack();
       localStorage.setItem("last_visit_time", now.toString());
@@ -65,62 +64,33 @@ const TopNav = () => {
   }, []);
 
   return (
-    <nav className=" sticky top-0 !z-[11000] bg-midnight border-b border-midnightblue">
-      <div className=" flex gap-5 justify-between  wrapper items-center  py-3">
+    <nav className="sticky top-0 !z-[11000] bg-midnight border-b border-midnightblue">
+      <div className="flex gap-5 justify-between wrapper items-center py-3">
         <Link
           href={"/"}
-          className="leading-3 font-semibold flex items-center gap-2 rounded-md  relative flex-shrink-0"
+          className="leading-3 font-semibold flex items-center gap-2 rounded-md relative flex-shrink-0"
         >
           <p>
-            <span className=" text-xl"> Drops </span>
-            <span className="text-brand text-xl ">Fi</span>
+            <span className="text-xl">Drops</span>
+            <span className="text-brand text-xl">Fi</span>
           </p>
         </Link>
 
-        {/* #### price update marque #### */}
-
-        <div className="flex-grow  text-center w-[calc(100%-308px)] ">
-          <div className=" relative z-[100]">
-            <Marquee className="overflow-y-hidden  py-2" speed={40}>
+        {/* #### price update marquee #### */}
+        <div className="flex-grow text-center w-[calc(100%-308px)]">
+          <div className="relative z-[100]">
+            <Marquee className="overflow-y-hidden py-2" speed={40}>
               {Object.entries(prices).map(
                 ([coin, { usd, usd_24h_change }]: any) => (
                   <div
                     key={coin}
-                    className="flex items-center gap-10 mx-4  text-[11px] text-white"
+                    className="flex items-center gap-10 mx-4 text-[11px] text-white"
                   >
                     <p className="flex gap-2">
                       <span>{coinMapping[coin]} </span>
                       <span>
                         <span className="italic">$</span> {usd}
                       </span>
-
-                      <span
-                        className={cn(
-                          {
-                            "text-red-500 ": usd_24h_change < 0,
-                            "text-green-500 ": usd_24h_change > 0,
-                          },
-                          "font-medium "
-                        )}
-                      >
-                        {usd_24h_change.toFixed(2)}%
-                      </span>
-                    </p>
-                  </div>
-                )
-              )}
-              {Object.entries(prices).map(
-                ([coin, { usd, usd_24h_change }]: any) => (
-                  <div
-                    key={coin}
-                    className="flex items-center gap-10 mx-4  text-[11px] text-white"
-                  >
-                    <p className="flex gap-2">
-                      <span>{coinMapping[coin]} </span>
-                      <span>
-                        <span className="italic">$</span> {usd}
-                      </span>
-
                       <span
                         className={cn(
                           {
@@ -137,14 +107,12 @@ const TopNav = () => {
                 )
               )}
             </Marquee>
-
-            <div className="h-full absolute w-24  bg-gradient-to-r from-midnight to-transparent top-0 left-0  z-[100]"></div>
-            <div className="h-full absolute w-24  bg-gradient-to-l from-midnight to-transparent top-0 right-0  z-[100]"></div>
+            <div className="h-full absolute w-24 bg-gradient-to-r from-midnight to-transparent top-0 left-0 z-[100]" />
+            <div className="h-full absolute w-24 bg-gradient-to-l from-midnight to-transparent top-0 right-0 z-[100]" />
           </div>
         </div>
 
         {/* search input component */}
-
         <div className="max-md:hidden">
           <Search />
         </div>
