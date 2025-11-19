@@ -34,7 +34,7 @@ const Search = ({ mobileMenu = false, setMenuOpen }: TProps) => {
       className={cn("w-full flex", { " justify-end": !mobileMenu })}
     >
       <div
-        className={cn("relative   w-full", {
+        className={cn("relative  w-full", {
           "w-full": mobileMenu,
         })}
       >
@@ -44,14 +44,14 @@ const Search = ({ mobileMenu = false, setMenuOpen }: TProps) => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           className={cn(
-            "py-2 text-sm  px-2 w-full rounded focus:border-transparent focus:outline-none  focus:ring-2 focus:!ring-brand bg-brand/20",
+            "py-2 text-sm border border-brand/80 !rounded-md px-2 w-full  focus:border-transparent focus:outline-none  focus:ring-2 focus:!ring-brand bg-brand/20",
             { "w-full": mobileMenu }
           )}
         />
         <button type="submit">
           <IconSearch
             size={17}
-            className="text-brand/50 absolute top-1/2 right-2 -translate-y-1/2"
+            className="text-brand absolute top-1/2 right-2 -translate-y-1/2"
           />
         </button>
       </div>
