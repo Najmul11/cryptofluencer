@@ -19,7 +19,7 @@ const CategoryMenu = () => {
   const allCategories = data?.data || [];
 
   // Take the first 3
-  const baseCategories = allCategories?.slice(0, 3);
+  const baseCategories = allCategories?.slice(0, 6);
 
   // Check if the current slug is NOT in the top 3
   const isActiveInMore = !baseCategories.some((cat: any) => cat.slug === slug);
