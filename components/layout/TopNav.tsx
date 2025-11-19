@@ -47,7 +47,7 @@ const TopNav = () => {
   // === Visitors tracking ===
   useEffect(() => {
     const lastTracked = localStorage.getItem("last_visit_time");
-    const oneHour = 60 * 60 * 1000;
+    const session = 15 * 60 * 1000;
     const now = Date.now();
 
     const postVisitTrack = async () => {
@@ -57,7 +57,7 @@ const TopNav = () => {
       });
     };
 
-    if (!lastTracked || (lastTracked && now - Number(lastTracked) > oneHour)) {
+    if (!lastTracked || (lastTracked && now - Number(lastTracked) > session)) {
       postVisitTrack();
       localStorage.setItem("last_visit_time", now.toString());
     }

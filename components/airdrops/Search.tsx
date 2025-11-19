@@ -6,9 +6,10 @@ import { useState } from "react";
 
 type TProps = {
   mobileMenu?: boolean;
+  setMenuOpen?: (val: boolean) => void;
 };
 
-const Search = ({ mobileMenu = false }: TProps) => {
+const Search = ({ mobileMenu = false, setMenuOpen }: TProps) => {
   const searchParams = useSearchParams();
 
   const search = searchParams.get("search") || "";
@@ -22,6 +23,10 @@ const Search = ({ mobileMenu = false }: TProps) => {
     if (input.trim()) {
       router.push(`/airdrops/all?search=${encodeURIComponent(input.trim())}`);
     } else router.push(`/airdrops/all`);
+
+    if (mobileMenu && setMenuOpen) {
+      setMenuOpen(false);
+    }
   };
   return (
     <form

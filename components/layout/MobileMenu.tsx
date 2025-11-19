@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useGetAllCategoriesQuery } from "@/redux/api/category";
 import { cn } from "@/utils/cn";
 import Search from "../airdrops/Search";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useGetAllBusinessQuery } from "@/redux/api/business";
 
 const MobileMenu = () => {
@@ -16,17 +16,6 @@ const MobileMenu = () => {
 
   const { data: businessData } = useGetAllBusinessQuery("");
   const { email } = businessData?.data || {};
-
-  const router = useRouter();
-
-  const [input, setInput] = useState("");
-
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (input.trim()) {
-      router.push(`/airdrops/all?search=${encodeURIComponent(input.trim())}`);
-    } else router.push(`/airdrops/all`);
-  };
 
   const { data } = useGetAllCategoriesQuery("");
 
@@ -66,12 +55,7 @@ const MobileMenu = () => {
             </div>
 
             <div className="my-6">
-              <Search
-                handleSearch={handleSearch}
-                input={input}
-                setInput={setInput}
-                mobileMenu={true}
-              />
+              <Search mobileMenu={true} setMenuOpen={setMenuOpen} />
             </div>
 
             <div className="flex flex-col gap-4 !h-[calc(100vh-320px)]  overflow-y-auto ">
