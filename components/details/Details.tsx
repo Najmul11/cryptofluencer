@@ -2,7 +2,6 @@
 import { baseUrl } from "@/utils/constant";
 import {
   IconBrandDatabricks,
-  IconBrandDiscord,
   IconBrandDiscordFilled,
   IconBrandTelegram,
   IconBrandWordpress,

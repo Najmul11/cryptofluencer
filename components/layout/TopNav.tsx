@@ -2,7 +2,7 @@
 "use client";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import MobileMenu from "./MobileMenu";
 import Search from "../airdrops/Search";
@@ -114,7 +114,9 @@ const TopNav = () => {
 
         {/* search input component */}
         <div className="max-md:hidden">
-          <Search />
+          <Suspense>
+            <Search />
+          </Suspense>
         </div>
 
         <MobileMenu />

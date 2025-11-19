@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 import { IconMail, IconMenu2, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "motion/react";
@@ -55,7 +55,9 @@ const MobileMenu = () => {
             </div>
 
             <div className="my-6">
-              <Search mobileMenu={true} setMenuOpen={setMenuOpen} />
+              <Suspense>
+                <Search mobileMenu={true} setMenuOpen={setMenuOpen} />
+              </Suspense>
             </div>
 
             <div className="flex flex-col gap-4 !h-[calc(100vh-320px)]  overflow-y-auto ">
