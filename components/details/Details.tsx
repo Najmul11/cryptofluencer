@@ -63,7 +63,7 @@ const Details = ({ data }: { data: any }) => {
             alt=""
             className="size-48 rounded-xl  shadow-sm"
           />
-          <div className="flex items-center gap-3 md:justify-center  bg-midnightblue/70 absolute p-2 bottom-0 rounded-b-xl w-full">
+          <div className="flex items-center gap-3 md:justify-center  bg-midnightblue/70 absolute p-2 bottom-0 rounded-b-xl w-48">
             {website && (
               <Link href={website} target="_blank">
                 <IconBrandWordpress
