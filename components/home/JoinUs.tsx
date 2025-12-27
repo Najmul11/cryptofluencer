@@ -47,8 +47,8 @@ const JoinUs = () => {
           <PrimaryPlatforms />
 
           <div className="grid grid-cols-2  smOne:grid-cols-3 md:grid-cols-4 lg xlOne:grid-cols-6 gap-5 mt-8">
-            {communities?.data.length > 0 &&
-              communities?.data.slice(0, 18).map((community: any) => (
+            {communities?.data?.length > 0 &&
+              communities?.data?.slice(0, 18).map((community: any) => (
                 <Link
                   key={community?.id}
                   href={community?.link}

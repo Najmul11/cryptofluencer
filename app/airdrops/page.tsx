@@ -12,17 +12,17 @@ export default function Page() {
 }
 
 export async function generateMetadata(props: any): Promise<Metadata> {
-  const { slug } = (await props).params;
-  const search = props.searchParams?.search;
+  const { search, category } = props.searchParams;
 
-  const titleBase =
-    slug === "all" ? "All Airdrops" : `Crypto Airdrops - ${slug}`;
+  const titleBase = !category
+    ? "All Airdrops"
+    : `Crypto Airdrops - ${category}`;
 
   const title = search ? `Search results for "${search}" airdrops` : titleBase;
 
   return {
     title,
-    description: `Explore airdrops in ${slug} category${
+    description: `Explore airdrops in ${category} category${
       search ? ` matching "${search}"` : ""
     }.`,
   };

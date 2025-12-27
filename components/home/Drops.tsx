@@ -30,7 +30,7 @@ const Drops = () => {
       {isLoading ? (
         <DropSkeleton />
       ) : (
-        <HoverEffect items={data?.data?.data.slice(0, 16)} />
+        <HoverEffect items={data?.data?.data?.slice(0, 16)} />
       )}
 
       {/* View All Airdrops Button */}

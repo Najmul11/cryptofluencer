@@ -8,7 +8,7 @@ import { useGetAllProjectsQuery } from "@/redux/api/project";
 import { cn } from "@/utils/cn";
 import Pagination from "../ui/Pagination";
 
-const ITEMS_PER_PAGE = 2;
+const ITEMS_PER_PAGE = 20;
 
 const Airdrops = () => {
   const urlParams = useSearchParams();
@@ -64,7 +64,7 @@ const Airdrops = () => {
 
         {isLoading ? (
           <DropSkeleton />
-        ) : data?.data?.data.length > 0 ? (
+        ) : data?.data?.data?.length > 0 ? (
           <div
             className={cn("min-h-[calc(100vh-300px)] ", {
               "mt-10": search,
