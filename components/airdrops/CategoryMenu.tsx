@@ -2,7 +2,7 @@
 "use client";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useGetAllCategoriesQuery } from "@/redux/api/category";
@@ -10,7 +10,9 @@ import { IconChevronDown } from "@tabler/icons-react";
 import CategorySkeleton from "../skeleton/CategorySkeleton";
 
 const CategoryMenu = () => {
-  const { slug } = useParams();
+  const path = usePathname();
+  const urlParams = useSearchParams();
+
   const [showDropdown, setShowDropdown] = useState(false);
   const { data, isLoading } = useGetAllCategoriesQuery("");
 
@@ -18,13 +20,15 @@ const CategoryMenu = () => {
 
   const allCategories = data?.data || [];
 
-  // Take the first 3
+  // Take the first 6
   const baseCategories = allCategories?.slice(0, 6);
 
-  // Check if the current slug is NOT in the top 3
-  const isActiveInMore = !baseCategories.some((cat: any) => cat.slug === slug);
+  // Check if the current slug is NOT in the top 6
+  const isActiveInMore = !baseCategories.some(
+    (cat: any) => cat.slug === urlParams.get("category")
+  );
   const activeCategory = isActiveInMore
-    ? allCategories.find((cat: any) => cat.slug === slug)
+    ? allCategories.find((cat: any) => cat.slug === urlParams.get("category"))
     : null;
 
   // If needed, add the active one to the top list
@@ -36,12 +40,14 @@ const CategoryMenu = () => {
     <div className="flex gap-4 w-full relative max-md:hidden">
       <div className="flex items-center gap-4  flex-shrink-0">
         <Link
-          href="/airdrops/all"
+          href="/airdrops"
           className={cn(
             "flex-center gap-2 group duration-200 px-6 py-2 bg-brand/20  text-sm font-medium rounded select-none",
             {
-              "!bg-brand text-white": slug === "all",
-              "hover:text-brand": slug !== "all",
+              "!bg-brand text-white":
+                path === "/airdrops" && !urlParams.get("category"),
+              "hover:text-brand":
+                path === "/airdrops" && urlParams.get("category"),
             }
           )}
         >
@@ -51,13 +57,13 @@ const CategoryMenu = () => {
         {displayCategories.map((category: any) => (
           <Link
             key={category.slug}
-            // href={`/airdrops/${category.slug}`}
             href={`/airdrops?category=${category.slug}`}
             className={cn(
               "flex-center gap-2 group duration-200 px-6 py-2 bg-brand/20  text-sm font-medium rounded select-none",
               {
-                "!bg-brand text-white": slug === category.slug,
-                "hover:text-brand": slug !== category.slug,
+                "!bg-brand text-white":
+                  urlParams.get("category") === category.slug,
+                "hover:text-brand": urlParams.get("category") !== category.slug,
               }
             )}
           >
