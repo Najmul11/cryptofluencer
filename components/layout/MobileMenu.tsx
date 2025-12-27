@@ -7,12 +7,14 @@ import Link from "next/link";
 import { useGetAllCategoriesQuery } from "@/redux/api/category";
 import { cn } from "@/utils/cn";
 import Search from "../airdrops/Search";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { useGetAllBusinessQuery } from "@/redux/api/business";
 
 const MobileMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { slug } = useParams();
+
+  const urlParams = useSearchParams();
 
   const { data: businessData } = useGetAllBusinessQuery("");
   const { email } = businessData?.data || {};
@@ -67,12 +69,14 @@ const MobileMenu = () => {
                     <Link
                       onClick={() => setMenuOpen(false)}
                       key={category.slug}
-                      href={`/airdrops/${category.slug}`}
+                      href={`/airdrops?category=${category.slug}`}
                       className={cn(
                         "flex-center gap-2 group duration-200 px-3 py-1 bg-brand/20   text-sm font-medium rounded select-none",
                         {
-                          "!text-brand ": slug === category.slug,
-                          "hover:text-brand": slug !== category.slug,
+                          "!text-brand ":
+                            urlParams.get("category") === category.slug,
+                          "hover:text-brand":
+                            urlParams.get("category") !== category.slug,
                         }
                       )}
                     >
