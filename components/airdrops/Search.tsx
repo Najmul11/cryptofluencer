@@ -21,8 +21,8 @@ const Search = ({ mobileMenu = false, setMenuOpen }: TProps) => {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input.trim()) {
-      router.push(`/airdrops/all?search=${encodeURIComponent(input.trim())}`);
-    } else router.push(`/airdrops/all`);
+      router.push(`/airdrops?search=${encodeURIComponent(input.trim())}`);
+    } else router.push(`/airdrops`);
 
     if (mobileMenu && setMenuOpen) {
       setMenuOpen(false);
