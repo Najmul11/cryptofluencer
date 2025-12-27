@@ -1,62 +1,60 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import CategoryMenu from "@/components/airdrops/CategoryMenu";
 import DropSkeleton from "@/components/skeleton/DropSkeleton";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
-import { useGetSingleCategoryQuery } from "@/redux/api/category";
 import { useGetAllProjectsQuery } from "@/redux/api/project";
 import { cn } from "@/utils/cn";
 import Pagination from "../ui/Pagination";
 
-const ITEMS_PER_PAGE = 20;
+const ITEMS_PER_PAGE = 2;
 
 const Airdrops = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const urlParams = useSearchParams();
+  const search = urlParams.get("search") || "";
+  const category = urlParams.get("category") || "";
+  const page = urlParams.get("page") || 1;
 
-  const { slug } = useParams();
-  const searchParams = useSearchParams();
-  const search = searchParams.get("search") || "";
-
-  const { data: categoryProjects, isLoading: categoryProjectsLoading } =
-    useGetSingleCategoryQuery(slug as string, { skip: slug === "all" });
+  const router = useRouter();
 
   const { data, isLoading } = useGetAllProjectsQuery(
     {
-      page: currentPage,
+      page: Number(page) || 1,
       limit: ITEMS_PER_PAGE,
       search,
-    },
-    {
-      skip: slug !== "all",
+      category,
     }
+    // {
+    //   skip: slug !== "all",
+    // }
   );
 
   // ==================== pagination logic ====================
 
   const pageCount = Math.ceil(data?.data?.meta?.total / ITEMS_PER_PAGE);
 
-  // clamp current page when dataset changes
-  useEffect(() => {
-    if (currentPage >= pageCount && pageCount > 0) {
-      setCurrentPage(pageCount);
-    }
-  }, [pageCount, currentPage]);
-
-  // reset page when slug or search changes
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [slug, search]);
-
   const handlePageChange = (page: number) => {
+    if (page < 1 || page > pageCount) return;
+
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-    if (page < 0) return setCurrentPage(1);
-    if (page >= pageCount) return setCurrentPage(pageCount);
-    setCurrentPage(page);
+
+    const params = new URLSearchParams();
+    // page is always valid
+    params.set("page", page.toString());
+
+    // only add if exists
+    if (category) {
+      params.set("category", category);
+    }
+
+    if (search) {
+      params.set("search", search);
+    }
+    router.push(`/airdrops?${params.toString()}`);
   };
 
   return (
@@ -64,7 +62,7 @@ const Airdrops = () => {
       <div className="wrapper pt-3 min-h-[calc(100vh-250px)]">
         <CategoryMenu />
 
-        {isLoading || categoryProjectsLoading ? (
+        {isLoading ? (
           <DropSkeleton />
         ) : data?.data?.data.length > 0 ? (
           <div
@@ -95,7 +93,7 @@ const Airdrops = () => {
 
         {pageCount > 1 && (
           <Pagination
-            currentPage={currentPage}
+            currentPage={Number(page)}
             totalPages={pageCount}
             onPageChange={handlePageChange}
           />

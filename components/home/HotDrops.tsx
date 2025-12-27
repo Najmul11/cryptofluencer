@@ -21,7 +21,7 @@ const HotDrops = () => {
           {data?.data?.slice(0, 3).map((category: any, index: number) => (
             <Link
               key={category.slug}
-              href={`/airdrops/${category.slug}`}
+              href={`/airdrops?category=${category.slug}`}
               className="py-2 md:py-3  border-2 border-brand hover:text-white group duration-200 rounded-lg flex justify-center items-center text-sm sm:text-lg md:text-xl font-semibold relative overflow-hidden"
             >
               {index !== 3 && <span className="text-2xl">🔥</span>}{" "}
@@ -32,7 +32,7 @@ const HotDrops = () => {
           ))}
 
           <Link
-            href={`/airdrops/all`}
+            href={`/airdrops`}
             className="py-2 md:py-3 border-2 border-brand hover:text-white group duration-200 rounded-lg flex justify-center items-center text-sm sm:text-lg md:text-xl font-semibold relative overflow-hidden"
           >
             All

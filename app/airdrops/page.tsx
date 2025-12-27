@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Airdrops from "@/components/airdrops/Airdrops";
+import Airdrops from "@/components/airdrops/Airdops";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
