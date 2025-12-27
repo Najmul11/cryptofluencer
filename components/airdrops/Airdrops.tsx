@@ -13,6 +13,8 @@ import Pagination from "../ui/Pagination";
 const ITEMS_PER_PAGE = 20;
 
 const Airdrops = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
   const { slug } = useParams();
   const searchParams = useSearchParams();
   const search = searchParams.get("search") || "";
@@ -20,114 +22,85 @@ const Airdrops = () => {
   const { data: categoryProjects, isLoading: categoryProjectsLoading } =
     useGetSingleCategoryQuery(slug as string, { skip: slug === "all" });
 
-  const { data, isLoading } = useGetAllProjectsQuery(undefined, {
-    skip: slug !== "all",
-  });
+  const { data, isLoading } = useGetAllProjectsQuery(
+    {
+      page: currentPage,
+      limit: ITEMS_PER_PAGE,
+      search,
+    },
+    {
+      skip: slug !== "all",
+    }
+  );
 
-  // 0-based current page
-  const [currentPage, setCurrentPage] = useState(0);
+  // ==================== pagination logic ====================
 
-  const projects =
-    slug === "all"
-      ? data?.data || []
-      : categoryProjects?.data?.projects?.map((item: any) => item.project) ||
-        [];
-
-  const filteredProjects =
-    slug === "all" && search
-      ? projects
-          .filter((project: any) => {
-            const lowerSearch = search.toLowerCase();
-            return (
-              ["name", "slug", "status", "inviteURL", "inviteCode"].some(
-                (key) =>
-                  String(project[key]).toLowerCase().includes(lowerSearch)
-              ) ||
-              project.platform?.name?.toLowerCase().includes(lowerSearch) ||
-              project.categories?.some((cat: any) =>
-                cat.category?.name?.toLowerCase().includes(lowerSearch)
-              )
-            );
-          })
-          .sort((a: any, b: any) => {
-            const lowerSearch = search.toLowerCase();
-            const aNameMatch = a.name?.toLowerCase().includes(lowerSearch);
-            const bNameMatch = b.name?.toLowerCase().includes(lowerSearch);
-            if (aNameMatch && !bNameMatch) return -1;
-            if (!aNameMatch && bNameMatch) return 1;
-            return 0;
-          })
-      : projects;
-
-  const pageCount = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
+  const pageCount = Math.ceil(data?.data?.meta?.total / ITEMS_PER_PAGE);
 
   // clamp current page when dataset changes
   useEffect(() => {
     if (currentPage >= pageCount && pageCount > 0) {
-      setCurrentPage(pageCount - 1);
+      setCurrentPage(pageCount);
     }
   }, [pageCount, currentPage]);
 
   // reset page when slug or search changes
   useEffect(() => {
-    setCurrentPage(0);
+    setCurrentPage(1);
   }, [slug, search]);
-
-  const paginatedItems = filteredProjects.slice(
-    currentPage * ITEMS_PER_PAGE,
-    (currentPage + 1) * ITEMS_PER_PAGE
-  );
 
   const handlePageChange = (page: number) => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-    if (page < 0) return setCurrentPage(0);
-    if (page >= pageCount) return setCurrentPage(pageCount - 1);
+    if (page < 0) return setCurrentPage(1);
+    if (page >= pageCount) return setCurrentPage(pageCount);
     setCurrentPage(page);
   };
 
   return (
-    <div className="wrapper pt-3 min-h-[calc(100vh-250px)]">
-      <CategoryMenu />
+    <div>
+      <div className="wrapper pt-3 min-h-[calc(100vh-250px)]">
+        <CategoryMenu />
 
-      {isLoading || categoryProjectsLoading ? (
-        <DropSkeleton />
-      ) : paginatedItems.length > 0 ? (
-        <div
-          className={cn("min-h-[calc(100vh-300px)] ", {
-            "mt-10": search,
-          })}
-        >
-          {search && (
-            <h2>
-              Search result for &apos;<i>{search}</i>&apos;
-            </h2>
-          )}
-          <HoverEffect items={paginatedItems} />
-        </div>
-      ) : (
-        <div className="h-[calc(100vh-300px)] flex-center">
-          <p className="text-center text-2xl font-medium py-6">
-            {search ? (
-              <span>
-                Your search &apos;<i>{search}</i>&apos; has no result 🫥
-              </span>
-            ) : (
-              "There are no projects."
+        {isLoading || categoryProjectsLoading ? (
+          <DropSkeleton />
+        ) : data?.data?.data.length > 0 ? (
+          <div
+            className={cn("min-h-[calc(100vh-300px)] ", {
+              "mt-10": search,
+            })}
+          >
+            {search && (
+              <h2>
+                Search result for &apos;<i>{search}</i>&apos;
+              </h2>
             )}
-          </p>
-        </div>
-      )}
+            <HoverEffect items={data?.data?.data} />
+          </div>
+        ) : (
+          <div className="h-[calc(100vh-300px)] flex-center">
+            <p className="text-center text-2xl font-medium py-6">
+              {search ? (
+                <span>
+                  Your search &apos;<i>{search}</i>&apos; has no result 🫥
+                </span>
+              ) : (
+                "There are no projects."
+              )}
+            </p>
+          </div>
+        )}
 
-      {pageCount > 1 && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={pageCount}
-          onPageChange={handlePageChange}
-        />
-      )}
+        {pageCount > 1 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={pageCount}
+            onPageChange={handlePageChange}
+          />
+        )}
+      </div>
     </div>
   );
 };

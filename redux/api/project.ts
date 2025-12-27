@@ -1,14 +1,33 @@
 import { api } from "./api";
 
+type TQuery = {
+  showOnHomepage?: "YES" | "NO";
+  page?: number;
+  limit?: number;
+  search?: string;
+};
+
 const projectApi = api.injectEndpoints({
   endpoints: (builder) => ({
     // ======== get all project =========
     getAllProjects: builder.query({
-      query: (params?: { showOnHomepage?: "YES" | "NO" }) => {
+      query: (params?: TQuery) => {
         const queryParams = new URLSearchParams();
 
         if (params?.showOnHomepage) {
           queryParams.append("showOnHomepage", params.showOnHomepage);
+        }
+
+        if (params?.search) {
+          queryParams.append("search", params.search);
+        }
+
+        if (params?.page) {
+          queryParams.append("page", params.page.toString());
+        }
+
+        if (params?.limit) {
+          queryParams.append("limit", params.limit.toString());
         }
 
         const queryString = queryParams.toString();

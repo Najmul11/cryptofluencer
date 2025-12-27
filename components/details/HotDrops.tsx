@@ -21,7 +21,7 @@ const HotDrops = () => {
         <div className=" ">
           <div className="overflow-y-auto custom-scroll mt-8 max-h-[calc(100vh-23vh)] ">
             <HoverEffect
-              items={data?.data}
+              items={data?.data?.data}
               className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 lgOne:grid-cols-1 !py-0 !my-0"
             />
           </div>

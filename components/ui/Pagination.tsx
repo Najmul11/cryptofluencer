@@ -1,7 +1,7 @@
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
 type PaginationProps = {
-  currentPage: number; // 0-based
+  currentPage: number; // 1-based
   totalPages: number; // total page count
   onPageChange: (page: number) => void;
 };
@@ -16,24 +16,24 @@ const Pagination = ({
     const showEllipsis = totalPages > 7;
 
     if (!showEllipsis) {
-      for (let i = 0; i < totalPages; i++) pages.push(i);
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
       return pages;
     }
 
-    if (currentPage <= 2) {
-      for (let i = 0; i < 5; i++) pages.push(i);
+    if (currentPage <= 3) {
+      for (let i = 1; i <= 5; i++) pages.push(i);
       pages.push("ellipsis");
-      pages.push(totalPages - 1);
-    } else if (currentPage >= totalPages - 3) {
-      pages.push(0);
+      pages.push(totalPages);
+    } else if (currentPage >= totalPages - 2) {
+      pages.push(1);
       pages.push("ellipsis");
-      for (let i = totalPages - 5; i < totalPages; i++) pages.push(i);
+      for (let i = totalPages - 4; i <= totalPages; i++) pages.push(i);
     } else {
-      pages.push(0);
+      pages.push(1);
       pages.push("ellipsis");
       for (let i = currentPage - 1; i <= currentPage + 1; i++) pages.push(i);
       pages.push("ellipsis");
-      pages.push(totalPages - 1);
+      pages.push(totalPages);
     }
 
     return pages;
@@ -42,7 +42,7 @@ const Pagination = ({
   const pageNumbers = getPageNumbers();
 
   const safeChange = (page: number) => {
-    if (page < 0 || page >= totalPages) return;
+    if (page < 1 || page > totalPages) return; // 1-based bounds
     onPageChange(page);
   };
 
@@ -50,7 +50,7 @@ const Pagination = ({
     <div className="flex items-center justify-center gap-1 sm:gap-2 mt-6">
       <button
         onClick={() => safeChange(currentPage - 1)}
-        disabled={currentPage === 0}
+        disabled={currentPage === 1} // disable first page
         className="flex-center size-7 rounded-sm border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white transition-colors"
         aria-label="Previous page"
       >
@@ -73,10 +73,10 @@ const Pagination = ({
               className={`size-7 rounded-sm font-medium text-sm sm:text-base transition-colors ${
                 currentPage === page
                   ? "bg-brand text-white hover:bg-brand"
-                  : "hover:bg-brand/25 bg-brand/10  "
+                  : "hover:bg-brand/25 bg-brand/10"
               }`}
             >
-              {page + 1}
+              {page}
             </button>
           )
         )}
@@ -84,11 +84,11 @@ const Pagination = ({
 
       <button
         onClick={() => safeChange(currentPage + 1)}
-        disabled={currentPage === totalPages - 1}
+        disabled={currentPage === totalPages} // disable last page
         className="flex-center size-7 rounded-sm border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white transition-colors"
         aria-label="Next page"
       >
-        <IconChevronRight size={20} className="text-black " />
+        <IconChevronRight size={20} className="text-black" />
       </button>
     </div>
   );

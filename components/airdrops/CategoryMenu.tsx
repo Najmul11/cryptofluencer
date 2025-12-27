@@ -51,7 +51,8 @@ const CategoryMenu = () => {
         {displayCategories.map((category: any) => (
           <Link
             key={category.slug}
-            href={`/airdrops/${category.slug}`}
+            // href={`/airdrops/${category.slug}`}
+            href={`/airdrops?category=${category.slug}`}
             className={cn(
               "flex-center gap-2 group duration-200 px-6 py-2 bg-brand/20  text-sm font-medium rounded select-none",
               {
