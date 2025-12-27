@@ -5,6 +5,7 @@ type TQuery = {
   page?: number;
   limit?: number;
   search?: string;
+  category?: string;
 };
 
 const projectApi = api.injectEndpoints({
@@ -20,6 +21,10 @@ const projectApi = api.injectEndpoints({
 
         if (params?.search) {
           queryParams.append("search", params.search);
+        }
+
+        if (params?.category) {
+          queryParams.append("category", params.category);
         }
 
         if (params?.page) {
