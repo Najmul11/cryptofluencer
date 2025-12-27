@@ -2,14 +2,18 @@
 import DetailsPage from "@/components/details/DetailsPage";
 import { Metadata } from "next";
 
-const page = () => {
-  return <DetailsPage />;
+type PageProps = {
+  params: Promise<{ slug: string }>;
 };
 
-export default page;
+export default function Page() {
+  return <DetailsPage />;
+}
 
-export async function generateMetadata(props: any): Promise<Metadata> {
-  const { slug } = (await props).params;
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
 
   const title = `Potential ${slug} Airdrop`;
   const description = `How to be eligible for ${slug} airdrop`;

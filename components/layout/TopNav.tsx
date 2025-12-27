@@ -119,7 +119,9 @@ const TopNav = () => {
           </Suspense>
         </div>
 
-        <MobileMenu />
+        <Suspense>
+          <MobileMenu />
+        </Suspense>
       </div>
     </nav>
   );

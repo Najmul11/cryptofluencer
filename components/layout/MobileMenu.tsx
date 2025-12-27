@@ -7,12 +7,11 @@ import Link from "next/link";
 import { useGetAllCategoriesQuery } from "@/redux/api/category";
 import { cn } from "@/utils/cn";
 import Search from "../airdrops/Search";
-import { useParams, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useGetAllBusinessQuery } from "@/redux/api/business";
 
 const MobileMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { slug } = useParams();
 
   const urlParams = useSearchParams();
 

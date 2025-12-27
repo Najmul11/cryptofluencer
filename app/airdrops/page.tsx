@@ -1,7 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Airdrops from "@/components/airdrops/Airdops";
 import { Metadata } from "next";
 import { Suspense } from "react";
+
+type PageProps = {
+  searchParams: Promise<{
+    search?: string;
+    category?: string;
+  }>;
+};
 
 export default function Page() {
   return (
@@ -11,19 +17,19 @@ export default function Page() {
   );
 }
 
-export async function generateMetadata(props: any): Promise<Metadata> {
-  const { search, category } = props.searchParams;
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  const { search, category } = await searchParams;
 
-  const titleBase = !category
-    ? "All Airdrops"
-    : `Crypto Airdrops - ${category}`;
+  const titleBase = category ? `Crypto Airdrops - ${category}` : "All Airdrops";
 
   const title = search ? `Search results for "${search}" airdrops` : titleBase;
 
   return {
     title,
-    description: `Explore airdrops in ${category} category${
-      search ? ` matching "${search}"` : ""
-    }.`,
+    description: `Explore airdrops${
+      category ? ` in ${category} category` : ""
+    }${search ? ` matching "${search}"` : ""}.`,
   };
 }
