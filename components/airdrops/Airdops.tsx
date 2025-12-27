@@ -20,10 +20,11 @@ const Airdrops = () => {
 
   const { data, isLoading } = useGetAllProjectsQuery(
     {
-      page: Number(page) || 1,
-      limit: ITEMS_PER_PAGE,
+      archive: false,
       search,
       category,
+      page: Number(page) || 1,
+      limit: ITEMS_PER_PAGE,
     }
     // {
     //   skip: slug !== "all",

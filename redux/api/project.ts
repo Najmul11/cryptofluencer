@@ -6,6 +6,7 @@ type TQuery = {
   limit?: number;
   search?: string;
   category?: string;
+  archive?: boolean;
 };
 
 const projectApi = api.injectEndpoints({
@@ -17,6 +18,10 @@ const projectApi = api.injectEndpoints({
 
         if (params?.showOnHomepage) {
           queryParams.append("showOnHomepage", params.showOnHomepage);
+        }
+
+        if (params?.archive) {
+          queryParams.append("archive", params.archive.toString());
         }
 
         if (params?.search) {
